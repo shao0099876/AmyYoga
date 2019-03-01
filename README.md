@@ -6,11 +6,3 @@
 * 会员信息管理
 * 身体评估报告管理与时间线显示方式
 * 消费记录查询
-## 系统运行环境
-* Server OS：Ubuntu 18.04.2 LTS
-* 数据库：SQLite3
-* WebServer：Apache2
-## 开发环境
-* 编程语言：     Python 2.7.15
-* Web应用框架：  Flask 1.0.2
-* 网页模板引擎： Jinja 2.10
