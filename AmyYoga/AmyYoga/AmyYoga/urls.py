@@ -19,5 +19,6 @@ from UserLogin import views as UserLoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/',UserLoginView.login)
+    path('login/',UserLoginView.login),
+    path('',UserLoginView.login)
 ]
