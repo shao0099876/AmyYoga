@@ -14,12 +14,12 @@ def register(request):
             password = form.cleaned_data['password']  # 获得表单内密码
             confirmPassword = form.cleaned_data['confirmPassword']
             phoneNumber = form.cleaned_data['phoneNumber']
-            if confirmPassword != password:
+            if confirmPassword != password:  # 检查两次密码是否一致
                 return HttpResponse("两次密码不一致")
             user = CustomerDB()  # 创建空用户对象
             try:
                 user = CustomerDB.objects.get(username=username)  # 尝试查询该用户
-            except ObjectDoesNotExist:
+            except ObjectDoesNotExist:  # 用户名不存在，执行创建操作
                 user.username = username
                 user.password = password
                 user.createPersonalInformation(phoneNumber)
@@ -29,4 +29,4 @@ def register(request):
             return HttpResponse("用户名已存在，不可注册")  # 返回用户名存在，不可注册信息
     else:
         form = RegisterForm()
-        return render(request, "registerUI.html", {"registerForm": form})
+        return render(request, "registerUI.html", {"registerForm": form})  # 正常访问，渲染模板
