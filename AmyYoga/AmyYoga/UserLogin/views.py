@@ -40,4 +40,6 @@ def logout(request):
     if request.session.get('loginStatus', default=None) is not None:
         del request.session['loginStatus']
         del request.session['authority']
-    return HttpResponse('logout')
+        return HttpResponse('logout')
+    else:
+        return HttpResponsePermanentRedirect("/")
