@@ -19,7 +19,7 @@ def login(request):  # 用户登录功能视图函数
                 return HttpResponse("UsernameDoesNotExist")  # 如果没查询到，返回用户名不存在信息
             if user.checkAuthority(password):  # 如果认证成功
                 request.session['loginStatus'] = 'Online'  # 设置登录状态为在线
-                if user.authoritySignal:  # 根据身份标志设置当前连接用户的权限标志
+                if user.isAdministrator():  # 根据身份标志设置当前连接用户的权限标志
                     request.session['authority'] = 'Administrator'
                 else:
                     request.session['authority'] = 'Customer'
