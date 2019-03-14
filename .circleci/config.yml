@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/AmyYoga
+    working_directory: ~/repo
     docker:
       - image: circleci/python:3.7.2
         environment:
@@ -9,7 +9,6 @@ jobs:
       
     steps:
       - checkout
-      - setup_remote_docker
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.7/site-packages
       - restore_cache:
@@ -29,7 +28,7 @@ jobs:
       - run:
           name: run test
           command: |
-            pipenv run python ~/AmyYoga/AmyYoga/manage.py test
+            pipenv run python ~/repo/AmyYoga/AmyYoga/manage.py test
       - store_test_results:
           path: test-results
       - store_artifacts:
