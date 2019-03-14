@@ -29,8 +29,7 @@ jobs:
           command: |
             pip install --upgrade pip
             sudo pip install pipenv
-            sudo pip install Django
-            pipenv install
+            pipenv install django==3.0
       - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
