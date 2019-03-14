@@ -42,6 +42,7 @@ jobs:
           name: Deploy Over SSH
           command: |
             ssh root@47.104.145.198 "cd ~; git clone https://github.com/shao0099876/AmyYoga.git; cd ~/AmyYoga/AmyYoga/; mv -f AmyYoga/ /var/www/AmyYoga"
+
 workflows:
   version: 2
   build-and-deploy:
@@ -50,6 +51,3 @@ workflows:
       - deploy:
           requires:
             - build
-          filters:
-            branches:
-              only: master
