@@ -11,10 +11,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga/urls.py">
+        <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga/wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="325">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <folding>
+                <element signature="e#223#232#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -43,6 +46,7 @@
         <option value="$PROJECT_DIR$/upload_restart.ps1" />
         <option value="$PROJECT_DIR$/AmyYoga/AmyYoga.wsgi" />
         <option value="$PROJECT_DIR$/AmyYoga/Application.py" />
+        <option value="$PROJECT_DIR$/AmyYoga/AmyYoga/wsgi.py" />
       </list>
     </option>
   </component>
@@ -197,10 +201,25 @@
     <entry file="file://$PROJECT_DIR$/upload_restart.ps1" />
     <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga.wsgi" />
     <entry file="file://$PROJECT_DIR$/AmyYoga/Application.py" />
+    <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#223#232#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
