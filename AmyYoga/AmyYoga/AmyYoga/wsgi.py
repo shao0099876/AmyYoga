@@ -8,9 +8,9 @@ https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/
 """
 
 import os
-import sys
-sys.path.append("/usr/local/lib/python3.7/site-packages")
+
+from django.core.wsgi import get_wsgi_application
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AmyYoga.settings')
 
-import django.core.handlers.wsgi
-application = django.core.handlers.wsgi.WSGIHandler()
+application = get_wsgi_application()
