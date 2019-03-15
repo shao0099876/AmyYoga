@@ -1,47 +1,53 @@
-# Python CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-python/ for more details
-#
 version: 2
 jobs:
   build:
     working_directory: ~/repo
     docker:
-      # specify the version you desire here
-      # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.7.2
-        environment: # environment variables for primary container
+        environment:
           PIPENV_VENV_IN_PROJECT: true
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
       
-    steps: # steps that comprise the `build` job
-      - checkout # check out source code to working directory
+    steps:
+      - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.7/site-packages
       - restore_cache:
-      # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
+          name: create environment
           command: |
-            pip install --upgrade pip
             sudo pip install pipenv
             pipenv install
             pipenv install django
-      - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
+      - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
             - "/usr/local/bin"
             - "/usr/local/lib/python3.7/site-packages"
       - run:
+          name: run test
           command: |
             pipenv run python ~/repo/AmyYoga/AmyYoga/manage.py test
-      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+      - store_test_results:
           path: test-results
-      - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+      - store_artifacts:
           path: test-results
           destination: tr1
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Deploy Over SSH
+          command: |
+            ssh root@47.104.145.198 "./deploy.sh"
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
