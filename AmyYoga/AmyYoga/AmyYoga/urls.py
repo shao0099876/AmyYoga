@@ -21,6 +21,7 @@ from CustomerRegister import views as CustomerRegisterView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', UserLoginView.login),  # 导向用户登录功能的URL
-    path('', CustomerRegisterView.register),  # 首页URL，暂时导向客户注册，需要修改可修改
     path('register/', CustomerRegisterView.register)
+    path('', UserLoginView.login),  # 首页URL，暂时导向用户登录，需要修改可修改
+    path('logout/',UserLoginView.logout)
 ]
