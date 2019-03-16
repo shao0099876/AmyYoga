@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from UserLogin import views as UserLoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/', UserLoginView.login),  # 导向用户登录功能的URL
+    path('', UserLoginView.login)  # 首页URL，暂时导向用户登录，需要修改可修改
 ]

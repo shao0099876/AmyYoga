@@ -1,0 +1,18 @@
+[
+  {
+    "model": "UserLogin.Customer",
+    "fields": {
+      "username": "shao0099876",
+      "password": "shao0123ruo",
+      "authoritySignal": "True"
+    }
+  },
+  {
+    "model": "UserLogin.Customer",
+    "fields": {
+      "username": "test",
+      "password": "test",
+      "authoritySignal": "False"
+    }
+  }
+]
