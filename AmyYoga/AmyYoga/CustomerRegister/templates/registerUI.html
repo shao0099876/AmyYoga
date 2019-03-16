@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AmyYogaRegister</title>
+</head>
+<body>
+<div style="text-align:Center">
+    <form method="POST">
+        {%csrf_token%}
+        <table style="margin:0 auto">
+            {{registerForm.as_table}}
+        </table>
+        <input type="submit" value="注册">
+    </form>
+</div>
+
+</body>
+</html>
