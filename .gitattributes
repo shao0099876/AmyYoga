@@ -1,3 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 *.mdj text eol=crlf
+Documents/*.mdj text eol=crlf
