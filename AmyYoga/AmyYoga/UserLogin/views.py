@@ -1,4 +1,4 @@
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.http import HttpResponsePermanentRedirect, HttpResponse
 from django.shortcuts import render
 from .forms import LoginForm
