@@ -5,7 +5,17 @@ from django.db import models
 
 class PersonalInformation():  # 个人信息类
     phoneNumber = 0  # 电话号码
-
+    name = ""  # 客户姓名
+    age = 0  # 年龄
+    birthday = None  # 生日
+    profession = None  # 职业
+    sex = None  # 性别
+    height = 0  # 身高
+    weight = 0  # 体重
+    bust = 0  # 胸围
+    waistline = 0  # 腰围
+    hipline = 0  # 臀围
+    shoulderwidth = 0  # 肩宽
     @classmethod
     def setPhoneNumber(self, p):
         self.phoneNumber = p;
