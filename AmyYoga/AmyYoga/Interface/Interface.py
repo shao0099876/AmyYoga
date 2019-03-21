@@ -76,3 +76,5 @@ class PersonalInformationInterface():
 class CustomerInterface(PersonalInformationInterface):
     def isAdministrator(self):
         pass
+    def checkAuthority(self,password):
+        pass

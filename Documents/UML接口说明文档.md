@@ -72,3 +72,11 @@
 - getShoulderwidth()
 
     获取用户肩宽
+## Customer Interface
+- isAdministrator()
+    
+    获取用户身份，返回True为管理员，返回False为客户
+- checkAuthority(password)
+
+    身份验证函数，将未验证的密码作为参数输入，返回True为身份验证成功，False为身份验证失败
+    
