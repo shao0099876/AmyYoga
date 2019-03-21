@@ -54,7 +54,7 @@ ROOT_URLCONF = 'AmyYoga.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['base_templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,6 +120,5 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 )
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "common_static"),
-    'base_static'
+    os.path.join(BASE_DIR, 'base_static/photo'),
 )

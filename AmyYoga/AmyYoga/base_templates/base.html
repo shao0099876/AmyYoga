@@ -7,30 +7,30 @@
 
 {% block content %}#页面上方部分，存放AmyYoga的Logo
 <section>
-    <img width="1600" height="100" align="middle" src="AmyYoga完善个人信息_files/001.jpg">
+    <!--<img width="1600" height="100" align="middle" src="AmyYoga完善个人信息_files/001.jpg">-->
 </section>
 {% endblock %}
 
-{% block content %}#页面左边部分，存放页面的几个功能
+{% block content1 %}#页面左边部分，存放页面的几个功能
 <div style="left: 50px; top: 110px; right: 200px; bottom: 1200px; position: fixed;">
     <section>
         <p>
-            <img width="50" height="50" src="photo/myclass.jpg"><br><b>我的课程</b>
+            <img width="50" height="50" src="static/myclass.jpg"><br><b>我的课程</b>
         </p>
         <p>
-            <img width="50" height="50" src="photo/mybody.jpg"><br><b>身体评估</b>
+            <img width="50" height="50" src="static/mybody.jpg"><br><b>身体评估</b>
         </p>
         <p>
-            <img width="50" height="50" src="photo/class.jpg"><br><b>选购课程</b>
+            <img width="50" height="50" src="static/class.jpg"><br><b>选购课程</b>
         </p>
         <p>
-            <img width="50" height="50" src="photo/myinformation.jpg"><br><b>个人信息</b>
+            <img width="50" height="50" src="static/myinformation.jpg"><br><b>个人信息</b>
         </p>
     </section>
 </div>
 {% endblock %}
 
-{% block content %}#页面右边部分，存放页面功能对应的界面
+{% block content2 %}#页面右边部分，存放页面功能对应的界面
 <div style="left: 400px; top: 110px; right: 600px; bottom: 1000px; position: fixed;">
     <section>
         <p>下列问题为必填项</p>
@@ -77,7 +77,7 @@
 </div>
 {% endblock %}
 
-{% block content %}#页脚信息
+{% block content3 %}#页脚信息
 <div>这里是默认内容，所有继承自这个模板的，如果不覆盖就显示这里的默认内容。</div>
 
 {% endblock %}
