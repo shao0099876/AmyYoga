@@ -125,7 +125,7 @@ class Customer(models.Model, Interface.CustomerInterface):  # 用户类（管理
         def getShoulderwidth(cls):
             return cls.__shoulderwidth
 
-    personalInformation = __PersonalInformation()  # 个人信息
+    __personalInformation = __PersonalInformation()  # 个人信息
 
     @classmethod
     def checkAuthority(self, uncheckPassword):  # 身份认证函数，以后如果需要加入数据库内密码加密，可在该函数内添加加密解密函数
