@@ -8,11 +8,10 @@ from .models import Customer as UserDB
 # Create your views here.
 def login(request):  # 用户登录功能视图函数
     if request.method == 'POST':  # 如果请求为表单提交
-        form = LoginForm(request.POST)  # 获取表单内容
-        if form.is_valid():  # 解析表单
-            username = form.cleaned_data['username']  # 获得表单内用户名
-            password = form.cleaned_data['password']  # 获得表单内密码
-            print(form.cleaned_data)
+        loginForm = LoginForm(request.POST)  # 获取表单内容
+        if loginForm.is_valid():  # 解析表单
+            username = loginForm.cleaned_data['username']  # 获得表单内用户名
+            password = loginForm.cleaned_data['password']  # 获得表单内密码
             user = UserDB()  # 创建空用户对象
             try:
                 user = UserDB.objects.get(username=username)  # 尝试查询该用户
@@ -33,8 +32,8 @@ def login(request):  # 用户登录功能视图函数
         if request.session.get('loginStatus', default=None) is not None:  # 检查用户是否已经登录
             return HttpResponsePermanentRedirect('/')  # 如果已经登录，跳转到首页
         else:
-            form = LoginForm()  # 创建表单
-            return render(request, 'loginUI.html', {'loginForm': form})  # 渲染页面
+            loginForm = LoginForm()  # 创建表单
+    return render(request, 'loginUI.html', locals())  # 渲染页面
 
 
 def logout(request):
