@@ -12,7 +12,6 @@ def login(request):  # 用户登录功能视图函数
         if loginForm.is_valid():  # 解析表单
             username = loginForm.cleaned_data['username']  # 获得表单内用户名
             password = loginForm.cleaned_data['password']  # 获得表单内密码
-            print(username,password)
             user = UserDB()  # 创建空用户对象
             try:
                 user = UserDB.objects.get(username=username)  # 尝试查询该用户
