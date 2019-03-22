@@ -53,4 +53,4 @@ workflows:
             - build
           filters:
             branches:
-              only: 部署
+              only: deploy
