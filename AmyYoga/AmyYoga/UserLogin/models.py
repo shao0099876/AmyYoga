@@ -29,214 +29,163 @@ class Customer(models.Model, Interface.CustomerInterface):  # 用户类（管理
         __hipline = 0  # 臀围
         __shoulderwidth = 0  # 肩宽
 
-        @classmethod
         def setPhoneNumber(self, p):
             self.__phoneNumber = p
 
-        @classmethod
         def getPhoneNumber(cls):
             return cls.__phoneNumber
 
-        @classmethod
         def setName(self, p):
             self.__name = p
 
-        @classmethod
         def getName(cls):
             return cls.__name
 
-        @classmethod
         def setAge(self, p):
             self.__age = p
 
-        @classmethod
         def getAge(cls):
             return cls.__age
 
-        @classmethod
         def setBirthday(self, p):
             self.__birthday = p
 
-        @classmethod
         def getBirthday(cls):
             return cls.__birthday
 
-        @classmethod
         def setProfession(self, p):
             self.__Profession = p
 
-        @classmethod
         def getProfession(cls):
             return cls.__profession
 
-        @classmethod
         def setSex(self, p):
             self.__sex = p
 
-        @classmethod
         def getSex(cls):
             return cls.__sex
 
-        @classmethod
         def setHeight(cls, p):
             cls.__height = p
 
-        @classmethod
         def getHeight(cls):
             return cls.__height
 
-        @classmethod
         def setWeight(cls, p):
             cls.__weight = p
 
-        @classmethod
         def getWeight(cls):
             return cls.__weight
 
-        @classmethod
         def setBust(cls, p):
             cls.__bust = p
 
-        @classmethod
         def getBust(cls):
             return cls.__bust
 
-        @classmethod
         def setWaistline(cls, p):
             cls.__waistline = p
 
-        @classmethod
         def getWaistline(cls):
             return cls.__waistline
 
-        @classmethod
         def setHipline(cls, p):
             cls.__hipline = p
 
-        @classmethod
         def getHipline(cls):
             return cls.__hipline
 
-        @classmethod
         def setShoulderwidth(cls, p):
             cls.__shoulderwidth = p
 
-        @classmethod
         def getShoulderwidth(cls):
             return cls.__shoulderwidth
 
     __personalInformation = __PersonalInformation()  # 个人信息
 
-    @classmethod
     def checkAuthority(self, uncheckPassword):  # 身份认证函数，以后如果需要加入数据库内密码加密，可在该函数内添加加密解密函数
         if self.password == uncheckPassword:
             return True
         else:
             return False
 
-    @classmethod
     def createPersonalInformation(self, phone):
         self.personalInformation.setPhoneNumber(phone)
 
-    @classmethod
     def isAdministrator(self):
         if self.authoritySignal:
             return True
         else:
             return False
 
-    @classmethod
     def setPhoneNumber(self, p):
         personalInformation.setPhoneNumber(p)
 
-    @classmethod
     def getPhoneNumber(cls):
         return personalInformation.getPhoneNumber()
 
-    @classmethod
     def setName(self, p):
         personalInformation.setName(p)
 
-    @classmethod
     def getName(cls):
         return personalInformation.getName()
 
-    @classmethod
     def setAge(self, p):
         personalInformation.setAge(p)
 
-    @classmethod
     def getAge(cls):
         return personalInformation.getAge()
 
-    @classmethod
     def setBirthday(self, p):
         personalInformation.setBirthday(p)
 
-    @classmethod
     def getBirthday(cls):
         return personalInformation.getBirthday()
 
-    @classmethod
     def setProfession(self, p):
         personalInformation.setProfession(p)
 
-    @classmethod
     def getProfession(cls):
         return personalInformation.getProfession()
 
-    @classmethod
     def setSex(self, p):
         personalInformation.setSex(p)
 
-    @classmethod
     def getSex(cls):
         return personalInformation.getSex()
 
-    @classmethod
     def setHeight(cls, p):
         personalInformation.setHeight(p)
 
-    @classmethod
     def getHeight(cls):
         return personalInformation.getHeight()
 
-    @classmethod
     def setWeight(cls, p):
         personalInformation.setWeight(p)
 
-    @classmethod
     def getWeight(cls):
         return personalInformation.getWeight()
 
-    @classmethod
     def setBust(cls, p):
         personalInformation.setBust(p)
 
-    @classmethod
     def getBust(cls):
         return personalInformation.getBust()
 
-    @classmethod
     def setWaistline(cls, p):
         personalInformation.setWaistline(p)
 
-    @classmethod
     def getWaistline(cls):
         return personalInformation.getWaistline()
 
-    @classmethod
     def setHipline(cls, p):
         personalInformation.setHipline(p)
 
-    @classmethod
     def getHipline(cls):
         return personalInformation.getHipline()
 
-    @classmethod
     def setShoulderwidth(cls, p):
         personalInformation.setShoulderwidth(p)
 
-    @classmethod
     def getShoulderwidth(cls):
         return personalInformation.getShoulderwidth()
