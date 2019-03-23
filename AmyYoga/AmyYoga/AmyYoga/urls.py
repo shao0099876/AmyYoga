@@ -25,6 +25,6 @@ urlpatterns = [
     path('register/', CustomerRegisterView.register),
     path('', UserLoginView.login),  # 首页URL，暂时导向用户登录，需要修改可修改
     path('logout/',UserLoginView.logout),
-    #path('completeinformation/',CustomerCompleteInformationView.completeinformation),#用户完善个人信息
+    path('completeinformation/',CustomerCompleteInformationView.completeinformation),#用户完善个人信息
     #path('modifypassword/',CustomerCompleteInformationView.modifypassword)#用户修改密码
 ]
