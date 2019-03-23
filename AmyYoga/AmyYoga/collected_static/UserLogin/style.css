@@ -1,0 +1,10 @@
+#loginform
+{
+    text-align:center;
+}
+#body
+{
+    backgroung-image:url('UserLogin/test.jpg');
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+}

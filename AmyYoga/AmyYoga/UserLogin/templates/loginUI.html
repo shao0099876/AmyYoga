@@ -2,16 +2,27 @@
 <html>
 <head>
     <title>AmyYogaLogin</title>
+    <link rel="stylesheet" type="text/css" href="static/UserLogin/style.css">
 </head>
-<body>
-<div style="text-align:Center">
+<body id="body">
+<div id="loginform">
+    <div id="caption">
+        登陆到 AmyYoga
+    </div>
     <form method="POST">
         {%csrf_token%}
-        <table style="margin:0 auto">
+        <table id="loginformtable">
             {{loginForm.as_table}}
         </table>
-        <input type="submit" value="登录">
+        {%if errormessage%}
+            <div class="ErrorMessage">错误：<span>{{errormessage}}</span></div>
+        {%endif%}
+        <a href="forgetpassword/">忘记密码</a>&emsp;&emsp;
+        <input type="submit" value="登录" style="font-size:1rem"><br>
     </form>
+    <div id="caption-otheroptions">
+
+    </div>
 </div>
 
 </body>
