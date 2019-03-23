@@ -2,18 +2,66 @@
 <html>
 <head>
     <title>{% block title %}默认标题{% endblock %}</title>
+    <style>
+     .base_top{
+        position:fixed;
+        width: 100%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:20%;
+        top:0px;
+        left:0px;
+        background: url(static/mybody.jpg)
+        }
+     .base_left{
+        position:fixed;
+        width:10%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:60%;
+        top:120px;
+        left:100px;
+        }
+     .base_right{
+        position:relative;
+        width: 70%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:60%;
+        top:120px;
+        left:300px
+     }
+     .base_bottom{
+        position:fixed;
+        width: 100%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:10%;
+        top:500px;
+        left:800px;
+     }
+</style>
 </head>
+
 <body>
 
-{% block content %}#页面上方部分，存放AmyYoga的Logo
-<section>
-    <!--<img width="1600" height="100" align="middle" src="AmyYoga完善个人信息_files/001.jpg">-->
-</section>
+<div class="base_top">
+
+{% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
+<div align="right">
+    <a href="/logout"><button>退出登陆</button></a>
+</div>
 {% endblock %}
 
-{% block content1 %}#页面左边部分，存放页面的几个功能
-<div style="left: 50px; top: 110px; right: 200px; bottom: 1200px; position: fixed;">
-    <section>
+</div>
+
+<div class="base_left">
+
+{% block content1 %}<!--页面左边部分，存放页面的几个功能-->
         <p>
             <img width="50" height="50" src="static/myclass.jpg"><br><b>我的课程</b>
         </p>
@@ -26,61 +74,30 @@
         <p>
             <img width="50" height="50" src="static/myinformation.jpg"><br><b>个人信息</b>
         </p>
-    </section>
-</div>
 {% endblock %}
 
-{% block content2 %}#页面右边部分，存放页面功能对应的界面
-<div style="left: 400px; top: 110px; right: 600px; bottom: 1000px; position: fixed;">
-    <section>
-        <p>下列问题为必填项</p>
-        <ol>
-            <li>
-                <p>用户名</p>
-            </li>
-            <li>
-                <p>联系方式：<input name="联系方式" type="text"></p>
-            </li>
-            <li>
-                <p>性别: <select><option value="男">男</option><option value="女">女</option></select></p>
-            </li>
-            <li>
-                <p>生日：<input name="生日" type="text"></p>
-            </li>
-        </ol>
-    </section>
 </div>
-<div style="left: 800px; top: 110px; right: auto; bottom: 1000px; position: fixed;">
-    <section>
-        <p>下列问题选填</p>
-        <ul>
-            <li>
-                <p>身高：<input name="身高" type="text"></p>
-            </li>
-            <li>
-                <p>体重：<input name="体重" type="text"></p>
-            </li>
-            <li>
-                <p>胸围：<input name="胸围" type="text"></p>
-            </li>
-            <li>
-                <p>腰围：<input name="腰围" type="text"></p>
-            </li>
-            <li>
-                <p>臀围：<input name="臀围" type="text"></p>
-            </li>
-            <li>
-                <p>肩宽：<input name="肩宽" type="text"></p>
-            </li>
-        </ul>
-    </section>
+
+
+<div class="base_right">
+
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+    {% endblock %}
+
 </div>
+
+<div class="base_bottom">
+
+{% block footer %}<!--页脚信息-->
+        <p>
+            <i>
+                更多详情，请咨询，#############
+            </i>
+        </p>
 {% endblock %}
 
-{% block content3 %}#页脚信息
-<div>这里是默认内容，所有继承自这个模板的，如果不覆盖就显示这里的默认内容。</div>
+</div>
 
-{% endblock %}
 </body>
 </html>
 
