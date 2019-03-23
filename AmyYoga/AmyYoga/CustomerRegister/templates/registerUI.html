@@ -10,6 +10,9 @@
         <table style="margin:0 auto">
             {{registerForm.as_table}}
         </table>
+        {%if errormessage%}
+            {{errormessage}}
+        {%endif%}
         <input type="submit" value="注册">
     </form>
 </div>

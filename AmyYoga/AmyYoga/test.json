@@ -1,0 +1,66 @@
+[
+  {
+    "model": "UserLogin.customer",
+    "pk": "haha",
+    "fields": {
+      "authoritySignal": false,
+      "password": "123"
+    }
+  },
+  {
+    "model": "UserLogin.customer",
+    "pk": "hehe",
+    "fields": {
+      "authoritySignal": false,
+      "password": "123"
+    }
+  },
+  {
+    "model": "UserLogin.customer",
+    "pk": "heihei",
+    "fields": {
+      "authoritySignal": false,
+      "password": "123"
+    }
+  },
+  {
+    "model": "UserLogin.customer",
+    "pk": "hoho",
+    "fields": {
+      "authoritySignal": false,
+      "password": "123"
+    }
+  },
+  {
+    "model": "UserLogin.customer",
+    "pk": "huhu",
+    "fields": {
+      "authoritySignal": false,
+      "password": "123"
+    }
+  },
+  {
+    "model": "UserLogin.customer",
+    "pk": "shao0099876",
+    "fields": {
+      "authoritySignal": true,
+      "password": "shao0123ruo"
+    }
+  },
+  {
+    "model": "UserLogin.customer",
+    "pk": "src",
+    "fields": {
+      "authoritySignal": false,
+      "password": "ad"
+    }
+  },
+  {
+    "model": "UserLogin.customer",
+    "pk": "test",
+    "fields": {
+      "authoritySignal": false,
+      "password": "test"
+    }
+  }
+]

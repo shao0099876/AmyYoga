@@ -81,3 +81,6 @@ class CustomerInterface(PersonalInformationInterface):
 
     def checkAuthority(self, password):
         pass
+
+    def create(self,username,password,phoneNumber,birthday):
+        pass
