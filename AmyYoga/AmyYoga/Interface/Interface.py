@@ -75,7 +75,7 @@ class PersonalInformationInterface():
         pass
 
 
-class CustomerInterface(PersonalInformationInterface):
+class CustomerInterface():
     def isAdministrator(self):
         pass
 
