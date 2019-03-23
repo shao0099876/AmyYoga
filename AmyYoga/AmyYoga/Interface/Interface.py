@@ -73,8 +73,11 @@ class PersonalInformationInterface():
 
     def getShoulderwidth(cls):
         pass
+
+
 class CustomerInterface(PersonalInformationInterface):
     def isAdministrator(self):
         pass
-    def checkAuthority(self,password):
+
+    def checkAuthority(self, password):
         pass
