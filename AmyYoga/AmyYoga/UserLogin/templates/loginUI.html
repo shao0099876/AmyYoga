@@ -1,76 +1,29 @@
-{%extends 'base.html' %}
-{% block title %}AmyYogaLogin{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AmyYogaLogin</title>
+    <link rel="stylesheet" type="text/css" href="static/UserLogin/style.css">
+</head>
+<body id="body">
+<div id="loginform">
+    <div id="caption">
+        登陆到 AmyYoga
+    </div>
+    <form method="POST">
+        {%csrf_token%}
+        <table id="loginformtable">
+            {{loginForm.as_table}}
+        </table>
+        {%if errormessage%}
+            <div class="ErrorMessage">错误：<span>{{errormessage}}</span></div>
+        {%endif%}
+        <a href="forgetpassword/">忘记密码</a>&emsp;&emsp;
+        <input type="submit" value="登录" style="font-size:1rem"><br>
+    </form>
+    <div id="caption-otheroptions">
 
-{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
-<style>
-    .complete_left{
-        position:absolute;
-        width:50%;
-        border: 0px;
-        padding: 0px;
-        margin: 0px;
-        height:70%;
-        top:0px;
-        left:0px;
-    }
-    .complete_right{
-        position:absolute;
-        width:50%;
-        border: 0px;
-        padding: 0px;
-        margin: 0px;
-        height:70%;
-        top:0px;
-        left:50%;
-    }
-</style>
-
-<div class="complete_left">
-    <section>
-        <p>下列问题为必填项</p>
-        <ol>
-            <li>
-                <p>用户名</p>
-            </li>
-            <li>
-                <p>联系方式：<input name="联系方式" type="text"></p>
-            </li>
-            <li>
-                <p>性别: <select><option value="男">男</option><option value="女">女</option></select></p>
-            </li>
-            <li>
-                <p>生日：<input name="生日" type="text"></p>
-            </li>
-        </ol>
-    </section>
+    </div>
 </div>
 
-<div class="complete_right">
-    <section>
-        <p>下列问题选填</p>
-        <ul>
-            <li>
-                <p>身高：<input name="身高" type="text"></p>
-            </li>
-            <li>
-                <p>体重：<input name="体重" type="text"></p>
-            </li>
-            <li>
-                <p>胸围：<input name="胸围" type="text"></p>
-            </li>
-            <li>
-                <p>腰围：<input name="腰围" type="text"></p>
-            </li>
-            <li>
-                <p>臀围：<input name="臀围" type="text"></p>
-            </li>
-            <li>
-                <p>肩宽：<input name="肩宽" type="text"></p>
-            </li>
-        </ul>
-        <br>
-        <a><button>修改密码</button>&emsp;&emsp;</a><a><button>提交修改</button></a>
-    </section>
-</div>
-
-    {% endblock %}
+</body>
+</html>
