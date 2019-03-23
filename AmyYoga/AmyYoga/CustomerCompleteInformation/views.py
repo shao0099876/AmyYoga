@@ -20,3 +20,11 @@ def completeinformation(request):#用户点击提交完善的个人信息
             omosline = completeForm.cleaned_data['omosline']  # 肩宽
 
 
+
+    return render(request, 'completeinformationUI.html', locals())  # 渲染页面
+
+def getUsername(request):
+    name_of_user=request.session['username']
+    return render(name_of_user, 'completeinformationUI.html', locals())  # 传递用户名
+
+
