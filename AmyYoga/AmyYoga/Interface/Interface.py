@@ -75,7 +75,8 @@ class PersonalInformationInterface():
         pass
 
     class Meta:
-        abstract=True
+        abstract = True
+
 
 class CustomerInterface():
     def isAdministrator(self):
@@ -84,5 +85,16 @@ class CustomerInterface():
     def checkAuthority(self, password):
         pass
 
+    def setPassword(self, password):
+        pass
+
+    class Meta:
+        abstract = True
+
+class SecurityQAInterface():
+    def getRandomSecurityQuestionNumber(self):
+        pass
+    def checkSecurityQA(self,Qnum,Ans):
+        pass
     class Meta:
         abstract=True
