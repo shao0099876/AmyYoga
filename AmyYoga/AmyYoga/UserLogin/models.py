@@ -9,13 +9,15 @@ class SecurityQA():
     securityQuestion = [-1, -1, -1]
     securityAnswer = ["", "", ""]
 
+
 class CommonUsername(models.Model):
-    username=models.CharField(primary_key=True,max_length=20)
+    username = models.CharField(primary_key=True, max_length=20)
 
     class Meta:
-        abstract=True
+        abstract = True
 
-class Customer(CommonUsername,Interface.CustomerInterface):  # 用户类（管理员和客户合并到同一个类，用authoritySignal区分）
+
+class Customer(CommonUsername, Interface.CustomerInterface):  # 用户类（管理员和客户合并到同一个类，用authoritySignal区分）
     authoritySignal = models.BooleanField(default=False)  # 身份标志，False为客户，True为管理员
     password = models.CharField(max_length=20)  # 密码
 
@@ -31,101 +33,101 @@ class Customer(CommonUsername,Interface.CustomerInterface):  # 用户类（管�
         else:
             return False
 
-class PersonalInformation(CommonUsername,Interface.PersonalInformationInterface):  # 个人信息类
-    phoneNumber = models.CharField(max_length=20)  # 电话号码
-    name = models.CharField(max_length=20)  # 客户姓名
-    age = models.IntegerField()
-    birthday = models.DateField()
+
+class PersonalInformation(CommonUsername, Interface.PersonalInformationInterface):  # 个人信息类
+    phoneNumber = models.CharField(max_length=20, default="")  # 电话号码
+    name = models.CharField(max_length=20, default="")  # 客户姓名
+    age = models.IntegerField(default=0)
+    birthday = models.DateField(default='1970-01-01')
     profession = models.CharField(max_length=20)
-    sex = models.BooleanField()
-    height = models.FloatField()
-    weight = models.FloatField()
-    bust = models.FloatField()
-    waistline = models.FloatField()
-    hipline = models.FloatField()
-    shoulderwidth = models.FloatField()
+    sex = models.BooleanField(default=False)
+    height = models.FloatField(default=0)
+    weight = models.FloatField(default=0)
+    bust = models.FloatField(default=0)
+    waistline = models.FloatField(default=0)
+    hipline = models.FloatField(default=0)
+    shoulderwidth = models.FloatField(default=0)
 
     def setPhoneNumber(self, p):
         self.phoneNumber = p
-        self.objects.save()
+        self.save()
 
     def getPhoneNumber(self):
         return self.phoneNumber
 
     def setName(self, p):
         self.name = p
-        self.objects.save()
+        self.save()
 
     def getName(self):
         return self.name
 
     def setAge(self, p):
         self.age = p
-        self.objects.save()
+        self.save()
 
     def getAge(self):
         return self.age
 
     def setBirthday(self, p):
         self.birthday = p
-        self.objects.save()
+        self.save()
 
     def getBirthday(self):
         return self.birthday
 
     def setProfession(self, p):
         self.Profession = p
-        self.objects.save()
+        self.save()
 
     def getProfession(self):
         return self.profession
 
     def setSex(self, p):
         self.sex = p
-        self.objects.save()
+        self.save()
 
     def getSex(self):
         return self.sex
 
     def setHeight(self, p):
         self.height = p
-        self.objects.save()
+        self.save()
 
     def getHeight(self):
         return self.height
 
     def setWeight(self, p):
         self.weight = p
-        self.objects.save()
+        self.save()
 
     def getWeight(self):
         return self.weight
 
     def setBust(self, p):
         self.bust = p
-        self.objects.save()
+        self.save()
 
     def getBust(self):
         return self.bust
 
     def setWaistline(self, p):
         self.waistline = p
-        self.objects.save()
+        self.save()
 
     def getWaistline(self):
         return self.waistline
 
     def setHipline(self, p):
         self.hipline = p
-        self.objects.save()
+        self.save()
 
     def getHipline(self):
         return self.hipline
 
     def setShoulderwidth(self, p):
         self.shoulderwidth = p
-        self.objects.save()
+        self.save()
 
     def getShoulderwidth(self):
         return self.shoulderwidth
-

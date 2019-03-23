@@ -6,3 +6,4 @@ class RegisterForm(forms.Form):  # 登录时输入的表单
     password = forms.CharField(label='密码', widget=forms.PasswordInput)  # 密码框
     confirmPassword=forms.CharField(label="确认密码",widget=forms.PasswordInput)
     phoneNumber=forms.CharField(label="手机号",widget=forms.TextInput)
+    birthday=forms.DateField(label="生日",widget=forms.DateInput,input_formats=['%m/%d'],help_text='mm/dd')
