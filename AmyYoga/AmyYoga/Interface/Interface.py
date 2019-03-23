@@ -74,6 +74,8 @@ class PersonalInformationInterface():
     def getShoulderwidth(cls):
         pass
 
+    class Meta:
+        abstract=True
 
 class CustomerInterface():
     def isAdministrator(self):
@@ -81,3 +83,6 @@ class CustomerInterface():
 
     def checkAuthority(self, password):
         pass
+
+    class Meta:
+        abstract=True
