@@ -1,13 +1,9 @@
 from django.db import models
 from Interface import Interface
+import random
 
 
 # Create your models here.
-
-
-class SecurityQA():
-    securityQuestion = [-1, -1, -1]
-    securityAnswer = ["", "", ""]
 
 
 class CommonUsername(models.Model):
@@ -15,6 +11,42 @@ class CommonUsername(models.Model):
 
     class Meta:
         abstract = True
+
+
+class SecurityQA(CommonUsername, Interface.SecurityQAInterface):
+    securityQ1 = models.IntegerField(default=-1)
+    securityA1 = models.CharField(max_length=50)
+    securityQ2 = models.IntegerField(default=-1)
+    securityA2 = models.CharField(max_length=50)
+    securityQ3 = models.IntegerField(default=-1)
+    securityA3 = models.CharField(max_length=50)
+
+    def getRandomSecurityQuestionNumber(self):
+        int
+        num = random.randint(1, 3)
+        if num == 1:
+            return self.securityQ1
+        if num == 2:
+            return self.securityQ2
+        if num == 3:
+            return self.securityQ3
+
+    def checkSecurityQA(self, Qnum, Ans):
+        if self.securityQ1 == Qnum:
+            if self.securityA1 == Ans:
+                return True
+            else:
+                return False
+        if self.securityQ2 == Qnum:
+            if self.securityA2 == Ans:
+                return True
+            else:
+                return False
+        if self.securityQ3 == Qnum:
+            if self.securityA3 == Ans:
+                return True
+            else:
+                return False
 
 
 class Customer(CommonUsername, Interface.CustomerInterface):  # 用户类（管理员和客户合并到同一个类，用authoritySignal区分）
@@ -32,6 +64,10 @@ class Customer(CommonUsername, Interface.CustomerInterface):  # 用户类（管�
             return True
         else:
             return False
+
+    def changePassword(self, password):
+        self.password = password
+        self.save()
 
 
 class PersonalInformation(CommonUsername, Interface.PersonalInformationInterface):  # 个人信息类
