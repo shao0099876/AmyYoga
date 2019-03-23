@@ -24,6 +24,7 @@ def login(request):  # 用户登录功能视图函数
                     request.session['authority'] = 'Administrator'
                 else:
                     request.session['authority'] = 'Customer'
+                request.session['username'] = username
                 return HttpResponse(  # 返回对应信息
                     "Logined,loginStatus=" + request.session.get("loginStatus") + " authority=" + request.session.get(
                         "authority"))
