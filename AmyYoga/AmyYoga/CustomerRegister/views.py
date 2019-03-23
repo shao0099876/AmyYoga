@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import RegisterForm
 from UserLogin.models import Customer as CustomerDB
+from UserLogin.models import PersonalInformation as PersonalInformationDB
 
 
 # Create your views here.
@@ -22,9 +23,14 @@ def register(request):
             try:
                 user = CustomerDB.objects.get(username=username)  # 尝试查询该用户
             except ObjectDoesNotExist:  # 用户名不存在，执行创建操作
-                user.create(username,password,phoneNumber,birthday)
-                return HttpResponse(
-                    user.username + " " + user.password + " " + user.getPhoneNumber())  # 如果没查询到，返回可以注册信息
+                CustomerDB.objects.create(username=username,password=password)
+                personalInformation=PersonalInformationDB.objects.create(username=username)
+                print(personalInformation)
+                personalInformation.setPhoneNumber(phoneNumber)
+                print(personalInformation)
+                personalInformation.setBirthday(birthday)
+                print(personalInformation)
+                return HttpResponse("successed")  # 如果没查询到，返回可以注册信息
             errormessage="用户名已存在，不可注册"  # 返回用户名存在，不可注册信息
     else:
         registerForm = RegisterForm()

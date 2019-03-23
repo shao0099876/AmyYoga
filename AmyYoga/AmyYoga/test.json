@@ -1,58 +1,18 @@
 [
   {
     "model": "UserLogin.customer",
-    "pk": "haha",
+    "pk": "dd",
     "fields": {
       "authoritySignal": false,
-      "password": "123"
+      "password": "dd"
     }
   },
   {
     "model": "UserLogin.customer",
-    "pk": "hehe",
+    "pk": "fafa",
     "fields": {
       "authoritySignal": false,
-      "password": "123"
-    }
-  },
-  {
-    "model": "UserLogin.customer",
-    "pk": "heihei",
-    "fields": {
-      "authoritySignal": false,
-      "password": "123"
-    }
-  },
-  {
-    "model": "UserLogin.customer",
-    "pk": "hoho",
-    "fields": {
-      "authoritySignal": false,
-      "password": "123"
-    }
-  },
-  {
-    "model": "UserLogin.customer",
-    "pk": "huhu",
-    "fields": {
-      "authoritySignal": false,
-      "password": "123"
-    }
-  },
-  {
-    "model": "UserLogin.customer",
-    "pk": "shao0099876",
-    "fields": {
-      "authoritySignal": true,
-      "password": "shao0123ruo"
-    }
-  },
-  {
-    "model": "UserLogin.customer",
-    "pk": "src",
-    "fields": {
-      "authoritySignal": false,
-      "password": "ad"
+      "password": "fafa"
     }
   },
   {
@@ -61,6 +21,60 @@
     "fields": {
       "authoritySignal": false,
       "password": "test"
+    }
+  },
+  {
+    "model": "UserLogin.personalinformation",
+    "pk": "dd",
+    "fields": {
+      "phoneNumber": "123",
+      "name": "",
+      "age": 0,
+      "birthday": "1900-03-13",
+      "profession": "",
+      "sex": false,
+      "height": 0.0,
+      "weight": 0.0,
+      "bust": 0.0,
+      "waistline": 0.0,
+      "hipline": 0.0,
+      "shoulderwidth": 0.0
+    }
+  },
+  {
+    "model": "UserLogin.personalinformation",
+    "pk": "fafa",
+    "fields": {
+      "phoneNumber": "123",
+      "name": "",
+      "age": 0,
+      "birthday": "1900-03-13",
+      "profession": "",
+      "sex": false,
+      "height": 0.0,
+      "weight": 0.0,
+      "bust": 0.0,
+      "waistline": 0.0,
+      "hipline": 0.0,
+      "shoulderwidth": 0.0
+    }
+  },
+  {
+    "model": "UserLogin.personalinformation",
+    "pk": "test",
+    "fields": {
+      "phoneNumber": "12345",
+      "name": "",
+      "age": 0,
+      "birthday": "1900-03-13",
+      "profession": "",
+      "sex": false,
+      "height": 0.0,
+      "weight": 0.0,
+      "bust": 0.0,
+      "waistline": 0.0,
+      "hipline": 0.0,
+      "shoulderwidth": 0.0
     }
   }
 ]
