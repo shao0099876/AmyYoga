@@ -4,18 +4,18 @@ from django.shortcuts import render
 from .forms import RegisterForm
 from UserLogin.models import Customer as CustomerDB
 from UserLogin.models import PersonalInformation as PersonalInformationDB
-
+from Tools import SessionManager,FormsManager
 
 # Create your views here.
 def register(request):
     if request.method == 'POST':
         registerForm = RegisterForm(request.POST)  # 获取表单内容
         if registerForm.is_valid():  # 解析表单
-            username = registerForm.cleaned_data['username']  # 获得表单内用户名
-            password = registerForm.cleaned_data['password']  # 获得表单内密码
-            confirmPassword = registerForm.cleaned_data['confirmPassword']
-            phoneNumber = registerForm.cleaned_data['phoneNumber']
-            birthday=registerForm.cleaned_data['birthday']
+            username=FormsManager.getData(registerForm,'username')
+            password=FormsManager.getData(registerForm,'password')
+            confirmPassword=FormsManager.getData(registerForm,'confirmPassword')
+            phoneNumber=FormsManager.getData(registerForm,'phoneNumber')
+            birthday=FormsManager.getData(registerForm,'birthday')
             if confirmPassword != password:  # 检查两次密码是否一致
                 errormessage="两次密码不一致"
                 return render(request, "registerUI.html", locals())
@@ -25,11 +25,8 @@ def register(request):
             except ObjectDoesNotExist:  # 用户名不存在，执行创建操作
                 CustomerDB.objects.create(username=username,password=password)
                 personalInformation=PersonalInformationDB.objects.create(username=username)
-                print(personalInformation)
                 personalInformation.setPhoneNumber(phoneNumber)
-                print(personalInformation)
                 personalInformation.setBirthday(birthday)
-                print(personalInformation)
                 return HttpResponse("successed")  # 如果没查询到，返回可以注册信息
             errormessage="用户名已存在，不可注册"  # 返回用户名存在，不可注册信息
     else:
