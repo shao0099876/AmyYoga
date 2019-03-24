@@ -29,13 +29,26 @@ def isLogined(request):
     else:
         return False
 
+
 def setLogout(request):
-    request.session['loginStatus']=SESSION_LOGINSTATUS_OFFLINE
+    request.session['loginStatus'] = SESSION_LOGINSTATUS_OFFLINE
     del request.session['Username']
     del request.session['Authority']
 
+
 def isLogouted(request):
-    if request.session.get('LoginStatus',default=SESSION_LOGINSTATUS_OFFLINE)==SESSION_LOGINSTATUS_OFFLINE:
+    if request.session.get('LoginStatus', default=SESSION_LOGINSTATUS_OFFLINE) == SESSION_LOGINSTATUS_OFFLINE:
         return True
     else:
         return False
+
+
+def isAdministrator(request):
+    if request.session.get('Authority', default=AUTHORITY_CUSTOMER) == AUTHORITY_ADMINISTRATOR:
+        return True
+    else:
+        return False
+
+
+def getUsername(request):
+    return request.session.get('Username', default=None)

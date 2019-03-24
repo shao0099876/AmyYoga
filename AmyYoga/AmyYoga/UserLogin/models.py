@@ -14,22 +14,12 @@ class CommonUsername(models.Model):
 
 
 class SecurityQA(CommonUsername, Interface.SecurityQAInterface):
-    securityQ1 = models.IntegerField(default=-1)
+    securityQ1 = models.CharField(max_length=50)
     securityA1 = models.CharField(max_length=50)
-    securityQ2 = models.IntegerField(default=-1)
+    securityQ2 = models.CharField(max_length=50)
     securityA2 = models.CharField(max_length=50)
-    securityQ3 = models.IntegerField(default=-1)
+    securityQ3 = models.CharField(max_length=50)
     securityA3 = models.CharField(max_length=50)
-
-    def getRandomSecurityQuestionNumber(self):
-        int
-        num = random.randint(1, 3)
-        if num == 1:
-            return self.securityQ1
-        if num == 2:
-            return self.securityQ2
-        if num == 3:
-            return self.securityQ3
 
     def checkSecurityQA(self, Qnum, Ans):
         if self.securityQ1 == Qnum:
@@ -48,6 +38,14 @@ class SecurityQA(CommonUsername, Interface.SecurityQAInterface):
             else:
                 return False
 
+    def getSecurityQuestion(self, p):
+        if p == 1:
+            return self.securityQ1
+        elif p == 2:
+            return self.securityQ2
+        elif p == 3:
+            return self.securityQ3
+
 
 class Customer(CommonUsername, Interface.CustomerInterface):  # 用户类（管理员和客户合并到同一个类，用authoritySignal区分）
     authoritySignal = models.BooleanField(default=False)  # 身份标志，False为客户，True为管理员
@@ -65,7 +63,7 @@ class Customer(CommonUsername, Interface.CustomerInterface):  # 用户类（管�
         else:
             return False
 
-    def changePassword(self, password):
+    def setPassword(self, password):
         self.password = password
         self.save()
 
