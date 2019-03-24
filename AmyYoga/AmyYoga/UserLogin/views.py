@@ -27,7 +27,7 @@ def login(request):  # 用户登录功能视图函数
             else:
                 errormessage = "PasswordWrong"  # 返回密码错误信息
     else:  # 如果是普通访问（GET方法）
-        if SessionManager.hasLogined(request):
+        if SessionManager.isLogined(request):
             return HttpResponsePermanentRedirect('/')  # 如果已经登录，跳转到首页
         else:
             loginForm = LoginForm()  # 创建表单
@@ -35,9 +35,8 @@ def login(request):  # 用户登录功能视图函数
 
 
 def logout(request):
-    if request.session.get('loginStatus', default=None) is not None:
-        del request.session['loginStatus']
-        del request.session['authority']
+    if SessionManager.isLogined(request):
+        SessionManager.setLogout(request)
         return HttpResponse('logout')
     else:
         return HttpResponsePermanentRedirect("/")

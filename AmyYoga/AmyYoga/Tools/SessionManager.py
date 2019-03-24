@@ -23,8 +23,19 @@ def setLogin(request, username, authoritysign):
     setLoginStatus(request, SESSION_LOGINSTATUS_ONLINE)
 
 
-def hasLogined(request):
+def isLogined(request):
     if request.session.get('LoginStatus', default=SESSION_LOGINSTATUS_OFFLINE) == SESSION_LOGINSTATUS_ONLINE:
+        return True
+    else:
+        return False
+
+def setLogout(request):
+    request.session['loginStatus']=SESSION_LOGINSTATUS_OFFLINE
+    del request.session['Username']
+    del request.session['Authority']
+
+def isLogouted(request):
+    if request.session.get('LoginStatus',default=SESSION_LOGINSTATUS_OFFLINE)==SESSION_LOGINSTATUS_OFFLINE:
         return True
     else:
         return False
