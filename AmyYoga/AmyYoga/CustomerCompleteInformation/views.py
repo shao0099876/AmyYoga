@@ -9,23 +9,29 @@ def completeinformation(request):#用户点击提交完善的个人信息
     if request.method == 'POST':  # 如果请求为表单提交
         completeForm = CompleteForm(request.POST)  # 获取表单内容
         if completeForm.is_valid():  # 解析表单
+            name = completeForm.cleaned_data['name']  # 姓名
+            age = completeForm.cleaned_data['age']  # 年龄
+            profession = completeForm.cleaned_data['profession']  # 职业
             phoneNumber = completeForm.cleaned_data['phoneNumber']  # 联系方式
             sex = completeForm.cleaned_data['sex']  # 性别
             birthday = completeForm.cleaned_data['birthday']  # 生日
             height = completeForm.cleaned_data['height']  # 身高
             weight = completeForm.cleaned_data['weight']  # 体重
-            chestline = completeForm.cleaned_data['chestline']  # 胸围
+            bust = completeForm.cleaned_data['chestline']  # 胸围
             waistline = completeForm.cleaned_data['waistline']  # 腰围
             hipline = completeForm.cleaned_data['hipline']  # 臀围
-            omosline = completeForm.cleaned_data['omosline']  # 肩宽
-        else:
-            completeForm = CompleteForm()  # 创建表单内容
+            shoulderwidth = completeForm.cleaned_data['omosline']  # 肩宽
+
+            name_of_user = request.session.get('username', default=None) #获取用户名
+
+            #写数据库
+
     else:
-        completeForm = CompleteForm()  # 创建表单内容
+        completeForm = CompleteForm()  # 创建表单
     return render(request, 'completeinformationUI.html', locals())  # 渲染页面
 
 def getUsername(request):
-    name_of_user=request.session['username']
+    name_of_user=request.session.get('username',default=None)
     return render(request, 'completeinformationUI.html', locals())  # 传递用户名
 
 
