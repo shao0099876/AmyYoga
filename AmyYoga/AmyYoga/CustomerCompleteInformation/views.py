@@ -1,8 +1,10 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
 from django.shortcuts import render
-from UserLogin.models import Customer as CustomerDB
 from .forms import CompleteForm
+from UserLogin.models import Customer as CustomerDB
+from UserLogin.models import PersonalInformation as PersonalInformationDB
+from Tools import SessionManager,FormsManager
 
 # Create your views here.
 def completeinformation(request):#用户点击提交完善的个人信息
@@ -17,14 +19,31 @@ def completeinformation(request):#用户点击提交完善的个人信息
             birthday = completeForm.cleaned_data['birthday']  # 生日
             height = completeForm.cleaned_data['height']  # 身高
             weight = completeForm.cleaned_data['weight']  # 体重
-            bust = completeForm.cleaned_data['chestline']  # 胸围
+            bust = completeForm.cleaned_data['bust']  # 胸围
             waistline = completeForm.cleaned_data['waistline']  # 腰围
             hipline = completeForm.cleaned_data['hipline']  # 臀围
-            shoulderwidth = completeForm.cleaned_data['omosline']  # 肩宽
+            shoulderwidth = completeForm.cleaned_data['shoulderwidth']  # 肩宽
 
+            #判断数据是否正确
+
+            #正确过后写数据库
             name_of_user = request.session.get('username', default=None) #获取用户名
+            personalInformation = PersonalInformationDB.objects.get(username=name_of_user)
 
-            #写数据库
+            personalInformation.setName(name)
+            personalInformation.setAge(age)
+            personalInformation.setProfession(profession)
+            personalInformation.setPhoneNumber(phoneNumber)
+            personalInformation.setSex(sex)
+            personalInformation.setBirthday(birthday)
+            personalInformation.setHeight(height)
+            personalInformation.setWeight(weight)
+            personalInformation.setBust(bust)
+            personalInformation.setWaistline(waistline)
+            personalInformation.setHipline(hipline)
+            personalInformation.setShoulderwidth(shoulderwidth)
+
+            return HttpResponse("successed")  # 修改成功，并且留在本页面
 
     else:
         completeForm = CompleteForm()  # 创建表单
