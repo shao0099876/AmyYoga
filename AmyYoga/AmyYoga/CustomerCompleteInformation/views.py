@@ -18,13 +18,14 @@ def completeinformation(request):#用户点击提交完善的个人信息
             waistline = completeForm.cleaned_data['waistline']  # 腰围
             hipline = completeForm.cleaned_data['hipline']  # 臀围
             omosline = completeForm.cleaned_data['omosline']  # 肩宽
-
-
-
+        else:
+            completeForm = CompleteForm()  # 创建表单内容
+    else:
+        completeForm = CompleteForm()  # 创建表单内容
     return render(request, 'completeinformationUI.html', locals())  # 渲染页面
 
 def getUsername(request):
     name_of_user=request.session['username']
-    return render(name_of_user, 'completeinformationUI.html', locals())  # 传递用户名
+    return render(request, 'completeinformationUI.html', locals())  # 传递用户名
 
 
