@@ -11,10 +11,12 @@ from Tools import SessionManager,FormsManager,Tools
 # Create your views here.
 
 def changePassword(request):
+    print('changePassword')
     if SessionManager.isAdministrator(request):
         return HttpResponse("管理员禁止使用修改密码功能")
     if SessionManager.isLogouted(request):
-        return redirect(forgetPassword)
+        print('redirect to forgetpassword')
+        return redirect(reverse(forgetPassword))
     if request.method == 'POST':
         changePasswordForm = ChangePasswordForm(request.POST)
         if changePasswordForm.is_valid():
@@ -37,10 +39,12 @@ def changePassword(request):
 
 
 def forgetPassword(request):
+    print('forgetpassword')
     if SessionManager.isAdministrator(request):
         return HttpResponse("管理员禁止使用修改密码功能")
     if SessionManager.getUsername(request) is None:
-        return redirect('forgetpasswordlogin')
+        print('redirect to forgetpasswordlogin')
+        return redirect(reverse(forgetPasswordLogin))
     if request.method == 'POST':
         forgetPasswordForm=ForgetPasswordForm(request.POST)
         if forgetPasswordForm.is_valid():
@@ -65,18 +69,20 @@ def forgetPassword(request):
     return render(request, 'forgetPasswordUI.html', locals())
 
 def forgetPasswordLogin(request):
+    print('forgetpasswordlogin')
     if request.method=='POST':
         usernameForm=UsernameForm(request.POST)
         if usernameForm.is_valid():
             username=FormsManager.getData(usernameForm,'username')
             user=UserDB()
             try:
-                user=UserDB.objects.get(username=username,default=None)
+                user=UserDB.objects.get(username=username)
             except ObjectDoesNotExist:
                 errormessage="此用户名不存在"
                 return render(request,'forgetPasswordUI.html',locals())
             SessionManager.setUsername(request,username)
-            return redirect(forgetPassword)
+            print('redirect to forgetpassword')
+            return redirect('/forgetpassword/')
     else:
         usernameForm=UsernameForm()
     return render(request,'forgetPasswordUI.html',locals())
