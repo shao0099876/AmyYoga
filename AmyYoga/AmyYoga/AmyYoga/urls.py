@@ -18,13 +18,21 @@ from django.urls import path, include
 from UserLogin import views as UserLoginView
 from CustomerRegister import views as CustomerRegisterView
 from ChangePassword import views as ChangePasswordView
+from Index import views as IndexView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', UserLoginView.login),  # 导向用户登录功能的URL
     path('register/', CustomerRegisterView.register),
-    path('', CustomerRegisterView.register),  # 首页URL，暂时导向用户登录，需要修改可修改
+    path('', IndexView.index),  # 首页URL
     path('logout/',UserLoginView.logout),
     path('forgetpassword/',ChangePasswordView.forgetPassword),
     path('changepassword/',ChangePasswordView.changePassword),
     path('forgetpasswordlogin/',ChangePasswordView.forgetPasswordLogin),
+
+    path('teacherteam/', IndexView.teacherteam),  # 首页中的课程相关界面
+    path('yogamessage/', IndexView.yogamessage),  # 首页中的瑜伽科普界面
+    path('aboutlocation/', IndexView.aboutlocation),  # 首页中的场地相关界面
+    path('aboutclass/', IndexView.aboutclass),  # 首页中的课程相关界面
+
 ]
