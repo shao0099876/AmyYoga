@@ -10,13 +10,13 @@ from Tools import SessionManager,FormsManager,Tools
 
 # Create your views here.
 
-def changePassword(request):
+def changePassword(request):#修改密码
     print('changePassword')
     if SessionManager.isAdministrator(request):
         return HttpResponse("管理员禁止使用修改密码功能")
-    if SessionManager.isLogouted(request):
+    if SessionManager.isLogouted(request):#没登录
         print('redirect to forgetpassword')
-        return redirect(reverse(forgetPassword))
+        return redirect(reverse(forgetPassword))#跳转到忘记密码界面
     if request.method == 'POST':
         changePasswordForm = ChangePasswordForm(request.POST)
         if changePasswordForm.is_valid():
@@ -40,14 +40,23 @@ def changePassword(request):
 
 def forgetPassword(request):
     print('forgetpassword')
+    #return render(request, 'forgetPasswordUI.html', locals())
+    #如果是管理员则禁止修改密码
     if SessionManager.isAdministrator(request):
         return HttpResponse("管理员禁止使用修改密码功能")
+    #如果没有用户名，返回用户登录界面
+
     if SessionManager.getUsername(request) is None:
         print('redirect to forgetpasswordlogin')
         return redirect(reverse(forgetPasswordLogin))
+
+    #如果method是post（发布
     if request.method == 'POST':
         forgetPasswordForm=ForgetPasswordForm(request.POST)
+        #如果更改密码 有效
         if forgetPasswordForm.is_valid():
+            #密保问题
+            '''
             securityQuestion=FormsManager.getData(forgetPasswordForm,'securityQuestion')
             securityAnswer=FormsManager.getData(forgetPasswordForm,'securityAnswer')
             username=SessionManager.getUsername(request)
@@ -62,10 +71,15 @@ def forgetPassword(request):
                 else:
                     errormessage = "两次密码不匹配"
             else:
-                errormessage="密保问题不正确"
+                errormessage="密保问题不正确" 
+            '''
+    #如果不是发布而是请求
+
     else:
-        securityQuestion=Tools.getRandomSecurityQuestion(request)
-        forgetPasswordForm=ForgetPasswordForm(securityQuestion=securityQuestion)
+        #securityQuestion=Tools.getRandomSecurityQuestion(request)
+        #forgetPasswordForm=ForgetPasswordForm(securityQuestion=securityQuestion)
+        forgetPasswordForm = ForgetPasswordForm()
+
     return render(request, 'forgetPasswordUI.html', locals())
 
 def forgetPasswordLogin(request):

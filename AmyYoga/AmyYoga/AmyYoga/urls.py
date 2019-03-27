@@ -30,7 +30,7 @@ urlpatterns = [
     path('logout/',UserLoginView.logout),
     path('completeinformation/',CustomerCompleteInformationView.completeinformation),#用户完善个人信息
     path('forgetpassword/',ChangePasswordView.forgetPassword),
-    path('changepassword/',ChangePasswordView.changePassword),
+    path('changepassword/',ChangePasswordView.changePassword),#自己起的名字，app名View，view中的函数名
     path('forgetpasswordlogin/',ChangePasswordView.forgetPasswordLogin),
     path('teacherteam/', IndexView.teacherteam),  # 首页中的课程相关界面
     path('yogamessage/', IndexView.yogamessage),  # 首页中的瑜伽科普界面
