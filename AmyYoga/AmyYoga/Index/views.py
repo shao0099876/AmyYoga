@@ -16,3 +16,9 @@ def aboutlocation(request):#场地相关
 def aboutclass(request):#课程相关
     return render(request, 'aboutclassUI.html', locals())  # 渲染页面
 
+def customerloginedindex(request):#客户登陆过后显示的首界面
+    return render(request, 'CustomerLoginedIndexUI.html', locals())  # 渲染页面
+
+def administratorloginedindex(request):#管理员登陆过后的首界面
+    return render(request, 'AdministratorLoginedIndexUI.html', locals())  # 渲染页面
+

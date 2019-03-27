@@ -32,8 +32,11 @@ urlpatterns = [
     path('forgetpassword/',ChangePasswordView.forgetPassword),
     path('changepassword/',ChangePasswordView.changePassword),
     path('forgetpasswordlogin/',ChangePasswordView.forgetPasswordLogin),
+
     path('teacherteam/', IndexView.teacherteam),  # 首页中的课程相关界面
     path('yogamessage/', IndexView.yogamessage),  # 首页中的瑜伽科普界面
     path('aboutlocation/', IndexView.aboutlocation),  # 首页中的场地相关界面
     path('aboutclass/', IndexView.aboutclass),  # 首页中的课程相关界面
+    path('customerloginedindex/',IndexView.customerloginedindex), #客户登陆过后显示的首界面
+    path('administratorloginedindex/', IndexView.administratorloginedindex),  # 管理员登陆过后显示的首界面
 ]
