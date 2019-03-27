@@ -1,34 +1,3 @@
-{%extends 'base.html' %}
+{%extends 'admin_indexbase.html' %}
 
 {% block title %}AmyYoga管理员登陆过后首页面{% endblock %}
-
-{% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
-<div align="right">
-    <a href="/logout"><button>退出登陆</button></a>
-</div>
-{% endblock %}
-
-{% block content1 %}<!--页面左边部分，存放页面的几个功能-->
-        <p>
-            {% load static %}
-            <img width="50" height="50" src="{% static 'myclass.jpg' %}"><br><b>会员资料</b>
-        </p>
-        <p>
-            {% load static %}
-            <img width="50" height="50" src="{% static 'mybody.jpg' %}"><br><b>课程相关</b>
-        </p>
-       <p>
-            {% load static %}
-            <img width="50" height="50" src="{% static 'myinformation.jpg' %}">
-            <br><b>现场购课</b>
-        </p>
-        <p>
-            {% load static %}
-            <img width="50" height="50" src="{% static 'class.jpg' %}"><br><b>发布活动</b>
-        </p>
-        <p>
-            {% load static %}
-            <img width="50" height="50" src="{% static 'myinformation.jpg' %}">
-            <br><b>我的订单</b>
-        </p>
-{% endblock %}
