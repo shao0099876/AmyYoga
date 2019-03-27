@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'UserLogin',
     'CustomerRegister',
     'ChangePassword',
-    'Index',
+    'CustomerCompleteInformation',
 ]
 
 MIDDLEWARE = [

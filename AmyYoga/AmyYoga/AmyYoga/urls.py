@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from UserLogin import views as UserLoginView
 from CustomerRegister import views as CustomerRegisterView
+from CustomerCompleteInformation import views as CustomerCompleteInformationView
+
 from ChangePassword import views as ChangePasswordView
 from Index import views as IndexView
 
@@ -26,13 +28,12 @@ urlpatterns = [
     path('register/', CustomerRegisterView.register),
     path('', IndexView.index),  # 首页URL
     path('logout/',UserLoginView.logout),
+    path('completeinformation/',CustomerCompleteInformationView.completeinformation),#用户完善个人信息
     path('forgetpassword/',ChangePasswordView.forgetPassword),
     path('changepassword/',ChangePasswordView.changePassword),
     path('forgetpasswordlogin/',ChangePasswordView.forgetPasswordLogin),
-
     path('teacherteam/', IndexView.teacherteam),  # 首页中的课程相关界面
     path('yogamessage/', IndexView.yogamessage),  # 首页中的瑜伽科普界面
     path('aboutlocation/', IndexView.aboutlocation),  # 首页中的场地相关界面
     path('aboutclass/', IndexView.aboutclass),  # 首页中的课程相关界面
-
 ]
