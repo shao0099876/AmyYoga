@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block title %}AmyYoga首页{% endblock %}
+
+{% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
+<div align="right">
+    <a href="/register"><button>注册</button></a> <a href="/logout"><button>退出登陆</button></a>
+</div>
+{% endblock %}
+
+{% block content1 %}<!--页面左边部分，存放页面的几个功能-->
+       <p>
+            <a href="/teacherteam">{% load static %}
+                <img width="50" height="50" src="{% static 'teacherteam.jpg' %}"></a>
+            <br><a href="/teacherteam"><b>师资团队</b></a>
+        </p>
+        <p>
+            <a href="/aboutclass">{% load static %}
+                <img width="50" height="50" src="{% static 'class.jpg' %}"></a>
+            <br><a href="/aboutclass"><b>课程相关</b></a>
+        </p>
+        <p>
+            <a href="/aboutlocation">{% load static %}
+                <img width="50" height="50" src="{% static 'location.jpg' %}"></a>
+            <br><a href="/aboutlocation"><b>场地相关</b></a>
+        </p>
+        <p>
+            <a href="/yogamessage">{% load static %}
+                <img width="50" height="50" src="{% static 'yogainformation.jpg' %}"></a>
+            <br><a href="/yogamessage"><b>瑜伽科普</b></a>
+        </p>
+{% endblock %}
