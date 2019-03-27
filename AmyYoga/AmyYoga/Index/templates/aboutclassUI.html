@@ -9,20 +9,24 @@
 {% endblock %}
 
 {% block content1 %}<!--页面左边部分，存放页面的几个功能-->
-        <p>
-            <a href="/teacherteam"><img width="50" height="50" src="static/teacherteam.jpg"></a>
+       <p>
+            <a href="/teacherteam">{% load static %}
+                <img width="50" height="50" src="{% static 'teacherteam.jpg' %}"></a>
             <br><a href="/teacherteam"><b>师资团队</b></a>
         </p>
         <p>
-            <a href="/aboutclass"><img width="50" height="50" src="static/class.jpg"></a>
+            <a href="/aboutclass">{% load static %}
+                <img width="50" height="50" src="{% static 'class.jpg' %}"></a>
             <br><a href="/aboutclass"><b>课程相关</b></a>
         </p>
         <p>
-            <a href="/aboutlocation"><img width="50" height="50" src="static/location.jpg"></a>
+            <a href="/aboutlocation">{% load static %}
+                <img width="50" height="50" src="{% static 'location.jpg' %}"></a>
             <br><a href="/aboutlocation"><b>场地相关</b></a>
         </p>
         <p>
-            <a href="/yogamessage"><img width="50" height="50" src="static/yogainformation.jpg"></a>
+            <a href="/yogamessage">{% load static %}
+                <img width="50" height="50" src="{% static 'yogainformation.jpg' %}"></a>
             <br><a href="/yogamessage"><b>瑜伽科普</b></a>
         </p>
 {% endblock %}

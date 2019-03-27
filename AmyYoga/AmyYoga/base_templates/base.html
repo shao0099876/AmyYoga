@@ -12,7 +12,8 @@
         height:20%;
         top:0px;
         left:0px;
-        background: url(static/mybody.jpg)
+        background:{% load static %} url({% static 'mybody.jpg'%})
+
         }
      .base_left{
         position:fixed;
@@ -63,16 +64,20 @@
 
 {% block content1 %}<!--页面左边部分，存放页面的几个功能-->
         <p>
-            <img width="50" height="50" src="static/myclass.jpg"><br><b>我的课程</b>
+            {% load static %}
+            <img width="50" height="50" src="{% static 'myclass.jpg' %}"><br><b>我的课程</b>
         </p>
         <p>
-            <img width="50" height="50" src="static/mybody.jpg"><br><b>身体评估</b>
+            {% load static %}
+            <img width="50" height="50" src="{% static 'mybody.jpg' %}"><br><b>身体评估</b>
         </p>
         <p>
-            <img width="50" height="50" src="static/class.jpg"><br><b>选购课程</b>
+            {% load static %}
+            <img width="50" height="50" src="{% static 'class.jpg' %}"><br><b>选购课程</b>
         </p>
         <p>
-            <img width="50" height="50" src="static/myinformation.jpg"><br><b>个人信息</b>
+            {% load static %}
+            <img width="50" height="50" src="{% static 'myinformation.jpg' %}"><br><b>个人信息</b>
         </p>
 {% endblock %}
 
