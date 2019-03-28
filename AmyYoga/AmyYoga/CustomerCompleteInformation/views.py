@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import CompleteForm
 from UserLogin.models import PersonalInformation as PersonalInformationDB
 from Tools import SessionManager,FormsManager
@@ -41,14 +41,8 @@ def completeinformation(request):#用户点击提交完善的个人信息
             personalInformation.setHipline(hipline)
             personalInformation.setShoulderwidth(shoulderwidth)
 
-            return HttpResponse("successed")  # 修改成功，并且留在本页面
+            return redirect("/customerloginedindex/")  # 跳转登陆后首页
 
     else:
         completeForm = CompleteForm()  # 创建表单
     return render(request, 'completeinformationUI.html', locals())  # 渲染页面
-
-def getUsername(request):
-    username = SessionManager.getUsername(request)
-    return render(request, 'completeinformationUI.html', locals())  # 传递用户名
-
-
