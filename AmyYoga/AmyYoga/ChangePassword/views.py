@@ -55,6 +55,15 @@ def forgetPassword(request):
         forgetPasswordForm=ForgetPasswordForm(request.POST)
         #如果更改密码 有效
         if forgetPasswordForm.is_valid():
+            username = SessionManager.getUsername(request)
+            newPassword = FormsManager.getData(forgetPasswordForm, 'newPassword')
+            confirmPassword = FormsManager.getData(forgetPasswordForm, 'confirmPassword')
+            if newPassword == confirmPassword:
+                user = UserDB.objects.get(username=username)
+                user.setPassword(newPassword)
+                return HttpResponse("修改成功")
+            else:
+                errormessage = "两次密码不匹配"
             #密保问题
             '''
             securityQuestion=FormsManager.getData(forgetPasswordForm,'securityQuestion')
