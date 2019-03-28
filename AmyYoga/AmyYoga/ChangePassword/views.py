@@ -10,6 +10,7 @@ from Tools import SessionManager,FormsManager,Tools
 
 # Create your views here.
 
+
 def changePassword(request):
     if SessionManager.isAdministrator(request):
         return HttpResponse("管理员禁止使用修改密码功能") # 不修改
@@ -41,9 +42,23 @@ def forgetPassword(request):
         return HttpResponse("管理员禁止使用修改密码功能")#不修改
     if SessionManager.getUsername(request) is None:
         return redirect(reverse(forgetPasswordLogin))
+
+    #如果method是post（发布
     if request.method == 'POST':
         forgetPasswordForm=ForgetPasswordForm(request.POST)
+        #如果更改密码 有效
         if forgetPasswordForm.is_valid():
+            username = SessionManager.getUsername(request)
+            newPassword = FormsManager.getData(forgetPasswordForm, 'newPassword')
+            confirmPassword = FormsManager.getData(forgetPasswordForm, 'confirmPassword')
+            if newPassword == confirmPassword:
+                user = UserDB.objects.get(username=username)
+                user.setPassword(newPassword)
+                return HttpResponse("修改成功")
+            else:
+                errormessage = "两次密码不匹配"
+            #密保问题
+            '''
             securityQuestion=FormsManager.getData(forgetPasswordForm,'securityQuestion')
             securityAnswer=FormsManager.getData(forgetPasswordForm,'securityAnswer')
             username=SessionManager.getUsername(request)
@@ -58,10 +73,15 @@ def forgetPassword(request):
                 else:
                     errormessage = "两次密码不匹配"
             else:
-                errormessage="密保问题不正确"
+                errormessage="密保问题不正确" 
+            '''
+    #如果不是发布而是请求
+
     else:
-        securityQuestion=Tools.getRandomSecurityQuestion(request)
-        forgetPasswordForm=ForgetPasswordForm(securityQuestion=securityQuestion)
+        #securityQuestion=Tools.getRandomSecurityQuestion(request)
+        #forgetPasswordForm=ForgetPasswordForm(securityQuestion=securityQuestion)
+        forgetPasswordForm = ForgetPasswordForm()
+
     return render(request, 'forgetPasswordUI.html', locals())
 
 def forgetPasswordLogin(request):
