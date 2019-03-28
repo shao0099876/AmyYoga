@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'CustomerRegister',
     'ChangePassword',
     'CustomerCompleteInformation',
+    'Index',
+    'superuser_message',
 ]
 
 MIDDLEWARE = [

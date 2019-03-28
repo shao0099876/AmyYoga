@@ -62,22 +62,27 @@
 <div class="base_left">
 
 {% block content1 %}<!--页面左边部分，存放页面的几个功能-->
-        <p>
+         <p>
             {% load static %}
-            <img width="50" height="50" src="{% static 'myclass.jpg' %}"><br><b>我的课程</b>
+            <img width="50" height="50" src="{% static 'myclass.jpg' %}"><br><b>会员资料</b>
         </p>
         <p>
             {% load static %}
-            <img width="50" height="50" src="{% static 'mybody.jpg' %}"><br><b>身体评估</b>
+            <img width="50" height="50" src="{% static 'mybody.jpg' %}"><br><b>课程相关</b>
+        </p>
+       <p>
+            {% load static %}
+            <img width="50" height="50" src="{% static 'myinformation.jpg' %}">
+            <br><b>现场购课</b>
         </p>
         <p>
             {% load static %}
-            <img width="50" height="50" src="{% static 'class.jpg' %}"><br><b>选购课程</b>
+            <img width="50" height="50" src="{% static 'class.jpg' %}"><br><b>发布活动</b>
         </p>
         <p>
             {% load static %}
-            <a href="/completeinformation"><img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
-            <br><a href="/completeinformation"><b>个人信息</b></a>
+            <img width="50" height="50" src="{% static 'myinformation.jpg' %}">
+            <br><b>我的订单</b>
         </p>
 {% endblock %}
 
