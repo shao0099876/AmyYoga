@@ -1,5 +1,5 @@
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import HttpResponse, HttpResponsePermanentRedirect, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
@@ -11,11 +11,9 @@ from Tools import SessionManager,FormsManager,Tools
 # Create your views here.
 
 def changePassword(request):
-    print('changePassword')
     if SessionManager.isAdministrator(request):
-        return HttpResponse("管理员禁止使用修改密码功能")
+        return HttpResponse("管理员禁止使用修改密码功能") # 不修改
     if SessionManager.isLogouted(request):
-        print('redirect to forgetpassword')
         return redirect(reverse(forgetPassword))
     if request.method == 'POST':
         changePasswordForm = ChangePasswordForm(request.POST)
@@ -28,7 +26,7 @@ def changePassword(request):
                 confirmPassword=FormsManager.getData(changePasswordForm,'confirmPassword')
                 if newPassword == confirmPassword:
                     user.setPassword(newPassword)
-                    return HttpResponse("修改成功")
+                    return redirect("/login/")#跳转登录页面
                 else:
                     errormessage = "两次密码不匹配"
             else:
@@ -39,11 +37,9 @@ def changePassword(request):
 
 
 def forgetPassword(request):
-    print('forgetpassword')
     if SessionManager.isAdministrator(request):
-        return HttpResponse("管理员禁止使用修改密码功能")
+        return HttpResponse("管理员禁止使用修改密码功能")#不修改
     if SessionManager.getUsername(request) is None:
-        print('redirect to forgetpasswordlogin')
         return redirect(reverse(forgetPasswordLogin))
     if request.method == 'POST':
         forgetPasswordForm=ForgetPasswordForm(request.POST)
@@ -58,7 +54,7 @@ def forgetPassword(request):
                 if newPassword == confirmPassword:
                     user=UserDB.objects.get(username=username)
                     user.setPassword(newPassword)
-                    return HttpResponse("修改成功")
+                    return redirect("/login/")#跳转登录
                 else:
                     errormessage = "两次密码不匹配"
             else:
@@ -69,7 +65,6 @@ def forgetPassword(request):
     return render(request, 'forgetPasswordUI.html', locals())
 
 def forgetPasswordLogin(request):
-    print('forgetpasswordlogin')
     if request.method=='POST':
         usernameForm=UsernameForm(request.POST)
         if usernameForm.is_valid():
@@ -81,7 +76,6 @@ def forgetPasswordLogin(request):
                 errormessage="此用户名不存在"
                 return render(request,'forgetPasswordUI.html',locals())
             SessionManager.setUsername(request,username)
-            print('redirect to forgetpassword')
             return redirect('/forgetpassword/')
     else:
         usernameForm=UsernameForm()
