@@ -5,6 +5,7 @@
     <caption>会员信息</caption>
     <thead>
     <tr>
+        <th>用户名</th>
         <th>姓 名</th>
         <th>年 龄</th>
         <th>性 别</th>
@@ -16,7 +17,10 @@
     <div>
     <tr>
         <td> <a href="{{item.username}}">
-            {{ item.name }}  </a>
+            {{ item.username }}  </a>
+        </td>
+        <td>
+            {{ item.name }}
         </td>
          <td>
            {{ item.age }}
