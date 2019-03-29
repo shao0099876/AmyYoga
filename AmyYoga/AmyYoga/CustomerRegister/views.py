@@ -1,6 +1,6 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, HttpResponseRedirect
 from .forms import RegisterForm
 from UserLogin.models import Customer as CustomerDB
 from UserLogin.models import PersonalInformation as PersonalInformationDB
@@ -27,7 +27,7 @@ def register(request):
                 personalInformation=PersonalInformationDB.objects.create(username=username)
                 personalInformation.setPhoneNumber(phoneNumber)
                 personalInformation.setBirthday(birthday)
-                return redirect("/login/")  # 跳转login
+                return HttpResponseRedirect("/login/")  # 跳转login
             errormessage="用户名已存在，不可注册"  # 返回用户名存在，不可注册信息
     else:
         registerForm = RegisterForm()

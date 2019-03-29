@@ -1,6 +1,6 @@
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
-from django.http import HttpResponsePermanentRedirect, HttpResponse
-from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect
 
 from Tools import FormsManager, SessionManager
 
@@ -24,14 +24,14 @@ def login(request):  # 用户登录功能视图函数
             if user.checkAuthority(password):  # 如果认证成功
                 SessionManager.setLogin(request, username, user.isAdministrator())
                 if SessionManager.isAdministrator(request):
-                    return redirect("/administratorloginedindex/")
+                    return HttpResponseRedirect("/administratorloginedindex/")
                 else:
-                    return redirect("/customerloginedindex/")
+                    return HttpResponseRedirect("/customerloginedindex/")
             else:
                 errormessage = "PasswordWrong"  # 返回密码错误信息
     else:  # 如果是普通访问（GET方法）
         if SessionManager.isLogined(request):
-            return redirect('/')  # 如果已经登录，跳转到首页
+            return HttpResponseRedirect('/')  # 如果已经登录，跳转到首页
         else:
             loginForm = LoginForm()  # 创建表单
     return render(request, 'loginUI.html', locals())  # 渲染页面
@@ -40,4 +40,4 @@ def login(request):  # 用户登录功能视图函数
 def logout(request):
     if SessionManager.isLogined(request):
         SessionManager.setLogout(request)
-    return redirect("/")
+    return HttpResponseRedirect("/")
