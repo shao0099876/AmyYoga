@@ -31,7 +31,7 @@ def isLogined(request):
 
 
 def setLogout(request):
-    request.session['loginStatus'] = SESSION_LOGINSTATUS_OFFLINE
+    request.session['LoginStatus'] = SESSION_LOGINSTATUS_OFFLINE
     del request.session['Username']
     del request.session['Authority']
 

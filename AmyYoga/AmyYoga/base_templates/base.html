@@ -53,7 +53,7 @@
 
 {% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
 <div align="right">
-    <a href="/logout"><button>退出登陆</button></a>
+    <a href="/logout/"><button>退出登陆</button></a>
 </div>
 {% endblock %}
 
@@ -76,8 +76,8 @@
         </p>
         <p>
             {% load static %}
-            <a href="/completeinformation"><img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
-            <br><a href="/completeinformation"><b>个人信息</b></a>
+            <a href="/completeinformation/"><img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
+            <br><a href="/completeinformation/"><b>个人信息</b></a>
         </p>
 {% endblock %}
 
