@@ -9,18 +9,18 @@ def completeinformation(request):#用户点击提交完善的个人信息
     if request.method == 'POST':  # 如果请求为表单提交
         completeForm = CompleteForm(request.POST)  # 获取表单内容
         if completeForm.is_valid():  # 解析表单
-            name=FormsManager.getdata(completeForm,'name')
-            age=FormsManager.getdata(completeForm,'age')
-            profession=FormsManager.getdata(completeForm,'profession')
-            phoneNumber=FormsManager.getdata(completeForm,'phoneNumber')
-            sex=FormsManager.getdata(completeForm,'sex')
-            birthday=FormsManager.getdata(completeForm,'birthday')
-            height=FormsManager.getdata(completeForm,'height')
-            weight=FormsManager.getdata(completeForm,'weight')
-            bust=FormsManager.getdata(completeForm,'bust')
-            waistline=FormsManager.getdata(completeForm,'waistline')
-            hipline=FormsManager.getdata(completeForm,'hipline')
-            shoulderwidth=FormsManager.getdata(completeForm,'shoulderwidth')
+            name=FormsManager.getData(completeForm,'name')
+            age=FormsManager.getData(completeForm,'age')
+            profession=FormsManager.getData(completeForm,'profession')
+            phoneNumber=FormsManager.getData(completeForm,'phoneNumber')
+            sex=FormsManager.getData(completeForm,'sex')
+            birthday=FormsManager.getData(completeForm,'birthday')
+            height=FormsManager.getData(completeForm,'height')
+            weight=FormsManager.getData(completeForm,'weight')
+            bust=FormsManager.getData(completeForm,'bust')
+            waistline=FormsManager.getData(completeForm,'waistline')
+            hipline=FormsManager.getData(completeForm,'hipline')
+            shoulderwidth=FormsManager.getData(completeForm,'shoulderwidth')
 
             #判断数据是否正确
 
