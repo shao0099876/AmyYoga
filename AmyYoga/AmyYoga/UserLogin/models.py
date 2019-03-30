@@ -110,8 +110,8 @@ class PersonalInformation(CommonUsername, Interface.PersonalInformationInterface
     def getBirthday(self):
         return self.birthday
 
-    def setProfession(self, p):
-        self.Profession = p
+    def setProfespsion(self, p):
+        self.rofession = p
         self.save()
 
     def getProfession(self):
