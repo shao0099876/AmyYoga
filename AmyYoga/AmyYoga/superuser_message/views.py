@@ -8,7 +8,7 @@ from Tools import SessionManager
 def superusermessage(request):
     if SessionManager.isLogouted(request):
         return HttpResponseRedirect("/login/")
-    if not SessionManager.isAdministrator():
+    if not SessionManager.isAdministrator(request):
         return HttpResponseRedirect("/")
     user_list = models.PersonalInformation.objects.all()
     return render(request, 'vipmessage.html', locals())
@@ -16,7 +16,7 @@ def superusermessage(request):
 def moremessage(request, user):
     if SessionManager.isLogouted(request):
         return HttpResponseRedirect("/login/")
-    if not SessionManager.isAdministrator():
+    if not SessionManager.isAdministrator(request):
         return HttpResponseRedirect("/")
     user_list = models.PersonalInformation.objects.filter(username=user)
     #return HttpResponse(user)
