@@ -74,6 +74,9 @@ def forgetPasswordLogin(request):
             except ObjectDoesNotExist:
                 errormessage="此用户名不存在"
                 return render(request,'forgetPasswordUI.html',locals())
+            if user.isAdministrator():
+                errormessage="管理员禁止使用此功能"
+                return render(request,'forgetPasswordUI.html',locals())
             SessionManager.setUsername(request,username)
             return HttpResponseRedirect('/forgetpassword/')
     else:
