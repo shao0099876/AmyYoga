@@ -1,8 +1,8 @@
 from django import forms
 from django.forms import fields
 SexChoices=(
-    (1,'女'),
-    (2,'男')
+    (0,'女'),
+    (1,'男')
 ) #性别下拉列表
 
 AgeChoices=(
