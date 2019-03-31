@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 from UserLogin import views as UserLoginView
@@ -21,6 +22,9 @@ from CustomerCompleteInformation import views as CustomerCompleteInformationView
 
 from ChangePassword import views as ChangePasswordView
 from Index import views as IndexView
+from django.views import static
+
+from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,4 +44,5 @@ urlpatterns = [
     path('aboutclass/', IndexView.aboutclass),  # 首页中的课程相关界面
     path('customerloginedindex/',IndexView.customerloginedindex), #客户登陆过后显示的首界面
     path('administratorloginedindex/', IndexView.administratorloginedindex),  # 管理员登陆过后显示的首界面
+    url('^static/(?P<path>.*)$',static.serve,{'document_root':settings.STATIC_ROOT},name='static')
 ]
