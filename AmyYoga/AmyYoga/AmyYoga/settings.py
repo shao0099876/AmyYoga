@@ -58,7 +58,7 @@ ROOT_URLCONF = 'AmyYoga.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['base_templates'],
+        'DIRS': [os.path.join(BASE_DIR,'base_templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
