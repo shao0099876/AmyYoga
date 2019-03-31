@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '07#529%v-1drr)0$pb=zq=v+1=r9ox2owf8)0^mfak$k)7@sag'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'AmyYoga.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['base_templates'],
+        'DIRS': [os.path.join(BASE_DIR,'base_templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
