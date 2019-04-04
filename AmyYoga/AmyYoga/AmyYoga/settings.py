@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'CustomerCompleteInformation',
     'Index',
     'superuser_message',
+    'Database',
 ]
 
 MIDDLEWARE = [

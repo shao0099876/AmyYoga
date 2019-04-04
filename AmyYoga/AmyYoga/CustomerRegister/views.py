@@ -1,9 +1,8 @@
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import HttpResponse
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import RegisterForm
-from UserLogin.models import Customer as CustomerDB
-from UserLogin.models import PersonalInformation as PersonalInformationDB
+from Database.models import Customer as CustomerDB
+from Database.models import PersonalInformation as PersonalInformationDB
 from Tools import SessionManager,FormsManager
 
 # Create your views here.

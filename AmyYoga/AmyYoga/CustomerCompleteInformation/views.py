@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import CompleteForm
-from UserLogin.models import PersonalInformation as PersonalInformationDB
+from Database.models import PersonalInformation as PersonalInformationDB
 from Tools import SessionManager,FormsManager
 
 # Create your views here.

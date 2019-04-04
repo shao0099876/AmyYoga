@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, HttpResponseRedirect
 
 from .forms import ChangePasswordForm, ForgetPasswordForm, UsernameForm
-from UserLogin.models import Customer as UserDB
+from Database.models import Customer as UserDB
 from Tools import SessionManager,FormsManager,Tools
 
 # Create your views here.
