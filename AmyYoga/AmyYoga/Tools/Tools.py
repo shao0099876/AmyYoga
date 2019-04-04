@@ -1,6 +1,6 @@
 import random
 
-from UserLogin.models import SecurityQA as SecurityQADB
+from Database.models import SecurityQA as SecurityQADB
 
 from Tools import SessionManager,Const
 

@@ -5,7 +5,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from Tools import FormsManager, SessionManager
 
 from .forms import LoginForm
-from .models import Customer as UserDB
+from Database.models import Customer as UserDB
 
 
 # Create your views here.
