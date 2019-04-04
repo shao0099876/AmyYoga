@@ -1,5 +1,4 @@
 from django.db import models
-from Interface import Interface
 
 
 # Create your models here.
@@ -12,7 +11,7 @@ class CommonUsername(models.Model):
         abstract = True
 
 
-class SecurityQA(CommonUsername, Interface.SecurityQAInterface):
+class SecurityQA(CommonUsername):
     securityQ1 = models.CharField(max_length=50)
     securityA1 = models.CharField(max_length=50)
     securityQ2 = models.CharField(max_length=50)
@@ -46,7 +45,7 @@ class SecurityQA(CommonUsername, Interface.SecurityQAInterface):
             return self.securityQ3
 
 
-class Customer(CommonUsername, Interface.CustomerInterface):  # 用户类（管理员和客户合并到同一个类，用authoritySignal区分）
+class Customer(CommonUsername):  # 用户类（管理员和客户合并到同一个类，用authoritySignal区分）
     authoritySignal = models.BooleanField(default=False)  # 身份标志，False为客户，True为管理员
     password = models.CharField(max_length=20)  # 密码
 
@@ -67,7 +66,7 @@ class Customer(CommonUsername, Interface.CustomerInterface):  # 用户类（管�
         self.save()
 
 
-class PersonalInformation(CommonUsername, Interface.PersonalInformationInterface):  # 个人信息类
+class PersonalInformation(CommonUsername):  # 个人信息类
     phoneNumber = models.CharField(max_length=20, default="")  # 电话号码
     name = models.CharField(max_length=20, default="")  # 客户姓名
     age = models.IntegerField(default=0)
