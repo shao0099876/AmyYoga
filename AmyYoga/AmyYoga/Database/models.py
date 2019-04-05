@@ -164,3 +164,30 @@ class PersonalInformation(CommonUsername, Interface.PersonalInformationInterface
 
     def getShoulderwidth(self):
         return self.shoulderwidth
+
+
+class Course(Interface.CourseInterface):#课程信息
+    coursename = models.CharField(primary_key=True, max_length=20)#课程名
+    courseintroduction=models.CharField(max_length=100, default="")#课程介绍
+    courseprice=models.IntegerField(max_length=10,default=0)#课程价格
+
+    def setCourseName(self, p):
+        self.coursename = p
+        self.save()
+
+    def getCourseName(self):
+        return self.coursename
+
+    def setCourseIntroduction(self, p):
+        self.courseintroduction = p
+        self.save()
+
+    def getCourseIntroduction(self):
+        return self.courseintroduction
+
+    def setCoursePrice(self, p):
+        self.courseprice = p
+        self.save()
+
+    def getCoursePrice(self):
+        return self.courseprice
