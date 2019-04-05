@@ -23,6 +23,7 @@ from CustomerCompleteInformation import views as CustomerCompleteInformationView
 from ChangePassword import views as ChangePasswordView
 from Index import views as IndexView
 from django.views import static
+from CustomerCourse import views as CustomerCourseView
 
 from . import settings
 
@@ -44,5 +45,7 @@ urlpatterns = [
     path('aboutclass/', IndexView.aboutclass),  # 首页中的课程相关界面
     path('customerloginedindex/',IndexView.customerloginedindex), #客户登陆过后显示的首界面
     path('administratorloginedindex/', IndexView.administratorloginedindex),  # 管理员登陆过后显示的首界面
-    url('^static/(?P<path>.*)$',static.serve,{'document_root':settings.STATIC_ROOT},name='static')
+    url('^static/(?P<path>.*)$',static.serve,{'document_root':settings.STATIC_ROOT},name='static'),
+
+    path('customercourse/',CustomerCourseView.customercourse), #客户登陆中的我的课程
 ]

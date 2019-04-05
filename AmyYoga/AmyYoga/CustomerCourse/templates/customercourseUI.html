@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}AmyYoga我的课程{% endblock %}</title>
+
+<style>
+    .cus_top{
+        position:absolute;
+        width:90%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:40%;
+        top:0px;
+        left:20%;
+    }
+    .cus_bottom{
+        position:absolute;
+        width:90%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:50%;
+        top:50%;
+        left:20%;
+    }
+</style>
+
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+<div class="cus_top"><!--显示已经购买的课程-->
+    <b>购买的课程</b>
+    <table>
+        <tr>
+            <th>课程名</th>
+            <th>数量</th>
+            <th>金额</th>
+        </tr>
+        {% for i in order1 %}
+         <tr>
+             <td>{{ forloop.counter }}</td>
+             <td>{{ i.0 }}</td>
+             <td>{{ i.1 }}</td>
+         </tr>
+         {% endfor %}
+    </table>
+</div>
+
+<div class="cus_bottom"><!--显示已经消费的课程-->
+    <b>已上课程</b>
+    <table>
+        <tr>
+            <th>课程名</th>
+            <th>数量</th>
+            <th>金额</th>
+        </tr>
+        {% for i in order2 %}
+         <tr>
+             <td>{{ forloop.counter }}</td>
+             <td>{{ i.0 }}</td>
+             <td>{{ i.1 }}</td>
+         </tr>
+         {% endfor %}
+    </table>
+
+</div>
+{% endblock %}
