@@ -98,3 +98,23 @@ class SecurityQAInterface():
         pass
     class Meta:
         abstract=True
+
+
+class CourseInterface():
+    def setCourseName(self, p):
+        pass
+
+    def getCourseName(cls):
+        pass
+
+    def setCourseIntroduction(self, p):
+        pass
+
+    def getCourseIntroduction(cls):
+        pass
+
+    def setCoursePrice(self, p):
+        pass
+
+    def getCoursePrice(cls):
+        pass
