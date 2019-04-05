@@ -19,6 +19,7 @@ from django.urls import path, include
 from UserLogin import views as UserLoginView
 from CustomerRegister import views as CustomerRegisterView
 from CustomerCompleteInformation import views as CustomerCompleteInformationView
+from CustomerBuyCourse import views as CustomerBuyCourseView
 
 from ChangePassword import views as ChangePasswordView
 from Index import views as IndexView
@@ -30,7 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', UserLoginView.login),  # 导向用户登录功能的URL
     path('register/', CustomerRegisterView.register),
-    path('', IndexView.index),  # 首页URL
+    path('', CustomerBuyCourseView.customerbuycourse),  # 首页URL
     path('logout/',UserLoginView.logout),
     path('completeinformation/',CustomerCompleteInformationView.completeinformation),#用户完善个人信息
     path('forgetpassword/',ChangePasswordView.forgetPassword),
@@ -44,5 +45,6 @@ urlpatterns = [
     path('aboutclass/', IndexView.aboutclass),  # 首页中的课程相关界面
     path('customerloginedindex/',IndexView.customerloginedindex), #客户登陆过后显示的首界面
     path('administratorloginedindex/', IndexView.administratorloginedindex),  # 管理员登陆过后显示的首界面
-    url('^static/(?P<path>.*)$',static.serve,{'document_root':settings.STATIC_ROOT},name='static')
+    url('^static/(?P<path>.*)$',static.serve,{'document_root':settings.STATIC_ROOT},name='static'),
+    path('customerbuycourse/', CustomerBuyCourseView.customerbuycourse),  # 用户购买课程
 ]

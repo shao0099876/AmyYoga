@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Index',
     'superuser_message',
     'Database',
+    'CustomerBuyCourse',
 ]
 
 MIDDLEWARE = [
