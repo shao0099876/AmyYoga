@@ -165,7 +165,7 @@ class PersonalInformation(CommonUsername):  # 个人信息类
         return self.shoulderwidth
 
 
-class Course(Interface.CourseInterface):#课程信息
+class Course():#课程信息
     coursename = models.CharField(primary_key=True, max_length=20)#课程名
     courseintroduction=models.CharField(max_length=100, default="")#课程介绍
     courseprice=models.IntegerField(max_length=10,default=0)#课程价格
