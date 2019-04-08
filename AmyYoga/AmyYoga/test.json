@@ -1,0 +1,14 @@
+[[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'fbU0CUP8eyCYtPeiJN8vEhK9Kpg3rAFavElK7y0v7vTa07HdXWW5pzLv9K8nztV9'>, 'request': <WSGIRequest:
+ GET '/login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x00000173ADB92158>>, 'perms': <django.contrib.auth.context
+_processors.PermWrapper object at 0x00000173ADBCD7F0>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x00000173ADBA63C8>, 'DEFAULT_MESSAGE_LE
+VELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'request': <WSGIRequest: GET '/login/'>, 'loginForm': <LoginForm bound=False, valid=False, f
+ields=(username;password)>}], [{'True': True, 'False': False, 'None': None}, {'widget': {'name': 'username', 'is_hidden': False, 'required': True, 'value': None, 'attrs': {'re
+quired': True, 'id': 'id_username'}, 'template_name': 'django/forms/widgets/text.html', 'type': 'text'}}], [{'True': True, 'False': False, 'None': None}, {'widget': {'name': '
+username', 'is_hidden': False, 'required': True, 'value': None, 'attrs': {'required': True, 'id': 'id_username'}, 'template_name': 'django/forms/widgets/text.html', 'type': 't
+ext'}}, {}], [{'True': True, 'False': False, 'None': None}, {'widget': {'name': 'username', 'is_hidden': False, 'required': True, 'value': None, 'attrs': {'required': True, 'i
+d': 'id_username'}, 'template_name': 'django/forms/widgets/text.html', 'type': 'text'}}, {}, {}], [{'True': True, 'False': False, 'None': None}, {'widget': {'name': 'password'
+, 'is_hidden': False, 'required': True, 'value': None, 'attrs': {'required': True, 'id': 'id_password'}, 'template_name': 'django/forms/widgets/password.html', 'type': 'passwo
+rd'}}], [{'True': True, 'False': False, 'None': None}, {'widget': {'name': 'password', 'is_hidden': False, 'required': True, 'value': None, 'attrs': {'required': True, 'id': '
+id_password'}, 'template_name': 'django/forms/widgets/password.html', 'type': 'password'}}, {}], [{'True': True, 'False': False, 'None': None}, {'widget': {'name': 'password',
+ 'is_hidden': False, 'required': True, 'value': None, 'attrs': {'required': True, 'id': 'id_password'}, 'template_name': 'django/forms/widgets/password.html', 'type': 'passwor
+d'}}, {}, {}]]
