@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="238fbbfc-5afb-4efc-8b8a-1316415cdb46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AmyYoga/ChangePassword/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/ChangePassword/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AmyYoga/CustomerCompleteInformation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/CustomerCompleteInformation/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AmyYoga/CustomerRegister/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/CustomerRegister/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AmyYoga/Tools/Tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/Tools/Tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AmyYoga/UserLogin/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AmyYoga/UserLogin/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/UserLogin/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AmyYoga/UserLogin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/UserLogin/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AmyYoga/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AmyYoga/superuser_message/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/superuser_message/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/Database/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/Database/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/Interface/Interface.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -361,7 +352,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmyYoga/base_templates/admin_indexbase.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-684" />
+        <state relative-caret-position="209">
+          <caret line="71" column="83" selection-start-line="71" selection-start-column="83" selection-end-line="71" selection-end-column="83" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmyYoga/superuser_message/tests.py">
