@@ -187,7 +187,7 @@ class PersonalInformation(CommonUsername):  # 个人信息类
 class Course(models.Model):  # 课程信息
     coursename = models.CharField(primary_key=True, max_length=20)  # 课程名
     courseintroduction = models.CharField(max_length=100, default="")  # 课程介绍
-    courseprice = models.IntegerField(max_length=10, default=0)  # 课程价格
+    courseprice = models.IntegerField(default=0)  # 课程价格
 
     def setCourseName(self, p):
         self.coursename = p
@@ -251,4 +251,43 @@ class PhysicalAssessment(models.Model):
 
     def setText(self, p):
         self.text = p
+        self.save()
+
+class BuyRecord(models.Model):
+    number=models.IntegerField(primary_key=True)
+    username=models.CharField(max_length=50)
+    coursename=models.CharField(max_length=50)
+    amount=models.IntegerField(default=0)
+    time=models.DateTimeField()
+    pay_flag=models.BooleanField(default=False)
+
+    def getNumber(self):
+        return self.number
+    def setNumber(self,p):
+        self.number=p
+        self.save()
+    def getUsername(self):
+        return self.username
+    def setUsername(self,p):
+        self.username=p
+        self.save()
+    def getCoursename(self):
+        return self.coursename
+    def setCoursename(self,p):
+        self.coursename=p
+        self.save()
+    def getAmount(self):
+        return self.amount
+    def setAmount(self,p):
+        self.amount=p
+        self.save()
+    def getTime(self):
+        return self.time
+    def setTime(self,p):
+        self.time=p
+        self.save()
+    def getPayFlag(self):
+        return self.pay_flag
+    def setPayFlag(self,p):
+        self.pay_flag=p
         self.save()
