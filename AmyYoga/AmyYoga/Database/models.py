@@ -259,7 +259,8 @@ class BuyRecord(models.Model):
     coursename=models.CharField(max_length=50)
     amount=models.IntegerField(default=0)
     time=models.DateTimeField()
-    pay_flag=models.BooleanField(default=False)
+    pay_flag=models.BooleanField(default=False)#标记是否付钱的订单
+    valid=models.BooleanField(default=True)#标记是否为取消的订单
 
     def getNumber(self):
         return self.number
@@ -290,4 +291,9 @@ class BuyRecord(models.Model):
         return self.pay_flag
     def setPayFlag(self,p):
         self.pay_flag=p
+        self.save()
+    def getValid(self):
+        return self.valid
+    def setValid(self,p):
+        self.valid=p
         self.save()
