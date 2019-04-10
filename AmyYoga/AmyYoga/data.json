@@ -37,7 +37,8 @@
     "fields": {
       "coursename": "瑜伽一号",
       "courseintroduction": "放松身体",
-      "courseprice": 1000
+      "courseprice": 1000,
+      "course_flag": "True"
     }
   },
 
@@ -46,7 +47,8 @@
     "fields": {
       "coursename": "瑜伽二号",
       "courseintroduction": "强身健体",
-      "courseprice": 2000
+      "courseprice": 2000,
+      "course_flag": "True"
     }
   }
 ]

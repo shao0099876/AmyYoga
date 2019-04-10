@@ -21,16 +21,14 @@
         border: 0px;
         padding: 0px;
         margin: 0px;
-        height:80%;
-        top:10%;
+         height:50%;
+        top:40%;
         left:10%;
      }
 </style>
+    <p><a href="/admin_coursemessage/">查看课程</a> <a href="/addcourse/">增加课程</a> <a href="/modifycourse/">修改课程</a>
+        <a href="/deletecourse/">下架课程</a> <a href="/readdcourse/">重新上架</a></p>
 
-<div class="coursemess_top">
-    <p><a href="/admin_coursemessage/">查看课程</a> <a href="/addcourse/">增加课程</a> <a href="/modifycourse/">修改课程</a> <a href="/deletecourse/">下架课程</a> <a href="/readdcourse/">重新上架</a></p>
-</div>
-<div class="coursemess_bottom">
     {% if order%}
     <table>
         <tr>
@@ -49,7 +47,5 @@
         {% endfor %}
     </table>
     {% endif %}
-
-</div>
 
     {% endblock %}

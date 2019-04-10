@@ -25,7 +25,7 @@ def deletecourse(request):#管理员下架课程
 def DelCourse(request,coursename):#实际执行下架操作
     P=Course.objects.get(coursename=coursename) #先获取当前课程信息
     P.setCourseFlag(False) #下架课程
-    return render(request, 'successUI.html', locals())
+    return render(request, 'successfulUI.html', locals())
 
 def readdcourse(request):#管理员重新上架课程信息
     coursee=Course.objects.filter(course_flag=False) #获取已经下架的课程信息
@@ -34,4 +34,4 @@ def readdcourse(request):#管理员重新上架课程信息
 def reAddCourse(request,coursename):#实际执行重新上架操作
     P = Course.objects.get(coursename=coursename)  # 先获取当前课程信息
     P.setCourseFlag(True)  # 重新上架课程
-    return render(request, 'successUI.html', locals())
+    return render(request, 'successfulUI.html', locals())
