@@ -6,5 +6,30 @@
       "authoritySignal": "True",
       "password": "1604102"
     }
+  },
+
+  {
+    "model": "Database.BuyRecord",
+    "fields": {
+      "number": 201904091851,
+      "username": "杨小蛟",
+      "coursename": "瑜伽一号",
+      "amount": 10,
+      "pay_flag": "True",
+      "valid": "True"
+    }
+  },
+
+  {
+    "model": "Database.BuyRecord",
+    "fields": {
+      "number": 201904091852,
+      "username": "杨小蛟",
+      "coursename": "瑜伽二号",
+      "amount": 10,
+      "pay_flag": "False",
+      "valid": "True"
+    }
   }
+
 ]
