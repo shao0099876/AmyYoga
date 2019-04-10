@@ -30,6 +30,23 @@
       "pay_flag": "False",
       "valid": "True"
     }
-  }
+  },
 
+  {
+    "model": "Database.Course",
+    "fields": {
+      "coursename": "瑜伽一号",
+      "courseintroduction": "放松身体",
+      "courseprice": 1000
+    }
+  },
+
+  {
+    "model": "Database.Course",
+    "fields": {
+      "coursename": "瑜伽二号",
+      "courseintroduction": "强身健体",
+      "courseprice": 2000
+    }
+  }
 ]

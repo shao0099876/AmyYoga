@@ -5,7 +5,7 @@
 {% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
 
 <style>
-     .coursemess_top{
+     .decoursemess_top{
         position:absolute;
         width: 90%;
         border: 0px;
@@ -15,7 +15,7 @@
         top:0px;
         left:10%;
         }
-     .coursemess_bottom{
+     .decoursemess_bottom{
         position:absolute;
         width: 90%;
         border: 0px;
@@ -27,24 +27,28 @@
      }
 </style>
 
-<div class="coursemess_top">
-    <p><a href="/admin_coursemessage/">查看课程</a> <a href="/addcourse/">增加课程</a> <a href="/modifycourse/">修改课程</a> <a href="/deletecourse/">下架课程</a> <a href="/readdcourse/">重新上架</a></p>
+<div class="decoursemess_top">
+    <p>课程的详细信息</p>
 </div>
-<div class="coursemess_bottom">
-    {% if order%}
+<div class="decoursemess_bottom">
+    {% if order1 %}
     <table>
         <tr>
             <th>序号</th>
-            <th>课程名</th>
-            <th>课程介绍</th>
-            <th>课程价格</th>
+            <th>订单号</th>
+            <th>用户名</th>
+            <th>数量</th>
+            <th>下单时间</th>
+            <th>是否付款</th>
         </tr>
-         {% for i in order %}
+         {% for i in order1 %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td><a href="{{i.coursename}}">{{ i.coursename }}</a> </td>
-            <td>{{ i.courseintroduction }}</td>
-            <td>{{ i.courseprice }}</td>
+            <td>{{ i.number }}</td>
+            <td>{{ i.username }}</td>
+            <td>{{ i.amount }}</td>
+            <td>{{ i.time }}</td>
+            <td>{{ i.pay_flag }}</td>
         </tr>
         {% endfor %}
     </table>
