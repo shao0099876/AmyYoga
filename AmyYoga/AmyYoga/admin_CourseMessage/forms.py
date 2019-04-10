@@ -11,7 +11,7 @@ class ModCourseForm(forms.ModelForm):  #完善个人信息时提交的表单
         model = models.Course
         exclude = [ 'coursename' ,'course_flag']
         labels = {
-            'courseintroduction ': '课程介绍',
+            'courseintroduction': '课程介绍',
             'courseprice': '价格',
         }
         help_texts ={
