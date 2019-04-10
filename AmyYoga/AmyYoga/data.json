@@ -1,10 +1,10 @@
 [
   {
-    "model":"UserLogin.Customer",
+    "model":"Database.Customer",
     "fields": {
       "username": "admin",
       "authoritySignal": "True",
-      "password": "HITwh1604102"
+      "password": "1604102"
     }
   }
 ]
