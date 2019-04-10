@@ -44,5 +44,10 @@ def completeinformation(request):#用户点击提交完善的个人信息
             return HttpResponseRedirect("/customerloginedindex/")  # 跳转登陆后首页
 
     else:
-        completeForm = CompleteForm()  # 创建表单
+        usernamedd = SessionManager.getUsername(request)
+        userid = PersonalInformationDB.objects.filter(username = usernamedd)
+        if userid:
+            completeForm = CompleteForm(instance= userid[0])
+        else:
+            completeForm = CompleteForm()  # 创建表单
     return render(request, 'completeinformationUI.html', locals())  # 渲染页面
