@@ -5,7 +5,7 @@ from Database.models import BuyRecord#课程购买信息
 # Create your views here.
 
 def admin_coursemessage(request):#管理员查看课程信息
-    courses=Course.objects.all()#查询课程
+    courses=Course.objects.filter(course_flag=True) #查询在使用的课程信息
     return render(request, 'coursemessageUI.html',{'order':courses})
 
 def Coursename(request,coursename):#显示课程的详细信息
@@ -19,7 +19,19 @@ def modifycourse(request):#管理员修改课程信息
     return render(request, 'modifycourseUI.html', locals())
 
 def deletecourse(request):#管理员下架课程
-    return render(request, 'deletecourseUI.html', locals())
+    course = Course.objects.filter(course_flag=True)  # 查询在使用的课程信息
+    return render(request, 'deletecourseUI.html', {'order4':course})
+
+def DelCourse(request,coursename):#实际执行下架操作
+    P=Course.objects.get(coursename=coursename) #先获取当前课程信息
+    P.setCourseFlag(False) #下架课程
+    return render(request, 'successUI.html', locals())
 
 def readdcourse(request):#管理员重新上架课程信息
-    return render(request, 'readdcourseUI.html', locals())
+    coursee=Course.objects.filter(course_flag=False) #获取已经下架的课程信息
+    return render(request, 'readdcourseUI.html', {'order5':coursee})
+
+def reAddCourse(request,coursename):#实际执行重新上架操作
+    P = Course.objects.get(coursename=coursename)  # 先获取当前课程信息
+    P.setCourseFlag(True)  # 重新上架课程
+    return render(request, 'successUI.html', locals())

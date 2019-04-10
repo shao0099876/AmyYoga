@@ -51,9 +51,9 @@ urlpatterns = [
     path('customercourse/',CustomerCourseView.customercourse), #客户登陆中的我的课程中的已支付界面（默认界面）
     path('uncustomercourse/',include('CustomerCourse.urls')), #客户登陆中的我的课程中的未支付界面
 
-    path('admin_coursemessage/',include('admin_CourseMessage.urls')),#管理员登陆状态下查看课程信息
+    path('admin_coursemessage/',include('admin_CourseMessage.coursemessageurls')),#管理员登陆状态下查看课程信息
     path('addcourse/',admin_CourseMessageView.addcourse),#管理员登陆状态下增加课程信息
     path('modifycourse/',admin_CourseMessageView.modifycourse),#管理员登陆状态下修改课程信息
-    path('deletecourse/',admin_CourseMessageView.deletecourse),#管理员登陆状态下下架课程信息
-    path('readdcourse/',admin_CourseMessageView.readdcourse),#管理员登陆状态下重新上架课程信息
+    path('deletecourse/',include('admin_CourseMessage.deletecourseurls')),#管理员登陆状态下下架课程信息
+    path('readdcourse/',include('admin_CourseMessage.readdcourseurls')),#管理员登陆状态下重新上架课程信息
 ]
