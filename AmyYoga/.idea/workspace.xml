@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="238fbbfc-5afb-4efc-8b8a-1316415cdb46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/AmyYoga/Database/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/Database/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AmyYoga/Interface/Interface.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/ChangePassword/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/ChangePassword/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/ChangePassword/templates/changePasswordUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/ChangePassword/templates/changePasswordUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/ChangePassword/templates/forgetPasswordUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/ChangePassword/templates/forgetPasswordUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/ChangePassword/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/ChangePassword/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/CustomerRegister/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/CustomerRegister/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/CustomerRegister/templates/registerUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/CustomerRegister/templates/registerUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/CustomerRegister/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/CustomerRegister/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/Tools/FormsManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/Tools/FormsManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/UserLogin/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/UserLogin/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/UserLogin/templates/loginUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/UserLogin/templates/loginUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/UserLogin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/UserLogin/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/Django文档翻译/自定义表单验证.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Documents/Django文档翻译/自定义表单验证.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +58,6 @@
         <option value="$PROJECT_DIR$/AmyYoga/Application.py" />
         <option value="$PROJECT_DIR$/AmyYoga/DataBaseInit.py" />
         <option value="$PROJECT_DIR$/AmyYoga/DataBaseInit.json" />
-        <option value="$PROJECT_DIR$/AmyYoga/UserLogin/forms.py" />
-        <option value="$PROJECT_DIR$/AmyYoga/CustomerRegister/templates/registerUI.html" />
         <option value="$PROJECT_DIR$/AmyYoga/interface/ShowInterface.py" />
         <option value="$PROJECT_DIR$/AmyYoga/DB.json" />
         <option value="$PROJECT_DIR$/AmyYoga/CustomerCompleteInformation/completeinformationUI.html" />
@@ -59,11 +68,8 @@
         <option value="$PROJECT_DIR$/AmyYoga/superuser_message/templates/moremessage.html" />
         <option value="$PROJECT_DIR$/AmyYoga/collected_static/UserLogin/style.css" />
         <option value="$PROJECT_DIR$/AmyYoga/UserLogin/static/UserLogin/style.css" />
-        <option value="$PROJECT_DIR$/AmyYoga/UserLogin/templates/loginUI.html" />
         <option value="$PROJECT_DIR$/AmyYoga/UserLogin/models.py" />
-        <option value="$PROJECT_DIR$/AmyYoga/UserLogin/views.py" />
         <option value="$PROJECT_DIR$/AmyYoga/superuser_message/views.py" />
-        <option value="$PROJECT_DIR$/AmyYoga/CustomerRegister/views.py" />
         <option value="$PROJECT_DIR$/AmyYoga/CustomerCompleteInformation/views.py" />
         <option value="$PROJECT_DIR$/AmyYoga/ChangePassword/views.py" />
         <option value="$PROJECT_DIR$/AmyYoga/Tools/Tools.py" />
@@ -186,13 +192,13 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="D:\code\AmyYoga\AmyYoga\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AmyYoga/CustomerRegister/views.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AmyYoga/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -200,6 +206,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.Application" />
+      <item itemvalue="Python.views" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.views" />
@@ -228,7 +238,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.6642984" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3285968" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39975095" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -474,7 +484,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmyYoga/UserLogin/views.py">
+    <entry file="file://$PROJECT_DIR$/AmyYoga/Database/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-38">
           <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />

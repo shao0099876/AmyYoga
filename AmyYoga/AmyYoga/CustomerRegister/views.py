@@ -15,19 +15,12 @@ def register(request):
             confirmPassword=FormsManager.getData(registerForm,'confirmPassword')
             phoneNumber=FormsManager.getData(registerForm,'phoneNumber')
             birthday=FormsManager.getData(registerForm,'birthday')
-            if confirmPassword != password:  # 检查两次密码是否一致
-                errormessage="两次密码不一致"
-                return render(request, "registerUI.html", locals())
             user = CustomerDB()  # 创建空用户对象
-            try:
-                user = CustomerDB.objects.get(username=username)  # 尝试查询该用户
-            except ObjectDoesNotExist:  # 用户名不存在，执行创建操作
-                CustomerDB.objects.create(username=username,password=password)
-                personalInformation=PersonalInformationDB.objects.create(username=username)
-                personalInformation.setPhoneNumber(phoneNumber)
-                personalInformation.setBirthday(birthday)
-                return HttpResponseRedirect("/login/")  # 跳转login
-            errormessage="用户名已存在，不可注册"  # 返回用户名存在，不可注册信息
+            CustomerDB.objects.create(username=username,password=password)
+            personalInformation=PersonalInformationDB.objects.create(username=username)
+            personalInformation.setPhoneNumber(phoneNumber)
+            personalInformation.setBirthday(birthday)
+            return HttpResponseRedirect("/login/")  # 跳转login
     else:
         registerForm = RegisterForm()
     return render(request, "registerUI.html", locals())  # 正常访问，渲染模板

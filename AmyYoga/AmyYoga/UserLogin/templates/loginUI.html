@@ -20,11 +20,16 @@
     </div>
     <form method="POST">
         {%csrf_token%}
-        <table id="loginformtable">
-            {{loginForm.as_table}}
-        </table>
-        {%if errormessage%}
-            <div class="ErrorMessage">错误：<span>{{errormessage}}</span></div>
+        {% for field in loginForm %}
+            <div class="fieldWrapper">
+            {{ field.label_tag }} {{ field }}
+            {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+            </div>
+        {% endfor %}
+        {%if loginForm.non_field_errors%}
+            <div class="ErrorMessage">{{loginForm.non_field_errors}}</div>
         {%endif%}
         <a href="/forgetpassword/">忘记密码</a>&emsp;&emsp;
         <input type="submit" value="登录" style="font-size:1rem"><br>
