@@ -1,0 +1,37 @@
+{% extends 'admin_indexbase.html' %}
+
+{% block title %}管理员查看课程信息{% endblock %}
+
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+
+ <style>
+     .base_top{
+        position:absolute;
+        width: 90%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:10%;
+        top:0px;
+        left:10%;
+        }
+     .base_bottom{
+        position:absolute;
+        width: 90%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:80%;
+        top:10%;
+        left:10%;
+     }
+</style>
+
+<div class="base_top">
+    <a href="/admin_coursemessage/">查看课程</a> <a href="/addcourse/">增加课程</a> <a href="/modifycourse/">修改课程</a> <a href="/deletecourse/">下架课程</a> <a href="/readdcourse/">重新上架</a>
+</div>
+<div class="base_bottom">
+
+</div>
+
+    {% endblock %}

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'superuser_message',
     'Database',
     'CustomerCourse',
+    'admin_CourseMessage',
 ]
 
 MIDDLEWARE = [
