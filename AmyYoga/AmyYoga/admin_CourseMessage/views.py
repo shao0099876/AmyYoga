@@ -2,7 +2,6 @@ from django.shortcuts import render, HttpResponseRedirect
 from .forms import AddCourseForm
 from .forms import ModCourseForm
 from Tools import SessionManager,FormsManager
-from Database.models import Course
 from Database.models import Course #课程信息数据库
 from Database.models import BuyRecord#课程购买信息
 
