@@ -18,4 +18,4 @@ def cancelorder(request,number):#取消订单
     username = SessionManager.getUsername(request)  # 获取当前登录的用户名字
     Q=BuyRecord.objects.get(username=username,number=number) #获取当前用户点击的订单对象
     Q.setValid(False) #将找到的对象相应的位置为false，表明当前订单为取消状态
-    return render(request, 'successUI.html')  # 返回修改成功信息
+    return render(request, 'successUI.html',locals())  # 返回修改成功信息

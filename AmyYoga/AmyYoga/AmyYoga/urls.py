@@ -47,6 +47,6 @@ urlpatterns = [
     path('administratorloginedindex/', IndexView.administratorloginedindex),  # 管理员登陆过后显示的首界面
     url('^static/(?P<path>.*)$',static.serve,{'document_root':settings.STATIC_ROOT},name='static'),
 
-    path('customercourse/',include('CustomerCourse.urls')), #客户登陆中的我的课程中的已支付界面（默认界面）
-    path('uncustomercourse/',CustomerCourseView.uncustomercourse), #客户登陆中的我的课程中的未支付界面
+    path('customercourse/',CustomerCourseView.customercourse), #客户登陆中的我的课程中的已支付界面（默认界面）
+    path('uncustomercourse/',include('CustomerCourse.urls')), #客户登陆中的我的课程中的未支付界面
 ]

@@ -258,7 +258,7 @@ class BuyRecord(models.Model):
     username=models.CharField(max_length=50)
     coursename=models.CharField(max_length=50)
     amount=models.IntegerField(default=0)
-    time=models.DateTimeField()
+    time=models.DateTimeField(null=True)
     pay_flag=models.BooleanField(default=False)#标记是否付钱的订单
     valid=models.BooleanField(default=True)#标记是否为取消的订单
 
