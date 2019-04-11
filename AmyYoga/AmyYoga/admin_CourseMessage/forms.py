@@ -6,7 +6,7 @@ class AddCourseForm(forms.Form):  #增加课程的表单
     courseintroduction = forms.CharField(label='课程介绍', widget=forms.TextInput)  # 课程介绍框架
     courseprice = forms.IntegerField(label='课程价格')  # 课程价格框
 
-class ModCourseForm(forms.ModelForm):  #完善个人信息时提交的表单
+class ModCourseForm(forms.ModelForm):  #修改课程的表单
     class Meta:
         model = models.Course
         exclude = [ 'coursename' ,'course_flag']
