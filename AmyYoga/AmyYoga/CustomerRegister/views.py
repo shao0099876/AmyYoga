@@ -4,7 +4,6 @@ from .forms import RegisterForm
 from Database.models import Customer as CustomerDB
 from Database.models import PersonalInformation as PersonalInformationDB
 from Tools import SessionManager,FormsManager
-
 # Create your views here.
 def register(request):
     if request.method == 'POST':
@@ -23,4 +22,6 @@ def register(request):
             return HttpResponseRedirect("/login/")  # 跳转login
     else:
         registerForm = RegisterForm()
+    if SessionManager.isLogined(request):
+        return HttpResponseRedirect("/")
     return render(request, "registerUI.html", locals())  # 正常访问，渲染模板
