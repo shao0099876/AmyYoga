@@ -188,6 +188,7 @@ class Course(models.Model):  # 课程信息
     coursename = models.CharField(primary_key=True, max_length=20)  # 课程名
     courseintroduction = models.CharField(max_length=100, default="")  # 课程介绍
     courseprice = models.IntegerField(default=0)  # 课程价格
+    course_flag = models.BooleanField(default=True)  # 标记课程是否在使用
 
     def setCourseName(self, p):
         self.coursename = p
@@ -209,6 +210,13 @@ class Course(models.Model):  # 课程信息
 
     def getCoursePrice(self):
         return self.courseprice
+
+    def setCourseFlag(self, p):
+        self.course_flag = p
+        self.save()
+
+    def getCourseFlag(self):
+        return self.course_flag
 
 
 class PhysicalAssessment(models.Model):
