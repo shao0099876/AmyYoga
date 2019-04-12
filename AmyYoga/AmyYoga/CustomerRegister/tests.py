@@ -9,6 +9,14 @@ class CustomerRegisterTestCase(TestCase):
         Customer.objects.create(username="test_admin", authoritySignal=True, password="test_admin_password")
         Customer.objects.create(username="test_customer", password="test_customer_password")
 
+    def test_user_logout_visit(self):
+        c=self.client
+        session=self.client.session
+        session['LoginStatus']='Offline'
+        session.save()
+        response=c.get('/register/')
+        self.assertTemplateUsed(response,'registerUI.html')
+
     def test_user_logined_visit(self):
         c = self.client
         session = self.client.session
