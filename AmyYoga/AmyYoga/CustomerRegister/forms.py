@@ -26,6 +26,8 @@ class RegisterForm(forms.Form):  # 登录时输入的表单
             raise ValidationError("此用户名已存在")
 
         password = cleaned_data.get('password')
+        if password is None:
+            raise ValidationError("This Field is required")
         smallCharacter = 0
         bigCharacter = 0
         number = 0
