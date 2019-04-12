@@ -6,49 +6,5 @@
       "authoritySignal": "True",
       "password": "1604102"
     }
-  },
-
-  {
-    "model": "Database.BuyRecord",
-    "fields": {
-      "number": 201904091851,
-      "username": "杨小蛟",
-      "coursename": "瑜伽一号",
-      "amount": 10,
-      "pay_flag": "True",
-      "valid": "True"
-    }
-  },
-
-  {
-    "model": "Database.BuyRecord",
-    "fields": {
-      "number": 201904091852,
-      "username": "杨小蛟",
-      "coursename": "瑜伽二号",
-      "amount": 10,
-      "pay_flag": "False",
-      "valid": "True"
-    }
-  },
-
-  {
-    "model": "Database.Course",
-    "fields": {
-      "coursename": "瑜伽一号",
-      "courseintroduction": "放松身体",
-      "courseprice": 1000,
-      "course_flag": "True"
-    }
-  },
-
-  {
-    "model": "Database.Course",
-    "fields": {
-      "coursename": "瑜伽二号",
-      "courseintroduction": "强身健体",
-      "courseprice": 2000,
-      "course_flag": "True"
-    }
   }
 ]
