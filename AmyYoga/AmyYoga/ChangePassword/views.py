@@ -24,7 +24,8 @@ def changePassword(request):
             user.setPassword(newPassword)
             return HttpResponseRedirect("/login/")#跳转登录页面
     else:
-        changePasswordForm = ChangePasswordForm(SessionManager.getUsername(request))
+        changePasswordForm = ChangePasswordForm()
+        changePasswordForm.username=SessionManager.getUsername(request)
     return render(request, "ChangePasswordUI.html", locals())
 
 

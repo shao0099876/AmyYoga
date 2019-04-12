@@ -1,24 +1,17 @@
 from django import forms
 from Database.models import Customer
-from Tools import SessionManager
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 
 
 class ChangePasswordForm(forms.Form):
-    username = forms.CharField(label="用户名", widget=forms.HiddenInput)
     oldPassword = forms.CharField(label='旧密码', widget=forms.TextInput)
     newPassword = forms.CharField(label='新密码', widget=forms.PasswordInput)
     confirmPassword = forms.CharField(label="确认密码", widget=forms.PasswordInput)
-
-    def __init__(self, username=""):
-        self.username.initial = username
-
+    username=""
     def clean(self):
         cleaned_data = super().clean()
-
         oldPassword = cleaned_data.get('oldPassword')
-        username = cleaned_data.get("username")
-        user = Customer.objects.get(username=username)
+        user = Customer.objects.get(username=self.username)
         if not user.checkAuthority(oldPassword):
             raise ValidationError("密码不正确")
 
