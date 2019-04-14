@@ -46,3 +46,11 @@ class UserLoginTestCase(TestCase):
         self.assertEqual("test_admin",session.get("Username"))
         self.assertEqual("Administrator",session.get("Authority"))
         self.assertEqual("Online",session.get("LoginStatus"))
+    def test_customer_login_successfully(self):
+        c=self.client
+        response=c.post('/login/',{'username':'test_customer','password':'test_customer_password'})
+        self.assertRedirects(response,'/customerloginedindex/')
+        session = self.client.session
+        self.assertEqual("test_customer",session.get("Username"))
+        self.assertEqual("Customer",session.get("Authority"))
+        self.assertEqual("Online",session.get("LoginStatus"))
