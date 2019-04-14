@@ -16,16 +16,17 @@ def changePassword(request):
         return HttpResponseRedirect("/forgetpassword/")
     if request.method == 'POST':
         changePasswordForm = ChangePasswordForm(request.POST)
+        changePasswordForm.username=SessionManager.getUsername(request)
         if changePasswordForm.is_valid():
             oldPassword=FormsManager.getData(changePasswordForm,'oldPassword')
-            username=FormsManager.getData(changePasswordForm,'username')
+            username=changePasswordForm.username
             user = UserDB.objects.get(username=username)
             newPassword=FormsManager.getData(changePasswordForm,'newPassword')
             user.setPassword(newPassword)
+            SessionManager.setLogout(request)
             return HttpResponseRedirect("/login/")#跳转登录页面
     else:
         changePasswordForm = ChangePasswordForm()
-        changePasswordForm.username=SessionManager.getUsername(request)
     return render(request, "ChangePasswordUI.html", locals())
 
 
@@ -43,13 +44,15 @@ def forgetPassword(request):
             newPassword = FormsManager.getData(forgetPasswordForm, 'newPassword')
             user = UserDB.objects.get(username=username)
             user.setPassword(newPassword)
-            return HttpResponse("修改成功")
+            return HttpResponseRedirect("/login/")#跳转登录页面
     else:
         forgetPasswordForm = ForgetPasswordForm()
 
     return render(request, 'forgetPasswordUI.html', locals())
 
 def forgetPasswordLogin(request):
+    if SessionManager.isAdministrator(request):
+        return HttpResponse("管理员禁止使用修改密码功能")#不修改
     if request.method=='POST':
         usernameForm=UsernameForm(request.POST)
         if usernameForm.is_valid():

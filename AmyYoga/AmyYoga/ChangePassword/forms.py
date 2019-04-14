@@ -16,6 +16,8 @@ class ChangePasswordForm(forms.Form):
             raise ValidationError("密码不正确")
 
         newPassword = cleaned_data.get("newPassword")
+        if newPassword is None:
+            raise ValidationError('This field is required.')
         smallCharacter = 0
         bigCharacter = 0
         number = 0
@@ -43,6 +45,8 @@ class ForgetPasswordForm(forms.Form):
         cleaned_data = super().clean()
 
         newPassword = cleaned_data.get("newPassword")
+        if newPassword is None:
+            raise ValidationError('This field is required.')
         smallCharacter = 0
         bigCharacter = 0
         number = 0
