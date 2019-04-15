@@ -2,25 +2,25 @@ from django.http import HttpResponse
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import CompleteForm
 from Database.models import PersonalInformation as PersonalInformationDB
-from Tools import SessionManager,FormsManager
+from Tools import SessionManager
 
 # Create your views here.
 def completeinformation(request):#用户点击提交完善的个人信息
     if request.method == 'POST':  # 如果请求为表单提交
         completeForm = CompleteForm(request.POST)  # 获取表单内容
         if completeForm.is_valid():  # 解析表单
-            name=FormsManager.getData(completeForm,'name')
-            age=FormsManager.getData(completeForm,'age')
-            profession=FormsManager.getData(completeForm,'profession')
-            phoneNumber=FormsManager.getData(completeForm,'phoneNumber')
-            sex=FormsManager.getData(completeForm,'sex')
-            birthday=FormsManager.getData(completeForm,'birthday')
-            height=FormsManager.getData(completeForm,'height')
-            weight=FormsManager.getData(completeForm,'weight')
-            bust=FormsManager.getData(completeForm,'bust')
-            waistline=FormsManager.getData(completeForm,'waistline')
-            hipline=FormsManager.getData(completeForm,'hipline')
-            shoulderwidth=FormsManager.getData(completeForm,'shoulderwidth')
+            name=completeForm.cleaned_data.get('name')
+            age=completeForm.cleaned_data.get('age')
+            profession=completeForm.cleaned_data.get('profession')
+            phoneNumber=completeForm.cleaned_data.get('phoneNumber')
+            sex=completeForm.cleaned_data.get('sex')
+            birthday=completeForm.cleaned_data.get('birthday')
+            height=completeForm.cleaned_data.get('height')
+            weigt=completeForm.cleaned_data.get('weight')
+            bust=completeForm.cleaned_data.get('bust')
+            waistline=completeForm.cleaned_data.get('waistline')
+            hipline=completeForm.cleaned_data.get('hipline')
+            shoulderwidth=completeForm.cleaned_data.get('shoulderwidth')
 
             #判断数据是否正确
 
