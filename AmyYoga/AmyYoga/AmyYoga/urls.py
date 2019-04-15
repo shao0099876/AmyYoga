@@ -19,6 +19,7 @@ from django.urls import path, include
 from UserLogin import views as UserLoginView
 from CustomerRegister import views as CustomerRegisterView
 from CustomerCompleteInformation import views as CustomerCompleteInformationView
+from CourseUsed import views as CourseUsedView
 
 from ChangePassword import views as ChangePasswordView
 from Index import views as IndexView
@@ -38,6 +39,7 @@ urlpatterns = [
     path('forgetpassword/',ChangePasswordView.forgetPassword),
     path('changepassword/',ChangePasswordView.changePassword),#自己起的名字，app名View，view中的函数名
     path('forgetpasswordlogin/',ChangePasswordView.forgetPasswordLogin),
+    path('courseused/',CourseUsedView.CourseUsed),
     path('superusermessage/', include('superuser_message.urls')),#管理员查看会员信息
 
     path('teacherteam/', IndexView.teacherteam),  # 首页中的课程相关界面
