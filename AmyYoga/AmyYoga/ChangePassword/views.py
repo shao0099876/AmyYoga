@@ -4,7 +4,7 @@ from django.shortcuts import render, HttpResponseRedirect
 
 from .forms import ChangePasswordForm, ForgetPasswordForm, UsernameForm
 from Database.models import Customer as UserDB
-from Tools import FormsManager, Tools
+from Tools import Tools
 from Tools.SessionManager import SessionManager
 
 
@@ -21,10 +21,10 @@ def changePassword(request):
         changePasswordForm = ChangePasswordForm(request.POST)
         changePasswordForm.username = sessionManager.getUsername()
         if changePasswordForm.is_valid():
-            oldPassword = FormsManager.getData(changePasswordForm, 'oldPassword')
+            oldPassword=changePasswordForm.cleaned_data.get('oldPassword')
             username = changePasswordForm.username
             user = UserDB.objects.get(username=username)
-            newPassword = FormsManager.getData(changePasswordForm, 'newPassword')
+            newPassword=changePasswordForm.cleaned_data.get('newPassword')
             user.setPassword(newPassword)
             sessionManager.setLogout()
             return HttpResponseRedirect("/login/")  # 跳转登录页面
@@ -45,7 +45,7 @@ def forgetPassword(request):
         # 如果更改密码 有效
         if forgetPasswordForm.is_valid():
             username = sessionManager.getUsername()
-            newPassword = FormsManager.getData(forgetPasswordForm, 'newPassword')
+            newPassword=forgetPasswordForm.cleaned_data.get('newPassword')
             user = UserDB.objects.get(username=username)
             user.setPassword(newPassword)
             return HttpResponseRedirect("/login/")  # 跳转登录页面
@@ -62,7 +62,7 @@ def forgetPasswordLogin(request):
     if request.method == 'POST':
         usernameForm = UsernameForm(request.POST)
         if usernameForm.is_valid():
-            username = FormsManager.getData(usernameForm, 'username')
+            username=usernameForm.cleaned_data.get('username')
             user = UserDB.objects.get(username=username)
             if user.isAdministrator():
                 return HttpResponse("管理员禁止使用修改密码功能")
