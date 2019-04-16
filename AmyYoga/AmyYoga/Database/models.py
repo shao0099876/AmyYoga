@@ -305,3 +305,29 @@ class BuyRecord(models.Model):
     def setValid(self,p):
         self.valid=p
         self.save()
+
+class user_course_used (CommonUsername):#课程使用记录
+    username = models.CharField(max_length=50)
+    coursename = models.CharField(max_length=50)
+    course_used_times = models.IntegerField()
+    course_total_times=models.IntegerField()
+    def getUsername(self):
+        return self.username
+    def setUsername(self,p):
+        self.username=p
+        self.save()
+    def getCoursename(self):
+        return self.coursename
+    def setCoursename(self,p):
+        self.coursename=p
+        self.save()
+    def getCourse_used_times(self):
+        return self.course_used_times
+    def setCourse_used_times(self,p):
+        self.course_used_times=p
+        self.save()
+    def getCourse_total_times(self):
+        return self.course_total_times
+    def setCourse_total_times(self,p):
+        self.course_total_times=p
+        self.save()

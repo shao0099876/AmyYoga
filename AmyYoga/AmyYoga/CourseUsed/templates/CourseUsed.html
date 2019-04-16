@@ -1,27 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>课程使用记录</title>
 </head>
 <body>
-    会员名：<input type="test" name="vipname" size="15">
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    课程名：
-        <select name="coursename">
-            <option value="course1"> selected>course1
-            <option value="course2"> selected>course2
-            <option value="course3"> selected>course3
-            <option value="course4"> selected>course4
-        </select>
-     &nbsp;&nbsp;
-        <input type="submit" name="Submit" value="搜索">
 
-    <pr>单击搜索按钮
-    <pr>若只有会员名则列出此会员上的所有课程
-    <pr>若只有课程名则列出上此课程的所有会员
-    <pr>若两者都有则列出符合两者的一条记录
+    <form method="POST" >{% csrf_token %}>
+        会员名：<input type="text" name="vipname" size="15">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        课程名：
+            <select name="coursename">
+               <option value="all" selected>all
+               <option value="001" >course1
+               <option value="002" > course2
+            </select>
+        &nbsp;&nbsp;
+            <input type="submit" name="Submit" value="搜索">
 
+    </form>
+</body>
 
+------------------------------------------------------------------------------------
+<table>
+
+    <tr>
+        <td>会员名</td>
+        <td>课程名</td>
+    </tr>
+    {% for item in user_list  %}
+    <tr>
+        <td>{{ item.username }}</td>
+        <td>{{ item.coursename }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<body>
+<br>
+    <input type="button" name="plus" value="已上次数+1" onclick="views.plus()">
+    &nbsp;&nbsp;
+    <input type="button" name="minus" value="已上次数-1">
+    
+
+    <p>单击已上次数+1或-1
+    <br>选中记录的已上次数+1或-1
+    </p>
 </body>
 </html>

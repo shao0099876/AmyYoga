@@ -1,10 +1,38 @@
 [
   {
-    "model":"Database.Customer",
+    "model": "Database.Customer",
     "fields": {
       "username": "admin",
       "authoritySignal": "True",
       "password": "1604102"
+    }
+  },
+  {
+    "model": "Database.user_course_used",
+    "fields": {
+      "username": "001",
+      "coursename": "001"
+    }
+  },
+  {
+    "model": "Database.user_course_used",
+    "fields": {
+      "username": "001",
+      "coursename": "002"
+    }
+  },
+  {
+    "model": "Database.user_course_used",
+    "fields": {
+      "username": "002",
+      "coursename": "001"
+    }
+  },
+  {
+    "model": "Database.user_course_used",
+    "fields": {
+      "username": "002",
+      "coursename": "002"
     }
   }
 ]
