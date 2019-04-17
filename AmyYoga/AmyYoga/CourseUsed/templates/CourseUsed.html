@@ -7,7 +7,7 @@
 <body>
 
     <form id="user_course" action="" method="POST" >{% csrf_token %}>
-        会员名：<input type="text" name="vipname" size="15">
+        会员名：<input type="text" name="vipname" value="all" size="15">
         &nbsp;&nbsp;&nbsp;&nbsp;
         课程名：
             <select name="coursename">
@@ -16,25 +16,24 @@
                <option value="002" > course2
             </select>
         &nbsp;&nbsp;
-            <input type="button" name="Submit" value="搜索" onclick="submit(1)"/>
+        <!--<input type="submit" name="Submit" value="搜索">-->
         &nbsp;&nbsp;
-            <input type="submit" name="newlyRecord" value="新建记录">
+        <input type="button" name="newlyRecord" value="新建记录" onclick="javascript:submit(1)">
+        <script>
+            function submit(val){
+                alert("在调用函数了！");
+            }
+        </script>
     </form>
-<script type="text/javascript">
-function submit(val){
-    //判断参数
-    if(val==1){   //搜索
-        var url = "views.CourseUsed()";
-        var params = $("#user_course").serialize();
-        //异步处理
-        $.post(url,params);
-    }
-}
-</script>
+</body>
+-----------------------------------------------------------------------------------
+<body>
+<br>
+
 
 </body>
 
-------------------------------------------------------------------------------------
+<br>------------------------------------------------------------------------------------
 <table>
 
     <tr>
@@ -52,6 +51,7 @@ function submit(val){
     {% endfor %}
 </table>
 ------------------------------------------------------------------------------------
+<!--
 <body>
 <br>
     <input type="button" name="plus" value="已上次数+1" onclick="javascript:course_used_times_plus()">
@@ -75,4 +75,5 @@ function submit(val){
     <br>选中记录的已上次数+1或-1
     </p>
 </body>
+-->
 </html>
