@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <form method="POST" >{% csrf_token %}>
+    <form id="user_course" action="" method="POST" >{% csrf_token %}>
         会员名：<input type="text" name="vipname" size="15">
         &nbsp;&nbsp;&nbsp;&nbsp;
         课程名：
@@ -16,31 +16,59 @@
                <option value="002" > course2
             </select>
         &nbsp;&nbsp;
-            <input type="submit" name="Submit" value="搜索">
-
+            <input type="button" name="Submit" value="搜索" onclick="submit(1)"/>
+        &nbsp;&nbsp;
+            <input type="submit" name="newlyRecord" value="新建记录">
     </form>
+<script type="text/javascript">
+function submit(val){
+    //判断参数
+    if(val==1){   //搜索
+        var url = "views.CourseUsed()";
+        var params = $("#user_course").serialize();
+        //异步处理
+        $.post(url,params);
+    }
+}
+</script>
+
 </body>
 
 ------------------------------------------------------------------------------------
 <table>
 
     <tr>
+        <td>上课记录</td>
         <td>会员名</td>
         <td>课程名</td>
     </tr>
     {% for item in user_list  %}
     <tr>
+        <td><a href="{{item.record_id}}">
+            {{ item.record_id }}  </a></td>
         <td>{{ item.username }}</td>
         <td>{{ item.coursename }}</td>
     </tr>
     {% endfor %}
 </table>
-
+------------------------------------------------------------------------------------
 <body>
 <br>
-    <input type="button" name="plus" value="已上次数+1" onclick="views.plus()">
+    <input type="button" name="plus" value="已上次数+1" onclick="javascript:course_used_times_plus()">
+    <script>
+        function course_used_times_plus(){
+            
+            alert("在调用函数了！");
+        }
+    </script>
     &nbsp;&nbsp;
-    <input type="button" name="minus" value="已上次数-1">
+    <input type="button" name="minus" value="已上次数-1" onclick="javascript:course_used_times_minus()">
+    <script>
+        function course_used_times_minus(){
+
+            alert("在调用函数了！");
+        }
+    </script>
     
 
     <p>单击已上次数+1或-1

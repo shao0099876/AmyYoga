@@ -2,5 +2,5 @@ from django.urls import path
 from . import  views
 urlpatterns = {
     path('', views.superusermessage),
-    path('<user>', views.moremessage)
+    path('<username>', views.moremessage)
 }

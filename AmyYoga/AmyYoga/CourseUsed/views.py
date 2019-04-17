@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from Database import models
+from django.http import HttpResponseRedirect
 # Create your views here.
 def CourseUsed (request):
     if request.method == 'POST':
@@ -18,9 +19,9 @@ def CourseUsed (request):
                 user_list = models.user_course_used.objects.filter(username=username,coursename=course_name)
     return render(request, 'CourseUsed.html', locals())
 
-def plus(request):
+def moremessage(request, record_id):
+    user_list = models.user_course_used.objects.filter(record_id=record_id)
+    return render(request, 'CourseOpt.html',locals() )
 
-    return render(request,'CourseUsed.html',locals())
-#输入筛选条件 会员名 课程名
-#显示出一条记录
-#此条记录可编辑已上次数
+def newrecord(request,record_id):
+    return render(request,'CourseOpt.html',locals())
