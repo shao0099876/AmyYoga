@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import CompleteForm
+from Tools.SessionManager import SessionManager
 from Database.models import PersonalInformation as PersonalInformationDB
-from Tools import SessionManager
 
 # Create your views here.
 def completeinformation(request):#用户点击提交完善的个人信息
@@ -25,7 +25,7 @@ def completeinformation(request):#用户点击提交完善的个人信息
             #判断数据是否正确
 
             #正确过后写数据库
-            username=SessionManager.getUsername(request)
+            username = SessionManager.getUsername(request)
             personalInformation = PersonalInformationDB.objects.get(username=username)
 
             personalInformation.setName(name)
@@ -35,7 +35,7 @@ def completeinformation(request):#用户点击提交完善的个人信息
             personalInformation.setSex(sex)
             personalInformation.setBirthday(birthday)
             personalInformation.setHeight(height)
-            personalInformation.setWeight(weight)
+            #personalInformation.setWeight(weight)
             personalInformation.setBust(bust)
             personalInformation.setWaistline(waistline)
             personalInformation.setHipline(hipline)

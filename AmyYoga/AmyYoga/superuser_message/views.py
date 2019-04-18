@@ -1,8 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from Database import models
-
-from Tools import SessionManager
+from Tools.SessionManager import SessionManager
 
 
 def superusermessage(request):

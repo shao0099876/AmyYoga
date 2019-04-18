@@ -74,8 +74,8 @@
         </p>
        <p>
             {% load static %}
-            <img width="50" height="50" src="{% static 'myinformation.jpg' %}">
-            <br><b>现场购课</b>
+           <a href="/buycourse/"> <img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
+           <br><a href="/buycourse/"><b>现场购课</b></a>
         </p>
         <p>
             {% load static %}
@@ -83,8 +83,9 @@
         </p>
         <p>
             {% load static %}
-            <img width="50" height="50" src="{% static 'myinformation.jpg' %}">
-            <br><b>客户订单</b>
+            <a href="/showrecord/"> <img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
+            <br>
+            <a href="/showrecord/"><b>客户订单</b></a>
         </p>
 {% endblock %}
 

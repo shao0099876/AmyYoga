@@ -1,0 +1,9 @@
+{% extends 'admin_indexbase.html' %}
+{% block title %}现场购课{% endblock %}
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+<form action='makebuy/' method="POST">
+        {%csrf_token%}
+        {{temp.as_table}}
+        <input type="submit" value="确认" style="font-size:1rem"><br>
+</form>
+{% endblock %}

@@ -19,7 +19,6 @@ from django.urls import path, include
 from UserLogin import views as UserLoginView
 from CustomerRegister import views as CustomerRegisterView
 from CustomerCompleteInformation import views as CustomerCompleteInformationView
-
 from ChangePassword import views as ChangePasswordView
 from Index import views as IndexView
 from django.views import static
@@ -38,7 +37,10 @@ urlpatterns = [
     path('forgetpassword/',ChangePasswordView.forgetPassword),
     path('changepassword/',ChangePasswordView.changePassword),#自己起的名字，app名View，view中的函数名
     path('forgetpasswordlogin/',ChangePasswordView.forgetPasswordLogin),
+    path('showrecord/', include('Manage_Record.urls')),
     path('superusermessage/', include('superuser_message.urls')),#管理员查看会员信息
+    path('purchasecourse/', include('purchaseCourse.urls')),  # 管理员查看会员信息
+    path('buycourse/', include('Buycourserightnow.urls')),
 
     path('teacherteam/', IndexView.teacherteam),  # 首页中的课程相关界面
     path('yogamessage/', IndexView.yogamessage),  # 首页中的瑜伽科普界面
@@ -46,7 +48,7 @@ urlpatterns = [
     path('aboutclass/', IndexView.aboutclass),  # 首页中的课程相关界面
     path('customerloginedindex/',IndexView.customerloginedindex), #客户登陆过后显示的首界面
     path('administratorloginedindex/', IndexView.administratorloginedindex),  # 管理员登陆过后显示的首界面
-    url('^static/(?P<path>.*)$',static.serve,{'document_root':settings.STATIC_ROOT},name='static'),
+    url('^static/(?P<path>.*)$',static.serve,{'document_root':settings.STATIC_ROOT}, name='static'),
 
     path('customercourse/',CustomerCourseView.customercourse), #客户登陆中的我的课程中的已支付界面（默认界面）
     path('uncustomercourse/',include('CustomerCourse.urls')), #客户登陆中的我的课程中的未支付界面
