@@ -35,7 +35,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'UserLogin',
+    'CustomerRegister',
+    'ChangePassword',
+    'CustomerCompleteInformation',
+    'Index',
+    'superuser_message',
     'Database',
+    'CustomerCourse',
+    'admin_CourseMessage',
 ]
 
 MIDDLEWARE = [

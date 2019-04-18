@@ -88,17 +88,3 @@ class admin_CourseMessageTestCase(TestCase):
         sessionManager.setLogin('test_customer')
         response = c.get('/modifycourse/')
         self.assertEqual(response.content.decode(), '顾客禁止使用此功能')
-
-    def test_modifycourse_modify(self):
-        c = self.client
-        sessionManager = SessionManager()
-        sessionManager.session = self.client.session
-        sessionManager.setLogin('test_admin')
-        response = c.get('/modifycourse/test_course/')
-        self.assertTemplateUsed('modcourseUI.html')
-        response = c.post('/modifycourse/test_course/',
-                          {'coursename': 'test_course', 'courseintroduction': 'new_introduction', 'courseprice': 200,
-                           'course_flag': True},follow=True)
-        self.assertRedirects(response,'/admin_coursemessage/')
-        course=Course.objects.get(coursename='test_course')
-        self.assertEqual(course.courseintroduction,'new_introduction')
