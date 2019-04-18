@@ -28,7 +28,7 @@ def CourseUsed (request):
                 username = request.POST.get('vipname')
                 course_name = request.POST.get('coursename')
                 if username==''or username=='all' or course_name=='' or course_name=='all':#用户名为空
-                    return render(request, 'CourseOpt.html', locals())#跳转
+                    return render(request, 'CourseUsed.html', locals())#跳转
                 else:#在username,course_name新建一条数据库记录，自动生成一个id作为主键
                     year=datetime.datetime.now().year
                     month=datetime.datetime.now().month
@@ -43,9 +43,11 @@ def CourseUsed (request):
 def moremessage_username(request, username):
     user_list = models.user_course_used.objects.filter(username=username)
     return render(request, 'CourseOpt.html',locals() )
+    #return render(request, 'UserCourseUsedRecord.html', locals())
 def moremessage_coursename(request, coursename):
     user_list = models.user_course_used.objects.filter(coursename=coursename)
-    return render(request, 'CourseOpt.html',locals() )
+    #return render(request, 'CourseOpt.html',locals() )
+    return render(request, 'UserCourseUsedRecord.html', locals())
 def fixformats(date):
     if date//10==0:
         return '0'+str(date)

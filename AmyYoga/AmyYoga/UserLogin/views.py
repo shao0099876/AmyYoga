@@ -8,7 +8,7 @@ from .forms import LoginForm
 from Database.models import Customer
 
 
-# Create your views here.
+# Create your views here
 def login(request):  # 用户登录功能视图函数
     if request.method == 'POST':  # 如果请求为表单提交
         loginForm = LoginForm(request.POST)  # 获取表单内容

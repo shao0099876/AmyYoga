@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% extends 'admin_indexbase.html' %}
-{% block title %}test{% endblock %}
+{% block title %}上课次数{% endblock %}
 {% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
 <html>
 <head>
@@ -40,10 +40,14 @@
     {% for item in user_list  %}
     <tr>
         <td>{{ item.record_id }} </td>
+        <td>{{ item.username }}</td>
+        <td>{{ item.coursename }}</td>
+        <!--
         <td><a href="{{item.username}}">
             {{ item.username }}</a></td>
         <td><a href="{{item.coursename}}">
             {{ item.coursename }}</a></td>
+        -->
     </tr>
     {% endfor %}
 </table>
