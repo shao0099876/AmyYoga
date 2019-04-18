@@ -1,0 +1,54 @@
+{% extends 'admin_indexbase.html' %}
+
+{% block title %}管理员重新上架部分课程{% endblock %}
+
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+
+<style>
+     .recourse_top{
+        position:absolute;
+        width: 90%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:10%;
+        top:0px;
+        left:10%;
+        }
+     .recourse_bottom{
+        position:absolute;
+        width: 90%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:50%;
+        top:40%;
+        left:10%;
+     }
+</style>
+
+    <p><a href="/admin_coursemessage/">查看课程</a> <a href="/addcourse/">增加课程</a> <a href="/modifycourse/">修改课程</a>
+        <a href="/deletecourse/">下架课程</a> <a href="/readdcourse/">重新上架</a></p>
+
+    {% if order5 %}
+    <table>
+        <tr>
+            <th>序号</th>
+            <th>课程名</th>
+            <th>课程介绍</th>
+            <th>课程价格</th>
+            <th>是否重新上架课程</th>
+        </tr>
+         {% for i in order5 %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.coursename }}</a> </td>
+            <td>{{ i.courseintroduction }}</td>
+            <td>{{ i.courseprice }}</td>
+            <td><a href="{{i.coursename}}"><button>上架课程</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    {% endblock %}

@@ -64,7 +64,8 @@
 {% block content1 %}<!--页面左边部分，存放页面的几个功能-->
         <p>
             {% load static %}
-            <img width="50" height="50" src="{% static 'myclass.jpg' %}"><br><b>我的课程</b>
+            <a href="/customercourse/"> <img width="50" height="50" src="{% static 'myclass.jpg' %}"></a><br>
+            <a  href="/customercourse/"><b>我的课程</b></a>
         </p>
         <p>
             {% load static %}
@@ -72,7 +73,8 @@
         </p>
         <p>
             {% load static %}
-            <img width="50" height="50" src="{% static 'class.jpg' %}"><br><b>选购课程</b>
+            <a href="/purchasecourse/"><img width="50" height="50" src="{% static 'class.jpg' %}"></a><br>
+            <a href="/purchasecourse/"><b>选购课程</b></a>
         </p>
         <p>
             {% load static %}

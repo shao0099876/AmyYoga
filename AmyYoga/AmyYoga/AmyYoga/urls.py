@@ -19,10 +19,11 @@ from django.urls import path, include
 from UserLogin import views as UserLoginView
 from CustomerRegister import views as CustomerRegisterView
 from CustomerCompleteInformation import views as CustomerCompleteInformationView
-
 from ChangePassword import views as ChangePasswordView
 from Index import views as IndexView
 from django.views import static
+from CustomerCourse import views as CustomerCourseView
+from admin_CourseMessage import views as admin_CourseMessageView
 
 from . import settings
 
@@ -36,7 +37,10 @@ urlpatterns = [
     path('forgetpassword/',ChangePasswordView.forgetPassword),
     path('changepassword/',ChangePasswordView.changePassword),#自己起的名字，app名View，view中的函数名
     path('forgetpasswordlogin/',ChangePasswordView.forgetPasswordLogin),
+    path('showrecord/', include('Manage_Record.urls')),
     path('superusermessage/', include('superuser_message.urls')),#管理员查看会员信息
+    path('purchasecourse/', include('purchaseCourse.urls')),  # 管理员查看会员信息
+    path('buycourse/', include('Buycourserightnow.urls')),
 
     path('teacherteam/', IndexView.teacherteam),  # 首页中的课程相关界面
     path('yogamessage/', IndexView.yogamessage),  # 首页中的瑜伽科普界面
@@ -44,5 +48,14 @@ urlpatterns = [
     path('aboutclass/', IndexView.aboutclass),  # 首页中的课程相关界面
     path('customerloginedindex/',IndexView.customerloginedindex), #客户登陆过后显示的首界面
     path('administratorloginedindex/', IndexView.administratorloginedindex),  # 管理员登陆过后显示的首界面
-    url('^static/(?P<path>.*)$',static.serve,{'document_root':settings.STATIC_ROOT},name='static')
+    url('^static/(?P<path>.*)$',static.serve,{'document_root':settings.STATIC_ROOT}, name='static'),
+
+    path('customercourse/',CustomerCourseView.customercourse), #客户登陆中的我的课程中的已支付界面（默认界面）
+    path('uncustomercourse/',include('CustomerCourse.urls')), #客户登陆中的我的课程中的未支付界面
+
+    path('admin_coursemessage/',include('admin_CourseMessage.coursemessageurls')),#管理员登陆状态下查看课程信息
+    path('addcourse/',admin_CourseMessageView.addcourse),#管理员登陆状态下增加课程信息
+    path('modifycourse/',include('admin_CourseMessage.modifycourseurls')),#管理员登陆状态下修改课程信息
+    path('deletecourse/',include('admin_CourseMessage.deletecourseurls')),#管理员登陆状态下下架课程信息
+    path('readdcourse/',include('admin_CourseMessage.readdcourseurls')),#管理员登陆状态下重新上架课程信息
 ]

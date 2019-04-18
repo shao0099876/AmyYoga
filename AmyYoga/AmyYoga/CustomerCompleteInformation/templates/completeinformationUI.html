@@ -32,8 +32,6 @@
 <div class="complete_bottom">
     <form method="POST">
         {%csrf_token%}
-        <b>用户名：</b>{{ name_of_user }}
-
         <table id="completeformtable">
             {{completeForm.as_table}}
         </table>

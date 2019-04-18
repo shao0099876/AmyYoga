@@ -28,7 +28,8 @@ jobs:
       - run:
           name: run test
           command: |
-            pipenv run python ~/repo/AmyYoga/AmyYoga/manage.py test
+            cd ~/repo/AmyYoga/AmyYoga
+            pipenv run python manage.py test 
       - store_test_results:
           path: test-results
       - store_artifacts:

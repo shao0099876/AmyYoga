@@ -7,11 +7,16 @@
 <div style="text-align:Center">
     <form method="POST">
         {%csrf_token%}
-        <table style="margin:0 auto">
-            {{registerForm.as_table}}
-        </table>
-        {%if errormessage%}
-            {{errormessage}}
+        {% for field in registerForm %}
+            <div class="fieldWrapper">
+            {{ field.label_tag }} {{ field }}
+            {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+            </div>
+        {% endfor %}
+        {%if registerForm.non_field_errors%}
+            {{registerForm.non_field_errors}}
         {%endif%}
         <input type="submit" value="注册">
     </form>

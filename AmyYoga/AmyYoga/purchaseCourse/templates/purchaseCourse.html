@@ -1,0 +1,31 @@
+{%extends 'base.html' %}
+{% block title %}购买课程{% endblock %}
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+<table border="3" align="center" >
+    <caption>课程</caption>
+    <thead>
+    <tr>
+        <th>课程名</th>
+        <th>课程介绍</th>
+        <th>金 额</th>
+    </tr>
+    </thead>
+
+    {% for item in course_list  %}
+    <div>
+    <tr>
+        <td> <a href="{{item.coursename }}">
+            {{ item.coursename }}  </a>
+        </td>
+        <td>
+            {{ item.courseintroduction }}
+        </td>
+         <td>
+            {{ item.courseprice }}
+        </td>
+        <td><a href = "{{item.coursename}}">购买</a></td>
+    </tr>
+    </div>
+    {% endfor %}
+</table>
+{% endblock %}
