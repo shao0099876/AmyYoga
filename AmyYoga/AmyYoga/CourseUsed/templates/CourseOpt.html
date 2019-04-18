@@ -1,10 +1,33 @@
-<!DOCTYPE html>
+{% extends 'admin_indexbase.html' %}
+{% block title %}test{% endblock %}
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>课程操作</title>
 </head>
 <body>
-hi，小老弟
+<br>
+<br>
+<table>
+    <tr>
+        <td>上课记录</td>
+        <td>会员名</td>
+        <td>课程名</td>
+    </tr>
+    {% for item in user_list  %}
+    <tr>
+        <td>{{ item.record_id }} </td>
+        <td>{{ item.username }}</td>
+        <td>{{ item.coursename }}</td>
+    </tr>
+    {% endfor %}
+</table>
+    {% if usedtimes %}
+    <input type="text" name="usedtimes" value="已上课次数：">
+    {{usedtimes}}
+    {% endif %}
 </body>
 </html>
+{% endblock %}

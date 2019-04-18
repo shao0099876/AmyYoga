@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{% extends 'admin_indexbase.html' %}
+{% block title %}test{% endblock %}
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
 <html>
 <head>
     <meta charset="UTF-8">
@@ -6,13 +9,15 @@
 </head>
 <body>
 
-    <form id="user_course" action="" method="POST" >{% csrf_token %}>
-        会员名：<input type="text" name="vipname" value="all" size="15">
+    <form id="user_course" action="" method="POST" >{% csrf_token %}
+        <br>
+        <br>
+        会员名：<input type="text" name="vipname" value="001" size="15">
         &nbsp;&nbsp;&nbsp;&nbsp;
         课程名：
             <select name="coursename">
-               <option value="all" selected>all
-               <option value="001" >course1
+               <option value="all" >all
+               <option value="001" selected>course1
                <option value="002" > course2
             </select>
         &nbsp;&nbsp;
@@ -20,15 +25,12 @@
         &nbsp;&nbsp;
         <input type="submit" name="newlyRecord" value="新建记录" >
     </form>
+
 </body>
------------------------------------------------------------------------------------
-<body>
 <br>
-
-
-</body>
-
-<br>------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+<br>
+<br>
 <table>
 
     <tr>
@@ -38,15 +40,21 @@
     </tr>
     {% for item in user_list  %}
     <tr>
-        <td><a href="{{item.record_id}}">
-            {{ item.record_id }}  </a></td>
-        <td>{{ item.username }}</td>
-        <td>{{ item.coursename }}</td>
+        <td>{{ item.record_id }} </td>
+        <td><a href="{{item.username}}">
+            {{ item.username }}</a></td>
+        <td><a href="{{item.coursename}}">
+            {{ item.coursename }}</a></td>
     </tr>
     {% endfor %}
 </table>
-------------------------------------------------------------------------------------
+<body>
+    {% if used_times > 0 %}
+        已上课次数：{{used_times}}
+    {% endif %}
+</body>
 <!--
+------------------------------------------------------------------------------------
 <body>
 <br>
     <input type="button" name="plus" value="已上次数+1" onclick="javascript:course_used_times_plus()">
@@ -72,3 +80,4 @@
 </body>
 -->
 </html>
+{% endblock %}

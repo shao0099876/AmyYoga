@@ -310,8 +310,6 @@ class user_course_used (models.Model):#课程使用记录
     record_id=models.CharField(primary_key=True,max_length=50)
     username = models.CharField(max_length=50)
     coursename = models.CharField(max_length=50)
-    course_used_times = models.IntegerField(default=0)
-    course_total_times=models.IntegerField(default=0)
 
     def getUsername(self):
         return self.username
