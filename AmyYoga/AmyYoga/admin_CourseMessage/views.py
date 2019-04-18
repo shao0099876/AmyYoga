@@ -1,7 +1,8 @@
+from django.http import HttpResponse
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import AddCourseForm
 from .forms import ModCourseForm
-from Tools import SessionManager
+from Tools.SessionManager import SessionManager
 from Database.models import Course  # 课程信息数据库
 from Database.models import BuyRecord  # 课程购买信息
 
@@ -9,16 +10,25 @@ from Database.models import BuyRecord  # 课程购买信息
 # Create your views here.
 
 def admin_coursemessage(request):  # 管理员查看课程信息
+    sessionManager = SessionManager(request)
+    if not sessionManager.isAdministrator():
+        return HttpResponse('顾客禁止使用此功能')
     courses = Course.objects.filter(course_flag=True)  # 查询在使用的课程信息
     return render(request, 'coursemessageUI.html', {'order': courses})
 
 
 def Coursename(request, coursename):  # 显示课程的详细信息
+    sessionManager = SessionManager(request)
+    if not sessionManager.isAdministrator():
+        return HttpResponse('顾客禁止使用此功能')
     detailcourse = BuyRecord.objects.filter(coursename=coursename, valid=True)  # 查询这个课程的所有订单，包括付钱和没付钱的
     return render(request, 'detailmessageUI.html', {'order1': detailcourse})
 
 
 def addcourse(request):  # 管理员增加课程信息
+    sessionManager = SessionManager(request)
+    if not sessionManager.isAdministrator():
+        return HttpResponse('顾客禁止使用此功能')
     if request.method == 'POST':  # 如果请求为表单提交
         addcourseForm = AddCourseForm(request.POST)  # 获取表单内容
         if addcourseForm.is_valid():  # 解析表单
@@ -41,16 +51,22 @@ def addcourse(request):  # 管理员增加课程信息
 
 
 def modifycourse(request):  # 管理员修改课程信息
+    sessionManager = SessionManager(request)
+    if not sessionManager.isAdministrator():
+        return HttpResponse('顾客禁止使用此功能')
     coursec = Course.objects.filter(course_flag=True)  # 查询在使用的课程信息
     return render(request, 'modifycourseUI.html', {'order6': coursec})
 
 
 def ModCourse(request, coursename):  # 实际修改课程信息界面
+    sessionManager = SessionManager(request)
+    if not sessionManager.isAdministrator():
+        return HttpResponse('顾客禁止使用此功能')
     if request.method == 'POST':  # 如果请求为表单提交
         modcourseForm = ModCourseForm(request.POST)  # 获取表单内容
         if modcourseForm.is_valid():  # 解析表单
-            courseintroduction = FormsManager.getData(modcourseForm, 'courseintroduction')
-            courseprice = FormsManager.getData(modcourseForm, 'courseprice')
+            courseintroduction = modcourseForm.cleaned_data['courseintroduction']
+            courseprice = modcourseForm.cleaned_data['courseprice']
 
             # 判断数据的正确性
             # 写数据库
