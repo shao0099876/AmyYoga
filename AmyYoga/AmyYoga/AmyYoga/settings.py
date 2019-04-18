@@ -38,12 +38,8 @@ INSTALLED_APPS = [
     'UserLogin',
     'CustomerRegister',
     'ChangePassword',
-    'CustomerCompleteInformation',
     'Index',
-    'superuser_message',
     'Database',
-    'CustomerCourse',
-    'admin_CourseMessage',
     'PersonalInformation',
     'Course',
 ]

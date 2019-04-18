@@ -16,14 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
-from CustomerRegister import views as CustomerRegisterView
-from CustomerCompleteInformation import views as CustomerCompleteInformationView
-
-from ChangePassword import views as ChangePasswordView
-from Index import views as IndexView
 from django.views import static
-from CustomerCourse import views as CustomerCourseView
-from admin_CourseMessage import views as admin_CourseMessageView
 
 from . import settings
 
