@@ -1,10 +1,11 @@
-from django.urls import path,include
+from django.urls import path, include
 from .views import *
+
 adminurlpatterns = {
-    path('', superusermessage),
-    path('<user>/', moremessage),
+    path('', adminViewInformation),
+    path('<username>/', adminViewDetails),
 }
 urlpatterns = {
     path('customer/', customerCompleteInformation),
-    path('admin/',include(adminurlpatterns)),
+    path('admin/', include(adminurlpatterns)),
 }
