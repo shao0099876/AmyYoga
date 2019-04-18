@@ -9,8 +9,6 @@ from Tools.URLPath import url_index_admin, url_login, url_index
 # Create your views here.
 def register(request):
     sessionManager = SessionManager(request)
-    if sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_admin)
     if sessionManager.isLogined():
         return HttpResponseRedirect(url_index)
     if request.method == 'POST':
