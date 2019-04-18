@@ -1,12 +1,11 @@
 from django.shortcuts import render
-from Database.models import *  # 用户购买课程的记录
-from Tools import SessionManager
+from Database.models import BuyRecord  # 用户购买课程的记录
+from Tools.SessionManager import SessionManager
 
-
-# Create your views here.
 
 def customercourse(request):  # 向页面输出当前用户已支付的订单信息
-    username = SessionManager.getUsername(request)  # 获取当前登录的用户名字
+    sessionManager=SessionManager(request)
+    username=sessionManager.getUsername()# 获取当前登录的用户名字
     user = BuyRecord.objects.filter(username=username, pay_flag=True, valid=True)  # 获取当前用户已经支付的课程信息
     return render(request, 'customercourseUI.html', {'order': user})  # 渲染页面 按照课程名排序
 
