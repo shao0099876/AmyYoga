@@ -1,7 +1,8 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
-from Database.models import *
+from Database.models import Customer, PersonalInformation
 from Tools.SessionManager import SessionManager
+from Tools.URLPath import url_register, url_index, url_login
 
 
 # Create your tests here.
@@ -12,7 +13,7 @@ class CustomerRegisterTestCase(TestCase):
 
     def test_user_logout_visit(self):
         c = self.client
-        response = c.get('/register/')
+        response = c.get(url_register)
         self.assertTemplateUsed(response, 'registerUI.html')
 
     def test_user_logined_visit(self):
@@ -20,102 +21,102 @@ class CustomerRegisterTestCase(TestCase):
         sessionManager = SessionManager()
         sessionManager.session = self.client.session
         sessionManager.setLogin('test_customer')
-        response = c.get("/register/", follow=True)
-        self.assertRedirects(response, "/")
+        response = c.get(url_register, follow=True)
+        self.assertRedirects(response, url_index)
         sessionManager.setLogin('test_admin')
-        response = c.get("/register/", follow=True)
-        self.assertRedirects(response, "/")
+        response = c.get(url_register, follow=True)
+        self.assertRedirects(response, url_index)
 
     def test_lost_username(self):
         c = self.client
-        response = c.post('/register/',
+        response = c.post(url_register,
                           {'username': '', 'password': 'test', 'confirmPassword': "test", 'phoneNumber': '1234',
                            'birthday': '123'})
         self.assertFormError(response, "registerForm", "username", "This field is required.")
 
     def test_lost_password(self):
         c = self.client
-        response = c.post('/register/',
+        response = c.post(url_register,
                           {'username': 'test', 'password': '', 'confirmPassword': "test", 'phoneNumber': '1234',
                            'birthday': '123'})
         self.assertFormError(response, "registerForm", "password", "This field is required.")
 
     def test_lost_confirmPassword(self):
         c = self.client
-        response = c.post('/register/',
+        response = c.post(url_register,
                           {'username': 'test', 'password': 'test', 'confirmPassword': "", 'phoneNumber': '1234',
                            'birthday': '123'})
         self.assertFormError(response, "registerForm", "confirmPassword", "This field is required.")
 
     def test_lost_phoneNumber(self):
         c = self.client
-        response = c.post('/register/',
+        response = c.post(url_register,
                           {'username': 'test', 'password': 'test', 'confirmPassword': "test", 'phoneNumber': '',
                            'birthday': '123'})
         self.assertFormError(response, "registerForm", "phoneNumber", "This field is required.")
 
     def test_lost_birthday(self):
         c = self.client
-        response = c.post('/register/',
+        response = c.post(url_register,
                           {'username': 'test', 'password': 'test', 'confirmPassword': "test", 'phoneNumber': '1234',
                            'birthday': ''})
         self.assertFormError(response, "registerForm", "birthday", "This field is required.")
 
     def test_username_existed(self):
         c = self.client
-        response = c.post('/register/', {'username': 'test_customer', 'password': 'test', 'confirmPassword': "test",
+        response = c.post(url_register, {'username': 'test_customer', 'password': 'test', 'confirmPassword': "test",
                                          'phoneNumber': '1234',
                                          'birthday': '123'})
         self.assertFormError(response, 'registerForm', None, '此用户名已存在')
 
     def test_password_format_wrong1(self):
         c = self.client
-        response = c.post('/register/', {'username': 'test', 'password': 'test', 'confirmPassword': "test",
+        response = c.post(url_register, {'username': 'test', 'password': 'test', 'confirmPassword': "test",
                                          'phoneNumber': '1234',
                                          'birthday': '123'})
         self.assertFormError(response, 'registerForm', None, '密码格式不正确')
 
     def test_password_format_wrong2(self):
         c = self.client
-        response = c.post('/register/', {'username': 'test', 'password': '123', 'confirmPassword': "123",
+        response = c.post(url_register, {'username': 'test', 'password': '123', 'confirmPassword': "123",
                                          'phoneNumber': '1234',
                                          'birthday': '123'})
         self.assertFormError(response, 'registerForm', None, '密码格式不正确')
 
     def test_password_format_wrong3(self):
         c = self.client
-        response = c.post('/register/', {'username': 'test', 'password': 'ABC', 'confirmPassword': "ABC",
+        response = c.post(url_register, {'username': 'test', 'password': 'ABC', 'confirmPassword': "ABC",
                                          'phoneNumber': '1234',
                                          'birthday': '123'})
         self.assertFormError(response, 'registerForm', None, '密码格式不正确')
 
     def test_confirmPassword_wrong(self):
         c = self.client
-        response = c.post('/register/', {'username': 'test', 'password': 'shao0123', 'confirmPassword': "shao012",
+        response = c.post(url_register, {'username': 'test', 'password': 'shao0123', 'confirmPassword': "shao012",
                                          'phoneNumber': '1234',
                                          'birthday': '123'})
         self.assertFormError(response, 'registerForm', None, '两次密码不一致')
 
     def test_phoneNumber_format_wrong(self):
         c = self.client
-        response = c.post('/register/', {'username': 'test', 'password': 'shao0123', 'confirmPassword': "shao0123",
+        response = c.post(url_register, {'username': 'test', 'password': 'shao0123', 'confirmPassword': "shao0123",
                                          'phoneNumber': '1234',
                                          'birthday': '123'})
         self.assertFormError(response, 'registerForm', None, '电话号码长度不正确')
 
     def test_birthday_format_wrong(self):
         c = self.client
-        response = c.post('/register/', {'username': 'test', 'password': 'shao0123', 'confirmPassword': "shao0123",
+        response = c.post(url_register, {'username': 'test', 'password': 'shao0123', 'confirmPassword': "shao0123",
                                          'phoneNumber': '17863107810',
                                          'birthday': '123'})
         self.assertFormError(response, 'registerForm', None, '生日格式不正确')
 
     def test_register_successful(self):
         c = self.client
-        response = c.post('/register/', {'username': 'test', 'password': 'shao0123', 'confirmPassword': "shao0123",
+        response = c.post(url_register, {'username': 'test', 'password': 'shao0123', 'confirmPassword': "shao0123",
                                          'phoneNumber': '17863107810',
                                          'birthday': '1998/03/13'})
-        self.assertRedirects(response, '/login/')
+        self.assertRedirects(response, url_login)
         test = Customer()
         test.username = "test"
         test.password = "shao0123"

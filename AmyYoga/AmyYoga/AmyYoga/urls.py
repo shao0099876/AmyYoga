@@ -26,6 +26,7 @@ urlpatterns = [
 
     path('login/', include('UserLogin.urls')),
     path('register/',include('CustomerRegister.urls')),
+    
     path('',include('Index.urls')),
     path('PersonalInformation/',include('PersonalInformation.urls')),
     path('password/',include('ChangePassword.urls')),
