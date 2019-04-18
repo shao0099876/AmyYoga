@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'Database',
     'CustomerCourse',
     'admin_CourseMessage',
+    'PersonalInformation',
 ]
 
 MIDDLEWARE = [
