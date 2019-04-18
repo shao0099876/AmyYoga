@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from Database import models
 import datetime
+from Tools import SessionManager
 from django.http import HttpResponseRedirect
 # Create your views here.
 def CourseUsed (request):
@@ -38,21 +39,26 @@ def CourseUsed (request):
                     time_id=str(year)+fixformats(month)+fixformats(day)+fixformats(hour)+fixformats(minute)+fixformats(second)
                     models.user_course_used.objects.create(record_id=time_id, username=username, coursename=course_name)
                     return render(request, 'CourseUsed.html', locals())
-
     return render(request, 'CourseUsed.html', locals())
-
 def moremessage_username(request, username):
     user_list = models.user_course_used.objects.filter(username=username)
     return render(request, 'CourseOpt.html',locals() )
 def moremessage_coursename(request, coursename):
     user_list = models.user_course_used.objects.filter(coursename=coursename)
     return render(request, 'CourseOpt.html',locals() )
-
-def newrecord(request,record_id):
-    return render(request,'CourseOpt.html',locals())
-
 def fixformats(date):
     if date//10==0:
         return '0'+str(date)
     else:
         return str(date)
+def UserCourseUsed(request):
+    username = SessionManager.getUsername(request)
+    if request.method == 'POST':
+        coursename = request.POST.get('coursename')
+        if coursename=='all':
+            user_list = models.user_course_used.objects.filter(username=username)
+            used_times = 0
+        else:
+            user_list = models.user_course_used.objects.filter(username=username,coursename=coursename)
+            used_times= models.user_course_used.objects.filter(username=username,coursename=coursename).count()
+    return render(request, 'UserCourseUsedRecord.html',locals() )

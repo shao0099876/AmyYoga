@@ -41,6 +41,7 @@ urlpatterns = [
     path('forgetpasswordlogin/',ChangePasswordView.forgetPasswordLogin),
     path('courseused/',CourseUsedView.CourseUsed),
     path('courseused/',include('CourseUsed.urls')),
+    path('usercourseused/', CourseUsedView.UserCourseUsed),
     path('superusermessage/', include('superuser_message.urls')),#管理员查看会员信息
 
     path('teacherteam/', IndexView.teacherteam),  # 首页中的课程相关界面
