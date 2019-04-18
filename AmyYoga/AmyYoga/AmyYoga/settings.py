@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Database',
     'PersonalInformation',
     'Course',
+    'About',
 ]
 
 MIDDLEWARE = [

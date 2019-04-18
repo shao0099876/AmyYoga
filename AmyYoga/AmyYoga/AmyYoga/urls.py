@@ -25,10 +25,11 @@ urlpatterns = [
     url('^static/(?P<path>.*)$', static.serve, {'document_root': settings.STATIC_ROOT}, name='static'),
 
     path('login/', include('UserLogin.urls')),
-    path('register/',include('CustomerRegister.urls')),
+    path('register/', include('CustomerRegister.urls')),
 
-    path('',include('Index.urls')),
-    path('PersonalInformation/',include('PersonalInformation.urls')),
-    path('password/',include('ChangePassword.urls')),
-    path('course/',include('Course.urls')),
+    path('', include('Index.urls')),
+    path('about/', include('About.urls')),
+    path('PersonalInformation/', include('PersonalInformation.urls')),
+    path('password/', include('ChangePassword.urls')),
+    path('course/', include('Course.urls')),
 ]
