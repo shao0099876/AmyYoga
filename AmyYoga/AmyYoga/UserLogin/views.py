@@ -1,35 +1,34 @@
-from django.core.exceptions import ObjectDoesNotExist, ValidationError
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponseRedirect
 from Tools.SessionManager import SessionManager
 from .forms import LoginForm
 from Database.models import Customer
+from Tools.URLPath import url_index_customer, url_index_admin, url_index
 
 
 # Create your views here.
-def login(request):  # 用户登录功能视图函数
+def login(request):
     sessionManager = SessionManager(request)
-    if request.method == 'POST':  # 如果请求为表单提交
-        loginForm = LoginForm(request.POST)  # 获取表单内容
-        if loginForm.is_valid():  # 解析表单
+    if request.method == 'POST':
+        loginForm = LoginForm(request.POST)
+        if loginForm.is_valid():
             username = loginForm.cleaned_data.get('username')
             password = loginForm.cleaned_data.get('password')
-            user = Customer.objects.get(username=username)  # 尝试查询该用户
+            user = Customer.objects.get(username=username)
             sessionManager.setLogin(username)
             if sessionManager.isAdministrator():
-                return HttpResponseRedirect("/administratorloginedindex/")
+                return HttpResponseRedirect(url_index_admin)
             else:
-                return HttpResponseRedirect("/customerloginedindex/")
-    else:  # 如果是普通访问（GET方法）
+                return HttpResponseRedirect(url_index_customer)
+    else:
         if sessionManager.isLogined():
-            return HttpResponseRedirect('/')  # 如果已经登录，跳转到首页
+            return HttpResponseRedirect(url_index)
         else:
-            loginForm = LoginForm()  # 创建表单
-    return render(request, 'loginUI.html', locals())  # 渲染页面
+            loginForm = LoginForm()
+    return render(request, 'loginUI.html', {'loginForm': loginForm})
 
 
 def logout(request):
     sessionManager = SessionManager(request)
     if sessionManager.isLogined():
         sessionManager.setLogout()
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect(url_index)
