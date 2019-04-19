@@ -3,114 +3,122 @@
 <head>
     <title>{% block title %}默认标题{% endblock %}</title>
     <style>
-     .base_top{
-        position:fixed;
-        width: 100%;
-        border: 0px;
-        padding: 0px;
-        margin: 0px;
-        height:20%;
-        top:0px;
-        left:0px;
-        background:{% load static %} url({% static 'mybody.jpg'%})
-        }
-     .base_left{
-        position:fixed;
-        width:10%;
-        border: 0px;
-        padding: 0px;
-        margin: 0px;
-        height:60%;
-        top:120px;
-        left:100px;
-        }
-     .base_right{
-        position:relative;
-        width: 70%;
-        border: 0px;
-        padding: 0px;
-        margin: 0px;
-        height:60%;
-        top:120px;
-        left:300px
-     }
-     .base_bottom{
-        position:fixed;
-        width: 100%;
-        border: 0px;
-        padding: 0px;
-        margin: 0px;
-        height:10%;
-        top:500px;
-        left:800px;
-     }
-</style>
+         .base_top{
+            position:fixed;
+            width: 100%;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            height:20%;
+            top:0px;
+            left:0px;
+            background:{% load static %} url({% static 'mybody.jpg'%})
+            }
+         .base_left{
+            position:fixed;
+            width:10%;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            height:60%;
+            top:120px;
+            left:100px;
+            }
+         .base_right{
+            position:relative;
+            width: 70%;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            height:60%;
+            top:120px;
+            left:300px
+         }
+         .base_bottom{
+            position:fixed;
+            width: 100%;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            height:10%;
+            top:500px;
+            left:800px;
+         }
+    </style>
 </head>
-
 <body>
-
 <div class="base_top">
-
-{% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
-<div align="right">
-    <a href="/logout/"><button>退出登陆</button></a>
-</div>
-{% endblock %}
-
-</div>
-
-<div class="base_left">
-
-{% block content1 %}<!--页面左边部分，存放页面的几个功能-->
-         <p>
-            {% load static %}
-             <a href="/superusermessage/">
-                 <img width="50" height="50" src="{% static 'myclass.jpg' %}"></a><br><a href="/superusermessage/"><b>会员资料</b></a>
-        </p>
-        <p>
-            {% load static %}
-            <a href="/admin_coursemessage/"><img width="50" height="50" src="{% static 'mybody.jpg' %}"></a>
-            <br><a href="/admin_coursemessage/"><b>课程信息</b></a>
-        </p>
-       <p>
-            {% load static %}
-           <a href="/buycourse/"> <img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
-           <br><a href="/buycourse/"><b>现场购课</b></a>
-        </p>
-        <p>
-            {% load static %}
-            <img width="50" height="50" src="{% static 'class.jpg' %}"><br><b>发布活动</b>
-        </p>
-        <p>
-            {% load static %}
-            <a href="/showrecord/"> <img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
-            <br>
-            <a href="/showrecord/"><b>客户订单</b></a>
-        </p>
-{% endblock %}
-
-</div>
-
-
-<div class="base_right">
-
-{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+    {% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
+    <div align="right">
+        <a href="/login/logout/">
+            <button>退出登陆</button>
+        </a>
+    </div>
     {% endblock %}
-
 </div>
-
+<div class="base_left">
+    {% block content1 %}<!--页面左边部分，存放页面的几个功能-->
+    <p>
+        {% load static %}
+        <a href="/PersonalInformation/admin/">
+            <img width="50" height="50" src="{% static 'myclass.jpg' %}">
+        </a>
+        <br>
+        <a href="/PersonalInformation/admin/">
+            <b>会员资料</b>
+        </a>
+    </p>
+    <p>
+        {% load static %}
+        <a href="/course/admin/">
+            <img width="50" height="50" src="{% static 'mybody.jpg' %}">
+        </a>
+        <br>
+        <a href="/course/admin/">
+            <b>课程信息</b>
+        </a>
+    </p>
+    <p>
+        {% load static %}
+        <a href="/purchase/scene/">
+            <img width="50" height="50" src="{% static 'myinformation.jpg' %}">
+        </a>
+        <br>
+        <a href="/purchase/scene/">
+            <b>现场购课</b>
+        </a>
+    </p>
+    <!---
+    <p>
+        {% load static %}
+        <img width="50" height="50" src="{% static 'class.jpg' %}"><br><b>发布活动</b>
+    </p>
+    --->
+    <p>
+        {% load static %}
+        <a href="/purchase/manage/">
+            <img width="50" height="50" src="{% static 'myinformation.jpg' %}">
+        </a>
+        <br>
+        <a href="/purchase/manage/">
+            <b>客户订单</b>
+        </a>
+    </p>
+    {% endblock %}
+</div>
+<div class="base_right">
+    {% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+    {% endblock %}
+</div>
 <div class="base_bottom">
-
-{% block footer %}<!--页脚信息-->
-        <p>
-            <i>
-                更多详情，请咨询，#############
-            </i>
-        </p>
-{% endblock %}
-
+    {% block footer %}<!--页脚信息-->
+    <p>
+        <i>
+            更多详情，请咨询，#############
+        </i>
+    </p>
+    {% endblock %}
 </div>
-
 </body>
 </html>
 

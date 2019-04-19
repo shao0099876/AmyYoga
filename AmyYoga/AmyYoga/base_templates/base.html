@@ -44,64 +44,60 @@
         top:500px;
         left:800px;
      }
-</style>
+    </style>
 </head>
-
 <body>
-
 <div class="base_top">
-
-{% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
-<div align="right">
-    <a href="/logout/"><button>退出登陆</button></a>
+    {% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
+    <div align="right">
+        <a href="/login/logout/">
+            <button>退出登陆</button>
+        </a>
+    </div>
+    {% endblock %}
 </div>
-{% endblock %}
-
-</div>
-
 <div class="base_left">
-
-{% block content1 %}<!--页面左边部分，存放页面的几个功能-->
-        <p>
-            {% load static %}
-            <a href="/customercourse/"> <img width="50" height="50" src="{% static 'myclass.jpg' %}"></a><br>
-            <a  href="/customercourse/"><b>我的课程</b></a>
-        </p>
-        <p>
-            {% load static %}
-            <img width="50" height="50" src="{% static 'mybody.jpg' %}"><br><b>身体评估</b>
-        </p>
-        <p>
-            {% load static %}
-            <a href="/purchasecourse/"><img width="50" height="50" src="{% static 'class.jpg' %}"></a><br>
-            <a href="/purchasecourse/"><b>选购课程</b></a>
-        </p>
-        <p>
-            {% load static %}
-            <a href="/completeinformation/"><img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
-            <br><a href="/completeinformation/"><b>个人信息</b></a>
-        </p>
-{% endblock %}
+    {% block content1 %}<!--页面左边部分，存放页面的几个功能-->
+    <p>
+        {% load static %}
+        <a href="/course/customer/payed/"> <img width="50" height="50" src="{% static 'myclass.jpg' %}"></a><br>
+        <a href="/course/customer/payed/"><b>我的课程</b></a>
+    </p>
+    <p>
+        {% load static %}
+        <img width="50" height="50" src="{% static 'mybody.jpg' %}"><br><b>身体评估</b>
+    </p>
+    <p>
+        {% load static %}
+        <a href="/purchase/view/"><img width="50" height="50" src="{% static 'class.jpg' %}"></a><br>
+        <a href="/purchase/view/"><b>选购课程</b></a>
+    </p>
+    <p>
+        {% load static %}
+        <a href="/PersonalInformation/customer/"><img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
+        <br><a href="/PersonalInformation/customer/"><b>个人信息</b></a>
+    </p>
+    {% endblock %}
 
 </div>
 
 
 <div class="base_right">
 
-{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+    {% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
     {% endblock %}
 
 </div>
 
 <div class="base_bottom">
 
-{% block footer %}<!--页脚信息-->
-        <p>
-            <i>
-                更多详情，请咨询，#############
-            </i>
-        </p>
-{% endblock %}
+    {% block footer %}<!--页脚信息-->
+    <p>
+        <i>
+            更多详情，请咨询，#############
+        </i>
+    </p>
+    {% endblock %}
 
 </div>
 
