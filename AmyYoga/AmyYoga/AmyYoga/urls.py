@@ -23,6 +23,8 @@ from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('^static/(?P<path>.*)$', static.serve, {'document_root': settings.STATIC_ROOT}, name='static'),
+    path('purchasecourse/', include('purchaseCourse.urls')),  # 管理员查看会员信息
+    path('buycourse/', include('Buycourserightnow.urls')),
 
     path('login/', include('UserLogin.urls')),
     path('register/', include('CustomerRegister.urls')),

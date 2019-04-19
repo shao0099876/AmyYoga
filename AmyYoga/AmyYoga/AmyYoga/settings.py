@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'PersonalInformation',
     'Course',
     'About',
+    'Manage_Record',
+    'purchaseCourse',
+    'Buycourserightnow'
 ]
 
 MIDDLEWARE = [

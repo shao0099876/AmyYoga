@@ -184,6 +184,7 @@ class PersonalInformation(CommonUsername):  # 个人信息类
         return self.shoulderwidth
 
 
+
 class Course(models.Model):  # 课程信息
     coursename = models.CharField(primary_key=True, max_length=20)  # 课程名
     courseintroduction = models.CharField(max_length=100, default="")  # 课程介绍
@@ -266,7 +267,7 @@ class BuyRecord(models.Model):
     username=models.CharField(max_length=50)
     coursename=models.CharField(max_length=50)
     amount=models.IntegerField(default=0)
-    time=models.DateTimeField(null=True)
+    time=models.DateTimeField(auto_now =True)
     pay_flag=models.BooleanField(default=False)#标记是否付钱的订单
     valid=models.BooleanField(default=True)#标记是否为取消的订单
 

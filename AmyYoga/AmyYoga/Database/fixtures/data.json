@@ -50,5 +50,21 @@
       "authoritySignal": "False",
       "password": "160400615"
     }
+  },
+   {
+    "model":"Database.Course",
+    "fields": {
+      "coursename": "yoga",
+      "courseintroduction": "sport",
+      "courseprice": "66"
+    }
+  },
+   {
+    "model":"Database.Course",
+    "fields": {
+      "coursename": "battle",
+      "courseintroduction": "exe",
+      "courseprice": "89"
+    }
   }
 ]
