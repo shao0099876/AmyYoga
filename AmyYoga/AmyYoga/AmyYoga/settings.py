@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'Database',
     'CustomerCourse',
     'admin_CourseMessage',
+    'CourseUsed',
     'Manage_Record',
     'purchaseCourse',
     'Buycourserightnow'

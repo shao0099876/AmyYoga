@@ -6,7 +6,7 @@ from .forms import LoginForm
 from Database.models import Customer
 
 
-# Create your views here.
+# Create your views here
 def login(request):  # 用户登录功能视图函数
     sessionManager = SessionManager(request)
     if request.method == 'POST':  # 如果请求为表单提交

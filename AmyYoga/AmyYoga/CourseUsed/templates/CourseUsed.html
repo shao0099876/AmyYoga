@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% extends 'admin_indexbase.html' %}
+{% block title %}上课次数{% endblock %}
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>上课记录</title>
+</head>
+<body>
+
+    <form id="user_course" action="" method="POST" >{% csrf_token %}
+        <br>
+        <br>
+        会员名：<input type="text" name="vipname" value="all" size="15">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        课程名：
+            <select name="coursename">
+                <option value="all" selected>all
+                {% for item in username_app %}
+                    <option value="{{ item.coursename }}" >{{ item.coursename }}
+                {% endfor %}
+            </select>
+        &nbsp;&nbsp;
+        <input type="submit" name="Submit" value="搜索">
+        &nbsp;&nbsp;
+        <input type="submit" name="newlyRecord" value="新建记录">
+    </form>
+    {% if messages %}
+        <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+        </script>
+    {% endif %}
+</body>
+<br>
+------------------------------------------------------------------------------------
+<br>
+<br>
+<table>
+
+    <tr>
+        <td>上课记录</td>
+        <td>会员名</td>
+        <td>课程名</td>
+    </tr>
+    {% for item in user_list  %}
+    <tr>
+        <td>{{ item.record_id }} </td>
+        <td>{{ item.username }}</td>
+        <td>{{ item.coursename }}</td>
+        <!--
+        <td><a href="{{item.username}}">
+            {{ item.username }}</a></td>
+        <td><a href="{{item.coursename}}">
+            {{ item.coursename }}</a></td>
+        -->
+    </tr>
+    {% endfor %}
+</table>
+<body>
+    {% if used_times > 0 %}
+        已上课次数：{{used_times}}
+    {% endif %}
+</body>
+<!--
+------------------------------------------------------------------------------------
+<body>
+<br>
+    <input type="button" name="plus" value="已上次数+1" onclick="javascript:course_used_times_plus()">
+    <script>
+        function course_used_times_plus(){
+            
+            alert("在调用函数了！");
+        }
+    </script>
+    &nbsp;&nbsp;
+    <input type="button" name="minus" value="已上次数-1" onclick="javascript:course_used_times_minus()">
+    <script>
+        function course_used_times_minus(){
+
+            alert("在调用函数了！");
+        }
+    </script>
+    
+
+    <p>单击已上次数+1或-1
+    <br>选中记录的已上次数+1或-1
+    </p>
+</body>
+-->
+</html>
+{% endblock %}
