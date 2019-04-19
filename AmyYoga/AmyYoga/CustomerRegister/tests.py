@@ -1,6 +1,7 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
 from Database.models import *
+from Tools.SessionManager import SessionManager
 
 
 # Create your tests here.
@@ -11,17 +12,17 @@ class CustomerRegisterTestCase(TestCase):
 
     def test_user_logout_visit(self):
         c = self.client
-        session = self.client.session
-        session['LoginStatus'] = 'Offline'
-        session.save()
         response = c.get('/register/')
         self.assertTemplateUsed(response, 'registerUI.html')
 
     def test_user_logined_visit(self):
         c = self.client
-        session = self.client.session
-        session['LoginStatus'] = 'Online'
-        session.save()
+        sessionManager = SessionManager()
+        sessionManager.session = self.client.session
+        sessionManager.setLogin('test_customer')
+        response = c.get("/register/", follow=True)
+        self.assertRedirects(response, "/")
+        sessionManager.setLogin('test_admin')
         response = c.get("/register/", follow=True)
         self.assertRedirects(response, "/")
 
@@ -129,11 +130,3 @@ class CustomerRegisterTestCase(TestCase):
         user = PersonalInformation.objects.get(username='test')
         self.assertRaises(ObjectDoesNotExist)
         self.assertEqual(test, user)
-
-
-'''username = forms.CharField(label='用户名', widget=forms.TextInput)  # 用户名框
-    password = forms.CharField(label='密码', widget=forms.PasswordInput)  # 密码框
-    confirmPassword = forms.CharField(label="确认密码", widget=forms.PasswordInput)
-    phoneNumber = forms.CharField(label="手机号", widget=forms.TextInput)
-    birthday = forms.DateField(label="生日", widget=forms.DateInput, input_formats=['%Y/%m/%d'],
-                               help_text='例如：1998/03/13')'''

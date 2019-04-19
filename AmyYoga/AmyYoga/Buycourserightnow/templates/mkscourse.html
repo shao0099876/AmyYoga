@@ -1,0 +1,37 @@
+{% extends 'admin_indexbase.html' %}
+{% block title %}现场购课{% endblock %}
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+<table id = 'tablelist' border="3" align="center" >
+    <caption>购买记录</caption>
+    <thead>
+    <tr>
+        <th>用户名</th>
+        <th>课程名</th>
+        <th>时 间</th>
+        <th>金 额</th>
+        <th>支付状态</th>
+    </tr>
+    </thead>
+    <div>
+    <tr>
+        <td>
+            {{ p.username }}
+        </td>
+        <td>
+            {{ p.coursename }}
+        </td>
+         <td>
+           {{ p.time }}
+        </td>
+         <td>
+            {{ p.amount }}
+        </td>
+         <td>
+            {{p.pay_flag }}
+        </td>
+    </tr>
+    </div>
+</table>
+
+
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from Database.models import BuyRecord #用户购买课程的记录
-from Tools import SessionManager,FormsManager
+from Tools import SessionManager
 
 # Create your views here.
 

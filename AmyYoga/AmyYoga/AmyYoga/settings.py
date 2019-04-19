@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     'CustomerCourse',
     'admin_CourseMessage',
     'CourseUsed',
-]
+    'Manage_Record',
+    'purchaseCourse',
+    'Buycourserightnow'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
