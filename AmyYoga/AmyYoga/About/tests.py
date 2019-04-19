@@ -7,20 +7,19 @@ class AboutTestCase(TestCase):
     def test_visit_teacherteam(self):
         c = self.client
         response = c.get(url_about_teacherteam)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'teacherteamUI.html')
+        self.assertTemplateUsed(response, 'teacherteam.html')
 
-    def test_visit_yogamessage(self):
+    def test_visit_yoga(self):
         c = self.client
         response = c.get(url_about_yoga)
-        self.assertTemplateUsed(response, 'yogamessageUI.html')
+        self.assertTemplateUsed(response, 'yoga.html')
 
     def test_visit_location(self):
         c = self.client
         response = c.get(url_about_location)
-        self.assertTemplateUsed(response, 'aboutlocationUI.html')
+        self.assertTemplateUsed(response, 'location.html')
 
     def test_visit_course(self):
         c = self.client
         response = c.get(url_about_course)
-        self.assertTemplateUsed(response, 'aboutclassUI.html')
+        self.assertTemplateUsed(response, 'course.html')
