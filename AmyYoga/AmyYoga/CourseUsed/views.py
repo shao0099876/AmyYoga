@@ -7,6 +7,7 @@ from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
 # Create your views here.
 def CourseUsed (request):
+    username_app=models.Course.objects.all()
     if request.method == 'POST':
         if request.POST.get('Submit'):#如果是Submit传来的请求
             username = request.POST.get('vipname')

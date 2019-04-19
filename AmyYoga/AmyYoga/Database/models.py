@@ -308,26 +308,5 @@ class BuyRecord(models.Model):
 
 class user_course_used (models.Model):#课程使用记录
     record_id=models.CharField(primary_key=True,max_length=50)
-    username = models.CharField(max_length=50)
-    coursename = models.CharField(max_length=50)
-
-    def getUsername(self):
-        return self.username
-    def setUsername(self,p):
-        self.username=p
-        self.save()
-    def getCoursename(self):
-        return self.coursename
-    def setCoursename(self,p):
-        self.coursename=p
-        self.save()
-    def getCourse_used_times(self):
-        return self.course_used_times
-    def setCourse_used_times(self,p):
-        self.course_used_times=p
-        self.save()
-    def getCourse_total_times(self):
-        return self.course_total_times
-    def setCourse_total_times(self,p):
-        self.course_total_times=p
-        self.save()
+    username = models.CharField(max_length=20)
+    coursename=models.CharField(max_length=20)
