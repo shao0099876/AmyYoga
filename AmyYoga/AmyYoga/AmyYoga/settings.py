@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'Manage_Record',
     'purchaseCourse',
     'Buycourserightnow'
-
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
