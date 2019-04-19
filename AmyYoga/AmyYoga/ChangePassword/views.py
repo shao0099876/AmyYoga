@@ -4,20 +4,19 @@ from django.shortcuts import render, HttpResponseRedirect
 from .forms import ChangePasswordForm, ForgetPasswordForm, UsernameForm
 from Database.models import Customer
 from Tools.SessionManager import SessionManager
-from Tools.URLPath import url_index_admin, url_forget_password, url_login, url_forget_password_login, url_index
+from Tools.URLPath import url_index_admin, url_forget_password, url_login, url_forget_password_login, url_index,url_index_customer
 
 
 def changePassword(request):
     sessionManager = SessionManager(request)
     if sessionManager.isLogouted():
-        return HttpResponseRedirect(url_forget_password)
+        return HttpResponseRedirect(url_index)
     if sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index_admin)
     if request.method == 'POST':
         changePasswordForm = ChangePasswordForm(request.POST)
         changePasswordForm.username = sessionManager.getUsername()
         if changePasswordForm.is_valid():
-            oldPassword = changePasswordForm.cleaned_data.get('oldPassword')
             username = changePasswordForm.username
             user = Customer.objects.get(username=username)
             newPassword = changePasswordForm.cleaned_data.get('newPassword')
@@ -31,8 +30,10 @@ def changePassword(request):
 
 def forgetPassword(request):
     sessionManager = SessionManager(request)
-    if sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_admin)
+    if sessionManager.isLogined():
+        if sessionManager.isAdministrator():
+            return HttpResponseRedirect(url_index_admin)
+        return HttpResponseRedirect(url_index_customer)
     if sessionManager.getUsername() is None:
         return HttpResponseRedirect(url_forget_password_login)
     if request.method == 'POST':
@@ -42,7 +43,7 @@ def forgetPassword(request):
             newPassword = forgetPasswordForm.cleaned_data.get('newPassword')
             user = Customer.objects.get(username=username)
             user.setPassword(newPassword)
-            return HttpResponseRedirect(url_login)  # 跳转登录页面
+            return HttpResponseRedirect(url_login)
     else:
         forgetPasswordForm = ForgetPasswordForm()
     return render(request, 'forgetPasswordUI.html', {'forgetPasswordForm': forgetPasswordForm})
@@ -50,8 +51,10 @@ def forgetPassword(request):
 
 def forgetPasswordLogin(request):
     sessionManager = SessionManager(request)
-    if sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_admin)
+    if sessionManager.isLogined():
+        if sessionManager.isAdministrator():
+            return HttpResponseRedirect(url_index_admin)
+        return HttpResponseRedirect(url_index_customer)
     if request.method == 'POST':
         usernameForm = UsernameForm(request.POST)
         if usernameForm.is_valid():
