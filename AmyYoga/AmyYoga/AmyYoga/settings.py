@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'UserLogin',
     'CustomerRegister',
     'ChangePassword',
@@ -43,9 +44,7 @@ INSTALLED_APPS = [
     'PersonalInformation',
     'Course',
     'About',
-    'Manage_Record',
-    'purchaseCourse',
-    'Buycourserightnow'
+    'Purchase',
 ]
 
 MIDDLEWARE = [
