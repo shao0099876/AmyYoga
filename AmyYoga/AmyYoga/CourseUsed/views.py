@@ -2,6 +2,8 @@ from django.shortcuts import render
 from Database import models
 import datetime
 from Tools import SessionManager
+from django.contrib import messages
+from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
 # Create your views here.
 def CourseUsed (request):
@@ -27,7 +29,9 @@ def CourseUsed (request):
             if request.POST.get('newlyRecord'):#如果是newlyRecord传来的请求
                 username = request.POST.get('vipname')
                 course_name = request.POST.get('coursename')
-                if username==''or username=='all' or course_name=='' or course_name=='all':#用户名为空
+                flags=models.Customer.objects.filter(username=username).exists()
+                if username==''or username=='all' or course_name=='' or course_name=='all'or flags==False:#用户名为空
+                    messages.warning(request, "输入错误！")
                     return render(request, 'CourseUsed.html', locals())#跳转
                 else:#在username,course_name新建一条数据库记录，自动生成一个id作为主键
                     year=datetime.datetime.now().year

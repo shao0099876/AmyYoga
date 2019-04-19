@@ -12,19 +12,26 @@
     <form id="user_course" action="" method="POST" >{% csrf_token %}
         <br>
         <br>
-        会员名：<input type="text" name="vipname" value="001" size="15">
+        会员名：<input type="text" name="vipname" value="all" size="15">
         &nbsp;&nbsp;&nbsp;&nbsp;
         课程名：
             <select name="coursename">
-               <option value="all" >all
-               <option value="001" selected>course1
+               <option value="all" selected>all
+               <option value="001" >course1
                <option value="002" > course2
             </select>
         &nbsp;&nbsp;
         <input type="submit" name="Submit" value="搜索">
         &nbsp;&nbsp;
-        <input type="submit" name="newlyRecord" value="新建记录" >
+        <input type="submit" name="newlyRecord" value="新建记录">
     </form>
+    {% if messages %}
+        <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+        </script>
+    {% endif %}
 </body>
 <br>
 ------------------------------------------------------------------------------------
