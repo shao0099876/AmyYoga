@@ -29,7 +29,7 @@ url_course_modify_course_detailed = '/course/modify/<coursename>/'
 url_course_delete_view = '/course/delete/'
 url_course_delete_detail = '/course/delete/<coursename>/'
 url_course_restore_view = '/course/restore/'
-
+'''purchase将会大改'''
 url_purchase_customer_payed='/purchase/customer/payed/'
 url_purchase_customer_unpayed='/purchase/customer/unpayed/'
 url_purchase_customer_unpayed_cancel='/purchase/customer/unpayed/cancel/<number>'
@@ -41,3 +41,5 @@ url_purchase_manage_view = '/purchase/manage/'
 url_purchase_manage_details = '/purchase/manage/<int:recordid>/'
 url_purchase_manage_confirmpayed = '/purchase/manage/confirm/<int:cord>/'
 url_purchase_manage_cancel = '/purchase/manage/cancel/<int:discord>/'
+
+url_courseused_

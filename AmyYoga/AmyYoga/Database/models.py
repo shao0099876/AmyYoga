@@ -12,40 +12,6 @@ class CommonUsername(models.Model):
         abstract = True
 
 
-class SecurityQA(CommonUsername):
-    securityQ1 = models.CharField(max_length=50)
-    securityA1 = models.CharField(max_length=50)
-    securityQ2 = models.CharField(max_length=50)
-    securityA2 = models.CharField(max_length=50)
-    securityQ3 = models.CharField(max_length=50)
-    securityA3 = models.CharField(max_length=50)
-
-    def checkSecurityQA(self, Qnum, Ans):
-        if self.securityQ1 == Qnum:
-            if self.securityA1 == Ans:
-                return True
-            else:
-                return False
-        if self.securityQ2 == Qnum:
-            if self.securityA2 == Ans:
-                return True
-            else:
-                return False
-        if self.securityQ3 == Qnum:
-            if self.securityA3 == Ans:
-                return True
-            else:
-                return False
-
-    def getSecurityQuestion(self, p):
-        if p == 1:
-            return self.securityQ1
-        elif p == 2:
-            return self.securityQ2
-        elif p == 3:
-            return self.securityQ3
-
-
 class Customer(CommonUsername):  # 用户类（管理员和客户合并到同一个类，用authoritySignal区分）
     authoritySignal = models.BooleanField(default=False)  # 身份标志，False为客户，True为管理员
     password = models.CharField(max_length=20)  # 密码
@@ -238,48 +204,6 @@ class Course(models.Model):  # 课程信息
         self.save()
 
 
-class PhysicalAssessment(models.Model):
-    number = models.IntegerField(primary_key=True)
-    customer = models.CharField(max_length=20)
-    date = models.DateField()
-    caption = models.CharField(max_length=50)
-    text = models.TextField()
-
-    def getNumber(self):
-        return self.number
-
-    def setNumber(self, p):
-        self.number = p
-        self.save()
-
-    def getCustomer(self):
-        return self.customer
-
-    def setCustomer(self, p):
-        self.customer = p
-        self.save()
-
-    def getDate(self):
-        return self.date
-
-    def setDate(self, p):
-        self.date = p
-        self.save()
-
-    def getCaption(self):
-        return self.caption
-
-    def setCaption(self, p):
-        self.caption = p
-        self.save()
-
-    def getText(self):
-        return self.text
-
-    def setText(self, p):
-        self.text = p
-        self.save()
-
 
 class BuyRecord(models.Model):
     number = models.IntegerField(primary_key=True)
@@ -339,7 +263,9 @@ class BuyRecord(models.Model):
         self.valid = p
         self.save()
 
-class user_course_used (models.Model):#课程使用记录
-    record_id=models.CharField(primary_key=True,max_length=50)
+
+class CourseUsedRecord(models.Model):  # 课程使用记录
+    number = models.CharField(primary_key=True, max_length=50)
     username = models.CharField(max_length=20)
-    coursename=models.CharField(max_length=20)
+    coursename = models.CharField(max_length=20)
+    time=models.DateTimeField(auto_now=True)
