@@ -1,11 +1,8 @@
 from django.shortcuts import render
 from Database import models
 import datetime
-from Tools import SessionManager
+from Tools.SessionManager import SessionManager
 from django.contrib import messages
-from django.core.exceptions import ValidationError
-from django.http import HttpResponseRedirect
-# Create your views here.
 def CourseUsed (request):
     username_app=models.Course.objects.all()
     if request.method == 'POST':
@@ -59,7 +56,8 @@ def fixformats(date):
     else:
         return str(date)
 def UserCourseUsed(request):
-    username = SessionManager.getUsername(request)
+    sessionManager=SessionManager(request)
+    username=sessionManager.getUsername()
     if request.method == 'POST':
         coursename = request.POST.get('coursename')
         if coursename=='all':
