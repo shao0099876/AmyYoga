@@ -12,11 +12,11 @@ def superusermessage(request):
     user_list = models.PersonalInformation.objects.all()
     return render(request, 'vipmessage.html', locals())
 
-def moremessage(request, user):
+def moremessage(request, username):
     if SessionManager.isLogouted(request):
         return HttpResponseRedirect("/login/")
     if not SessionManager.isAdministrator(request):
         return HttpResponseRedirect("/")
-    user_list = models.PersonalInformation.objects.filter(username=user)
+    user_list = models.PersonalInformation.objects.filter(username=username)
     #return HttpResponse(user)
     return render(request, 'moremessage.html',locals() )
