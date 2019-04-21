@@ -1,6 +1,7 @@
 from django.db import models
 from django.forms import fields
 
+
 # Create your models here.
 
 
@@ -66,32 +67,43 @@ class Customer(CommonUsername):  # 用户类（管理员和客户合并到同一
         self.save()
 
 
-SexChoices=(
+SexChoices = (
     (False, '女'),
     (True, '男')
-) #性别下拉列表
+)  # 性别下拉列表
 
 AgeChoices = (
     (1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5'), (6, '6'), (7, '7'), (8, '8'), (9, '9'), (10, '10'),
-    (11,'11'),(12,'12'),(13,'13'),(14,'14'),(15,'15'),(16,'16'),(17,'17'),(18,'18'),(19,'19'),(20,'20'),
-    (21,'21'),(22,'22'),(23,'23'),(24,'24'),(25,'25'),(26,'26'),(27,'27'),(28,'28'),(29,'29'),(30,'30'),
-    (31,'31'),(32,'32'),(33,'33'),(34,'34'),(35,'35'),(36,'36'),(37,'37'),(38,'38'),(39,'39'),(40,'40'),
-    (41,'41'),(42,'42'),(43,'43'),(44,'44'),(45,'45'),(46,'46'),(47,'47'),(48,'48'),(49,'49'),(50,'50'),
-    (51,'51'),(52,'52'),(53,'53'),(54,'54'),(55,'55'),(56,'56'),(57,'57'),(58,'58'),(59,'59'),(60,'60'),
-    (61, '61'), (62, '62'), (63, '63'), (64, '64'), (65, '65'), (66, '66'), (67, '67'), (68, '68'), (69, '69'), (70, '70'),
-    (71, '71'), (72, '72'), (73, '73'), (74, '74'), (75, '75'), (76, '76'), (77, '77'), (78, '78'), (79, '79'), (80, '80'),
-    (81, '81'), (82, '82'), (83, '83'), (84, '84'), (85, '85'), (86, '86'), (87, '87'), (88, '88'), (89, '89'), (90, '90'),
-    (91, '91'), (92, '92'), (93, '93'), (94, '94'), (95, '95'), (96, '96'), (97, '97'), (98, '98'), (99, '99'), (100, '100'),
+    (11, '11'), (12, '12'), (13, '13'), (14, '14'), (15, '15'), (16, '16'), (17, '17'), (18, '18'), (19, '19'),
+    (20, '20'),
+    (21, '21'), (22, '22'), (23, '23'), (24, '24'), (25, '25'), (26, '26'), (27, '27'), (28, '28'), (29, '29'),
+    (30, '30'),
+    (31, '31'), (32, '32'), (33, '33'), (34, '34'), (35, '35'), (36, '36'), (37, '37'), (38, '38'), (39, '39'),
+    (40, '40'),
+    (41, '41'), (42, '42'), (43, '43'), (44, '44'), (45, '45'), (46, '46'), (47, '47'), (48, '48'), (49, '49'),
+    (50, '50'),
+    (51, '51'), (52, '52'), (53, '53'), (54, '54'), (55, '55'), (56, '56'), (57, '57'), (58, '58'), (59, '59'),
+    (60, '60'),
+    (61, '61'), (62, '62'), (63, '63'), (64, '64'), (65, '65'), (66, '66'), (67, '67'), (68, '68'), (69, '69'),
+    (70, '70'),
+    (71, '71'), (72, '72'), (73, '73'), (74, '74'), (75, '75'), (76, '76'), (77, '77'), (78, '78'), (79, '79'),
+    (80, '80'),
+    (81, '81'), (82, '82'), (83, '83'), (84, '84'), (85, '85'), (86, '86'), (87, '87'), (88, '88'), (89, '89'),
+    (90, '90'),
+    (91, '91'), (92, '92'), (93, '93'), (94, '94'), (95, '95'), (96, '96'), (97, '97'), (98, '98'), (99, '99'),
+    (100, '100'),
     (101, '101'), (102, '102'), (103, '103'), (104, '104'), (105, '105'), (106, '106'), (107, '107'), (108, '108'),
     (109, '109'), (110, '110')
-)#年龄下拉列表
+)  # 年龄下拉列表
+
+
 class PersonalInformation(CommonUsername):  # 个人信息类
     phoneNumber = models.CharField(max_length=20, default="")  # 电话号码
     name = models.CharField(max_length=20, default="")  # 客户姓名
-    age = models.IntegerField(default=0, choices = AgeChoices)
+    age = models.IntegerField(default=0, choices=AgeChoices)
     birthday = models.DateField(default='1970-01-01')
     profession = models.CharField(max_length=20)
-    sex = models.BooleanField(default=False, choices = SexChoices)
+    sex = models.BooleanField(default=False, choices=SexChoices)
     height = models.FloatField(default=0)
     weight = models.FloatField(default=0)
     bust = models.FloatField(default=0)
@@ -184,7 +196,6 @@ class PersonalInformation(CommonUsername):  # 个人信息类
         return self.shoulderwidth
 
 
-
 class Course(models.Model):  # 课程信息
     coursename = models.CharField(primary_key=True, max_length=20)  # 课程名
     courseintroduction = models.CharField(max_length=100, default="")  # 课程介绍
@@ -218,6 +229,13 @@ class Course(models.Model):  # 课程信息
 
     def getCourseFlag(self):
         return self.course_flag
+
+    def create(self, a, b, c):
+        self.coursename = a
+        self.courseintroduction = b
+        self.courseprice = c
+        self.course_flag = True
+        self.save()
 
 
 class PhysicalAssessment(models.Model):
@@ -262,47 +280,61 @@ class PhysicalAssessment(models.Model):
         self.text = p
         self.save()
 
+
 class BuyRecord(models.Model):
-    number=models.IntegerField(primary_key=True)
-    username=models.CharField(max_length=50)
-    coursename=models.CharField(max_length=50)
-    amount=models.IntegerField(default=0)
-    time=models.DateTimeField(auto_now =True)
-    pay_flag=models.BooleanField(default=False)#标记是否付钱的订单
-    valid=models.BooleanField(default=True)#标记是否为取消的订单
+    number = models.IntegerField(primary_key=True)
+    username = models.CharField(max_length=50)
+    coursename = models.CharField(max_length=50)
+    amount = models.IntegerField(default=0)
+    time = models.DateTimeField(auto_now=True)
+    pay_flag = models.BooleanField(default=False)  # 标记是否付钱的订单
+    valid = models.BooleanField(default=True)  # 标记是否为取消的订单
 
     def getNumber(self):
         return self.number
-    def setNumber(self,p):
-        self.number=p
+
+    def setNumber(self, p):
+        self.number = p
         self.save()
+
     def getUsername(self):
         return self.username
-    def setUsername(self,p):
-        self.username=p
+
+    def setUsername(self, p):
+        self.username = p
         self.save()
+
     def getCoursename(self):
         return self.coursename
-    def setCoursename(self,p):
-        self.coursename=p
+
+    def setCoursename(self, p):
+        self.coursename = p
         self.save()
+
     def getAmount(self):
         return self.amount
-    def setAmount(self,p):
-        self.amount=p
+
+    def setAmount(self, p):
+        self.amount = p
         self.save()
+
     def getTime(self):
         return self.time
-    def setTime(self,p):
-        self.time=p
+
+    def setTime(self, p):
+        self.time = p
         self.save()
+
     def getPayFlag(self):
         return self.pay_flag
-    def setPayFlag(self,p):
-        self.pay_flag=p
+
+    def setPayFlag(self, p):
+        self.pay_flag = p
         self.save()
+
     def getValid(self):
         return self.valid
-    def setValid(self,p):
-        self.valid=p
+
+    def setValid(self, p):
+        self.valid = p
         self.save()

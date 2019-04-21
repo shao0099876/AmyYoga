@@ -7,8 +7,8 @@ from Tools.URLPath import url_index, url_index_admin, url_index_customer, url_lo
 
 def customerCompleteInformation(request):
     sessionManager = SessionManager(request)
-    if not sessionManager.isLogined():
-        return HttpResponseRedirect(url_index)
+    if sessionManager.isLogouted():
+        return HttpResponseRedirect(url_login)
     if sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index_admin)
     if request.method == 'POST':
@@ -48,24 +48,24 @@ def customerCompleteInformation(request):
         username = sessionManager.getUsername()
         user = PersonalInformation.objects.get(username=username)
         completeForm = CompleteForm(instance=user)
-    return render(request, 'completeinformationUI.html', {'completeForm': completeForm})  # 渲染页面
+    return render(request, 'CompleteInfo.html', {'completeForm': completeForm})  # 渲染页面
 
 
-def adminViewInformation(request):
+def viewMemeberList(request):
     sessionManager = SessionManager(request)
     if sessionManager.isLogouted():
         return HttpResponseRedirect(url_login)
     if not sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index_customer)
     userList = PersonalInformation.objects.all()
-    return render(request, 'vipmessage.html', {'user_list': userList})
+    return render(request, 'MemberList.html', {'user_list': userList})
 
 
-def adminViewDetails(request, username):
+def viewDetails(request, username):
     sessionManager = SessionManager(request)
     if sessionManager.isLogouted():
         return HttpResponseRedirect(url_login)
     if not sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index_customer)
     userList = PersonalInformation.objects.filter(username=username)
-    return render(request, 'moremessage.html', {"user_list": userList})
+    return render(request, 'DetailedInfo.html', {"user_list": userList})

@@ -1,0 +1,73 @@
+{% extends 'admin_indexbase.html' %}
+{% block title %}{{user}}详细信息{% endblock %}
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+<table border="3" align="center">
+    <caption>会员信息</caption>
+    <thead>
+    <tr>
+        <th>用户名</th>
+        <th>姓 名</th>
+        <th>年 龄</th>
+        <th>性 别</th>
+        <th>电 话</th>
+        <th>生 日</th>
+        <th>职 业</th>
+        <th>身 高</th>
+        <th>体 重</th>
+        <th>胸 围</th>
+        <th>腰 围</th>
+        <th>臀 围</th>
+        <th>肩 宽</th>
+    </tr>
+    </thead>
+
+    {% for item in user_list %}
+    <div>
+        <tr>
+            <td>
+                {{ item.username }}
+            </td>
+            <td>
+                {{ item.name }}
+            </td>
+            <td>
+                {{ item.age }}
+            </td>
+            <td>
+                {% if item.sex == True %}男
+                {% else %}女
+                {% endif %}
+            </td>
+            <td>
+                {{ item.phoneNumber }}
+            </td>
+            <td>
+                {{ item.birthday }}
+            </td>
+            <td>
+                {{ item.profession }}
+            </td>
+            <td>
+                {{ item.height }}
+            </td>
+            <td>
+                {{ item.weight }}
+            </td>
+            <td>
+                {{ item.bust }}
+            </td>
+            <td>
+                {{ item.waistline }}
+            </td>
+            <td>
+                {{ item.hipline }}
+            </td>
+            <td>
+                {{ item.shoulderwidth }}
+            </td>
+        </tr>
+    </div>
+    {% endfor %}
+</table>
+
+{% endblock %}

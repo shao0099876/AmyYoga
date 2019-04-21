@@ -1,6 +1,14 @@
 from django.urls import path, include
 from .views import *
 
+unpayedpatterns = {
+    path('', uncustomercourse),
+    path('cancel/<number>/', cancelorder),
+}
+customerpatterns = {
+    path('payed/', customercourse),
+    path('unpayed/', include(unpayedpatterns)),
+}
 scenepattern = {
     path('', buycourse),
     path('make/', makebuycourse)
@@ -14,7 +22,8 @@ managepattern = {
 }
 urlpatterns = {
     path('view/', purchaseCourse),
-    path('<course>/', purchase),
+    path('<course>/', purchase),''' 等待修改 ''',
     path('scene/', include(scenepattern)),
-    path('manage/', include(managepattern))
+    path('manage/', include(managepattern)),
+    path('customer/', include(customerpatterns)),
 }

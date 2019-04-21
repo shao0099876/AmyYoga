@@ -1,7 +1,7 @@
 from django import forms
 from Database import models
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
-class CourseForm(forms.Form):  #完善个人信息时提交的表单
+class CourseForm(forms.Form):
     username = forms.CharField(label='用户名', widget=forms.TextInput)
     coursename = forms.CharField(label='课程名', widget=forms.TextInput)
     def clean(self):
@@ -18,7 +18,7 @@ class CourseForm(forms.Form):  #完善个人信息时提交的表单
             raise ValidationError("课程不存在")
         return cleaned_data
 
-class CoruseModelForm(forms.ModelForm):  #完善个人信息时提交的表单
+class CoruseModelForm(forms.ModelForm):
     class Meta:
         model = models.BuyRecord
         exclude = [ 'time','valid']

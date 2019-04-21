@@ -6,7 +6,6 @@ from Tools.SessionManager import SessionManager
 from Tools.URLPath import url_index_admin, url_login, url_index
 
 
-# Create your views here.
 def register(request):
     sessionManager = SessionManager(request)
     if sessionManager.isLogined():

@@ -2,8 +2,8 @@ from django.urls import path, include
 from .views import *
 
 adminurlpatterns = {
-    path('', adminViewInformation),
-    path('<username>/', adminViewDetails),
+    path('', viewMemeberList),
+    path('<username>/', viewDetails),
 }
 urlpatterns = {
     path('customer/', customerCompleteInformation),

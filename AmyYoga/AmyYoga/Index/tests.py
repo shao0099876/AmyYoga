@@ -14,7 +14,7 @@ class UserLoginTestCase(TestCase):
         c = self.client
         response = c.get(url_index)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'indexUI.html')
+        self.assertTemplateUsed(response, 'Index.html')
 
     def test_customer_visit_index(self):
         c = self.client
@@ -23,7 +23,7 @@ class UserLoginTestCase(TestCase):
         sessionManager.setLogin('test_customer')
         response = c.get(url_index_customer)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'CustomerLoginedIndexUI.html')
+        self.assertTemplateUsed(response, 'CustomerIndex.html')
 
     def test_admin_visit_index(self):
         c = self.client
@@ -32,4 +32,4 @@ class UserLoginTestCase(TestCase):
         sessionManager.setLogin('test_admin')
         response = c.get(url_index_admin)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'AdministratorLoginedIndexUI.html')
+        self.assertTemplateUsed(response, 'AdminIndex.html')
