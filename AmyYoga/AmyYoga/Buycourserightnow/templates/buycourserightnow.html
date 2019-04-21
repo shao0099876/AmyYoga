@@ -1,9 +1,19 @@
 {% extends 'admin_indexbase.html' %}
 {% block title %}现场购课{% endblock %}
 {% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
-<form action='makebuy/' method="POST">
+<form method="POST">
         {%csrf_token%}
-        {{temp.as_table}}
-        <input type="submit" value="确认" style="font-size:1rem"><br>
-</form>
+        {% for field in temp %}
+            <div class="fieldWrapper">
+            {{ field.label_tag }} {{ field }}
+            {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+            </div>
+        {% endfor %}
+        {%if temp.non_field_errors%}
+            <div class="ErrorMessage">{{temp.non_field_errors}}</div>
+        {%endif%}
+        <input type="submit" value="确定" style="font-size:1rem"><br>
+    </form>
 {% endblock %}

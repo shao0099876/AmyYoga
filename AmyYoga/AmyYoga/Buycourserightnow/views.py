@@ -8,24 +8,23 @@ def buycourse(request):
         return HttpResponseRedirect("/login/")
     if not SessionManager.isAdministrator(request):
         return HttpResponseRedirect("/")
-    temp = CourseForm()
-    return render(request,'buycourserightnow.html', locals())
-
-def makebuycourse(request):
-    sessionManager = SessionManager(request)
     if request.method == 'POST':
         temp = CourseForm(request.POST)  # 获取表单内容
         if temp.is_valid():  # 解析表单
-            username = temp.cleaned_data.get('username')
-            coursename= temp.cleaned_data.get('coursename')
-            course = models.Course.objects.get(coursename=coursename)
-            p = models.BuyRecord()
-            p.username = username
-            p.coursename = course.getCourseName()
-            p.amount = course.getCoursePrice()
-            p.setPayFlag(True)
-            p.save()
-            return render(request,'mkscourse.html', locals())
+            user_name = temp.cleaned_data.get('username')
+            course_name= temp.cleaned_data.get('coursename')
+            temp=str(user_name)+"/"+str(course_name)
+            return HttpResponseRedirect(temp)
     else:
         temp = CourseForm()
-    return render(request,'buycourserightnow.html', locals())
+    return render(request, 'buycourserightnow.html', locals())
+
+def makebuycourse(request, user_name, course_name):
+    course = models.Course.objects.get(coursename=course_name)
+    p = models.BuyRecord()
+    p.username = user_name
+    p.coursename = course.getCourseName()
+    p.amount = course.getCoursePrice()
+    p.setPayFlag(True)
+    p.save()
+    return render(request,'mkscourse.html', locals())
