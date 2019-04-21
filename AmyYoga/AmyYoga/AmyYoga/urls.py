@@ -23,7 +23,8 @@ from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('^static/(?P<path>.*)$', static.serve, {'document_root': settings.STATIC_ROOT}, name='static'),
-
+    path('courseused/',include('CourseUsed.urls')),
+    path('usercourseused/', CourseUsedView.UserCourseUsed),
     path('login/', include('UserLogin.urls')),
     path('register/', include('CustomerRegister.urls')),
     path('', include('Index.urls')),

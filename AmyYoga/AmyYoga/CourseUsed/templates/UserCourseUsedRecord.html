@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %}test{% endblock %}
+{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上课记录</title>
+</head>
+<body>
+    <form id="user_course" action="" method="POST" >{% csrf_token %}
+        <br>
+        <br>
+        用户名：{{username}}
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        课程名：
+            <select name="coursename">
+               <option value="all" >all
+               <option value="001" selected>course1
+               <option value="002" > course2
+            </select>
+        &nbsp;&nbsp;
+        <input type="submit" name="Submit" value="搜索">
+    </form>
+</body>
+<br>
+------------------------------------------------------------------------------------
+<br>
+<br>
+<table>
+
+    <tr>
+        <td>上课记录</td>
+        <td>课程名</td>
+    </tr>
+    {% for item in user_list  %}
+    <tr>
+        <td>{{ item.record_id }} </td>
+        <td>{{ item.coursename }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<body>
+    {% if used_times > 0 %}
+        已上课次数：{{used_times}}
+    {% endif %}
+</body>
+</html>
+{% endblock %}
