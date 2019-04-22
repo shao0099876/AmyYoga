@@ -6,7 +6,12 @@ from Tools.URLPath import url_index, url_index_customer, url_index_admin
 
 # Create your views here.
 def index(request):  # 首页页面
-    return render(request, 'Index.html')  # 渲染页面
+    sessionManager = SessionManager(request)
+    if sessionManager.isLogined():#如果是登陆状态，那么对应页面就应该显示登出
+        status = 'LOGOUT'
+    else: #如果是未登录状态，那么对应页面就应该显示登陆或者注册
+        status = 'LOGIN'
+    return render(request, 'Index.html',{"status": status})  # 渲染页面
 
 
 def customerIndex(request):  # 客户登陆过后显示的首界面
