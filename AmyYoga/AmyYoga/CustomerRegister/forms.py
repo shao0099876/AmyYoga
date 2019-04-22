@@ -1,7 +1,6 @@
 from django import forms
 from Database.models import Customer
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
-import time
 
 
 class RegisterForm(forms.Form):  # 登录时输入的表单

@@ -1,24 +1,27 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from Tools.SessionManager import SessionManager
+from Tools.URLPath import url_index, url_index_customer, url_index_admin
+
 
 # Create your views here.
-def index(request):#首页页面
-    return render(request, 'indexUI.html', locals())  # 渲染页面
+def index(request):  # 首页页面
+    return render(request, 'Index.html')  # 渲染页面
 
-def teacherteam(request):#师资团队页面
-    return render(request, 'teacherteamUI.html', locals())  # 渲染页面
 
-def yogamessage(request):#瑜伽科普
-    return render(request, 'yogamessageUI.html', locals())  # 渲染页面
+def customerIndex(request):  # 客户登陆过后显示的首界面
+    sessionManager = SessionManager(request)
+    if sessionManager.isLogouted():
+        return HttpResponseRedirect(url_index)
+    if sessionManager.isAdministrator():
+        return HttpResponseRedirect(url_index_admin)
+    return render(request, 'CustomerIndex.html')  # 渲染页面
 
-def aboutlocation(request):#场地相关
-    return render(request, 'aboutlocationUI.html', locals())  # 渲染页面
 
-def aboutclass(request):#课程相关
-    return render(request, 'aboutclassUI.html', locals())  # 渲染页面
-
-def customerloginedindex(request):#客户登陆过后显示的首界面
-    return render(request, 'CustomerLoginedIndexUI.html', locals())  # 渲染页面
-
-def administratorloginedindex(request):#管理员登陆过后的首界面
-    return render(request, 'AdministratorLoginedIndexUI.html', locals())  # 渲染页面
-
+def adminIndex(request):  # 管理员登陆过后的首界面
+    sessionManager = SessionManager(request)
+    if sessionManager.isLogouted():
+        return HttpResponseRedirect(url_index)
+    if not sessionManager.isAdministrator():
+        return HttpResponseRedirect(url_index_customer)
+    return render(request, 'AdminIndex.html')  # 渲染页面

@@ -1,0 +1,45 @@
+url_admin = '/admin/'
+url_login = '/login/'
+url_logout = '/login/logout/'
+url_register = '/register/'
+
+url_index = '/'
+url_index_customer = '/customer/'
+url_index_admin = '/administrator/'
+
+url_about_teacherteam = '/about/teacherteam/'
+url_about_yoga = '/about/yoga/'
+url_about_location = '/about/location/'
+url_about_course = '/about/course/'
+
+url_customer_complete_information = '/PersonalInformation/customer/'
+url_admin_view_information = '/PersonalInformation/admin/'
+url_admin_view_information_detailed = '/PersonalInformation/admin/<username>/'
+
+url_forget_password = '/password/forget/'
+url_forget_password_login = '/password/forget/login/'
+url_change_password = '/password/change/'
+
+'''course将会有大改'''
+url_course_view_course = '/course/view/'
+url_course_view_course_details = '/course/view/<coursename>/'
+url_course_add_course = "/course/add/"
+url_course_modify_course_view = '/course/modify/'
+url_course_modify_course_detailed = '/course/modify/<coursename>/'
+url_course_delete_view = '/course/delete/'
+url_course_delete_detail = '/course/delete/<coursename>/'
+url_course_restore_view = '/course/restore/'
+'''purchase将会大改'''
+url_purchase_customer_payed='/purchase/customer/payed/'
+url_purchase_customer_unpayed='/purchase/customer/unpayed/'
+url_purchase_customer_unpayed_cancel='/purchase/customer/unpayed/cancel/<number>'
+url_purchase_view = '/purchase/view/'
+url_purchase_act = '/purchase/<course>/'
+url_purchase_scene = '/purchase/scene/'
+url_purchase_scene_make = '/purchase/scene/make/'
+url_purchase_manage_view = '/purchase/manage/'
+url_purchase_manage_details = '/purchase/manage/<int:recordid>/'
+url_purchase_manage_confirmpayed = '/purchase/manage/confirm/<int:cord>/'
+url_purchase_manage_cancel = '/purchase/manage/cancel/<int:discord>/'
+
+url_courseused_
