@@ -5,7 +5,8 @@ from Tools.SessionManager import SessionManager
 from django.contrib import messages
 def CourseUsed(request):
     '''全面更换form'''
-    username_app = Course.objects.all()    if request.method == 'POST':
+    username_app = Course.objects.all()
+    if request.method == 'POST':
         if request.POST.get('Submit'):  # 如果是Submit传来的请求
             username = request.POST.get('vipname')
             course_name = request.POST.get('coursename')
