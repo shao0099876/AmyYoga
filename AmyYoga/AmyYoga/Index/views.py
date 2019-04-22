@@ -15,7 +15,8 @@ def customerIndex(request):  # 客户登陆过后显示的首界面
         return HttpResponseRedirect(url_index)
     if sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index_admin)
-    return render(request, 'CustomerIndex.html')  # 渲染页面
+    people = 'kehu'
+    return render(request, 'CustomerIndex.html', {"people": people})  # 渲染页面，传递参数
 
 
 def adminIndex(request):  # 管理员登陆过后的首界面
@@ -24,4 +25,5 @@ def adminIndex(request):  # 管理员登陆过后的首界面
         return HttpResponseRedirect(url_index)
     if not sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index_customer)
-    return render(request, 'AdminIndex.html')  # 渲染页面
+    people = 'guanliyuan'
+    return render(request, 'AdminIndex.html', {"people": people})  # 渲染页面，传递参数

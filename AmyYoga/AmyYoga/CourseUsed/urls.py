@@ -2,7 +2,8 @@ from django.urls import path
 from .views import *
 viewpatterns={
     #path('',CourseUsed),
-    #path('',UserCourseUsed),#这条要改
+    #path('',UserCourseUsed),
+    #这条要改
     #path('user/<username>/',moremessage_username),
     #path('course/<coursename>/',moremessage_coursename),
 }
