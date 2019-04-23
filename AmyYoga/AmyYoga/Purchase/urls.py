@@ -22,7 +22,7 @@ managepattern = {
 }
 urlpatterns = {
     path('view/', purchaseCourse),
-    path('<course>/', purchase),''' 等待修改 ''',
+    path('<course>/', purchase),
     path('scene/', include(scenepattern)),
     path('manage/', include(managepattern)),
     path('customer/', include(customerpatterns)),
