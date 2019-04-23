@@ -8,33 +8,33 @@
     }
   },
   {
-    "model": "Database.user_course_used",
+    "model": "Database.CourseUsedRecord",
     "fields": {
-      "record_id": "2019041701",
+      "timeid": "2019041701010203040506",
       "username": "001",
       "coursename": "001"
     }
   },
   {
-    "model": "Database.user_course_used",
+    "model": "Database.CourseUsedRecord",
     "fields": {
-      "record_id": "2019041702",
+      "timeid": "2019041702",
       "username": "001",
       "coursename": "002"
     }
   },
   {
-    "model": "Database.user_course_used",
+    "model": "Database.CourseUsedRecord",
     "fields": {
-      "record_id": "2019041703",
+      "timeid": "2019041703",
       "username": "002",
       "coursename": "001"
     }
   },
   {
-    "model": "Database.user_course_used",
+    "model": "Database.CourseUsedRecord",
     "fields": {
-      "record_id": "2019041704",
+      "timeid": "2019041704",
       "username": "002",
       "coursename": "002"
     }

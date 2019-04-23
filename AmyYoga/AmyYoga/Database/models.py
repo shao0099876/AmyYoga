@@ -265,7 +265,7 @@ class BuyRecord(models.Model):
 
 
 class CourseUsedRecord(models.Model):  # 课程使用记录
-    number = models.CharField(primary_key=True, max_length=50)
+    timeid = models.CharField(primary_key=True, max_length=50)
     username = models.CharField(max_length=20)
     coursename = models.CharField(max_length=20)
-    time=models.DateTimeField(auto_now=True)
+    #time=models.DateTimeField(auto_now=True, default=False)
