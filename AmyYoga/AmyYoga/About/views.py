@@ -1,17 +1,37 @@
 from django.shortcuts import render
-
+from Tools.SessionManager import SessionManager
 
 def teacherteam(request):  # 师资团队页面
-    return render(request, 'teacherteam.html')
+    sessionManager = SessionManager(request)
+    if sessionManager.isLogined():#如果是登陆状态，那么对应页面就应该显示登出
+        status = 'LOGOUT'
+    else: #如果是未登录状态，那么对应页面就应该显示登陆或者注册
+        status = 'LOGIN'
+    return render(request, 'teacherteam.html', {"status": status})
 
 
 def yoga(request):  # 瑜伽科普
-    return render(request, 'yogamessage.html')
+    sessionManager = SessionManager(request)
+    if sessionManager.isLogined():#如果是登陆状态，那么对应页面就应该显示登出
+        status = 'LOGOUT'
+    else: #如果是未登录状态，那么对应页面就应该显示登陆或者注册
+        status = 'LOGIN'
+    return render(request, 'yoga.html', {"status": status})
 
 
 def location(request):  # 场地相关
-    return render(request, 'location.html')
+    sessionManager = SessionManager(request)
+    if sessionManager.isLogined():  # 如果是登陆状态，那么对应页面就应该显示登出
+        status = 'LOGOUT'
+    else:  # 如果是未登录状态，那么对应页面就应该显示登陆或者注册
+        status = 'LOGIN'
+    return render(request, 'location.html', {"status": status})
 
 
 def course(request):  # 课程相关
-    return render(request, 'course.html')
+    sessionManager = SessionManager(request)
+    if sessionManager.isLogined():  # 如果是登陆状态，那么对应页面就应该显示登出
+        status = 'LOGOUT'
+    else:  # 如果是未登录状态，那么对应页面就应该显示登陆或者注册
+        status = 'LOGIN'
+    return render(request, 'course.html', {"status": status})

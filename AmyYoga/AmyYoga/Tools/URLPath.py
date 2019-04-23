@@ -41,5 +41,3 @@ url_purchase_manage_view = '/purchase/manage/'
 url_purchase_manage_details = '/purchase/manage/<int:recordid>/'
 url_purchase_manage_confirmpayed = '/purchase/manage/confirm/<int:cord>/'
 url_purchase_manage_cancel = '/purchase/manage/cancel/<int:discord>/'
-
-url_courseused_
