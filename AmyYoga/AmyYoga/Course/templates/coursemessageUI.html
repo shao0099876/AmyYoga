@@ -45,6 +45,9 @@
             <th>序号</th>
             <th>课程名</th>
             <th>课程价格</th>
+            {% if people == 'guanliyuan' %}
+            <th>是否修改课程</th>
+            {% endif %}
         </tr>
          {% for i in order %}
         <tr>
