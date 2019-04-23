@@ -8,15 +8,12 @@ from .views import *
 
 '''
 modifypatterns = {
-    path('', modifyCourse),
     path('<coursename>/', ModCourse),
 }
 deletepatterns = {
-    path('', deletecourse),
     path('<coursename>/', DelCourse),
 }
 restorepatterns = {
-    path('', readdcourse),
     path('<coursename>/', reAddCourse),
 }
 viewpatterns={

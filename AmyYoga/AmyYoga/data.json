@@ -37,7 +37,7 @@
   {
     "model": "Database.BuyRecord",
     "fields": {
-      "number": 201904231627,
+      "number": 201904231628,
       "username": "杨小蛟",
       "coursename": "003",
       "amount":20,

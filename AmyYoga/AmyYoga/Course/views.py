@@ -54,15 +54,6 @@ def addCourse(request):  # 管理员增加课程信息
         return render(request, 'addcourseUI.html', locals())
 
 
-def modifyCourse(request):  # 管理员修改课程信息
-    '''等待合并'''
-    sessionManager = SessionManager(request)
-    if not sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_customer)
-    coursec = Course.objects.filter(course_flag=True)  # 查询在使用的课程信息
-    return render(request, 'modifycourseUI.html', {'order6': coursec})
-
-
 def ModCourse(request, coursename):  # 实际修改课程信息界面
     '''等待转换为主修改视图函数'''
     sessionManager = SessionManager(request)
@@ -83,15 +74,6 @@ def ModCourse(request, coursename):  # 实际修改课程信息界面
         return render(request, 'modcourseUI.html', locals())
 
 
-def deletecourse(request):  # 管理员下架课程
-    '''等待合并'''
-    sessionManager = SessionManager(request)
-    if not sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_customer)
-    course = Course.objects.filter(course_flag=True)  # 查询在使用的课程信息
-    return render(request, 'deletecourseUI.html', {'order4': course})
-
-
 def DelCourse(request, coursename):  # 实际执行下架操作
     '''等待转换为主视图函数'''
     sessionManager = SessionManager(request)
@@ -100,15 +82,6 @@ def DelCourse(request, coursename):  # 实际执行下架操作
     P = Course.objects.get(coursename=coursename)  # 先获取当前课程信息
     P.setCourseFlag(False)  # 下架课程
     return render(request, 'successfulUI.html', locals())
-
-
-def readdcourse(request):  # 管理员重新上架课程信息
-    '''等待合并'''
-    sessionManager = SessionManager(request)
-    if not sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_customer)
-    coursee = Course.objects.filter(course_flag=False)  # 获取已经下架的课程信息
-    return render(request, 'readdcourseUI.html', {'order5': coursee})
 
 
 def reAddCourse(request, coursename):  # 实际执行重新上架操作
