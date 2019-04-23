@@ -46,7 +46,9 @@
      }
     </style>
 </head>
+
 <body>
+
 <div class="base_top">
     {% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
     <div align="right">
@@ -56,8 +58,12 @@
     </div>
     {% endblock %}
 </div>
+
 <div class="base_left">
+
     {% block content1 %}<!--页面左边部分，存放页面的几个功能-->
+    <!--如果是管理员登陆就显示管理员界面-->
+    {% if  people == 'guanliyuan' %}
     <p>
         {% load static %}
         <a href="/purchase/customer/payed/"> <img width="50" height="50" src="{% static 'myclass.jpg' %}"></a><br>
@@ -65,7 +71,21 @@
     </p>
     <p>
         {% load static %}
-        <img width="50" height="50" src="{% static 'mybody.jpg' %}"><br><b>身体评估</b>
+        <a href="/purchase/manage/">
+            <img width="50" height="50" src="{% static 'myinformation.jpg' %}">
+        </a>
+        <br>
+        <a href="/purchase/manage/">
+            <b>客户订单</b>
+        </a>
+    </p>
+
+    {% elif people == 'kehu' %}
+    <!--普通用户登陆，显示的界面-->
+    <p>
+        {% load static %}
+        <a href="/course/customer/payed/"> <img width="50" height="50" src="{% static 'myclass.jpg' %}"></a><br>
+        <a href="/course/customer/payed/"><b>我的课程</b></a>
     </p>
     <p>
         {% load static %}
@@ -77,7 +97,10 @@
         <a href="/PersonalInformation/customer/"><img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
         <br><a href="/PersonalInformation/customer/"><b>个人信息</b></a>
     </p>
+     {% endif %}
+
     {% endblock %}
+
 
 </div>
 
@@ -92,11 +115,23 @@
 <div class="base_bottom">
 
     {% block footer %}<!--页脚信息-->
+
+    {% if people == 'guanliyuan' %}
+    <!--管理员页面显示的页脚信息-->
+    <p>
+        <i>
+            如有问题，请联系工作人员，#############
+        </i>
+    </p>
+
+    {% elif people == 'kehu' %}
+    <!--普通用户页面显示的页脚信息-->
     <p>
         <i>
             更多详情，请咨询，#############
         </i>
     </p>
+    {% endif %}
     {% endblock %}
 
 </div>
