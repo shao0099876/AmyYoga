@@ -66,8 +66,33 @@
     {% if  people == 'guanliyuan' %}
     <p>
         {% load static %}
-        <a href="/course/view/"> <img width="50" height="50" src="{% static 'myclass.jpg' %}"></a><br>
-        <a href="/course/view/"><b>我的课程</b></a>
+        <a href="/PersonalInformation/admin/">
+            <img width="50" height="50" src="{% static 'myclass.jpg' %}">
+        </a>
+        <br>
+        <a href="/PersonalInformation/admin/">
+            <b>会员资料</b>
+        </a>
+    </p>
+    <p>
+        {% load static %}
+        <a href="/course/view/">
+            <img width="50" height="50" src="{% static 'mybody.jpg' %}">
+        </a>
+        <br>
+        <a href="/course/view/">
+            <b>课程信息</b>
+        </a>
+    </p>
+    <p>
+        {% load static %}
+        <a href="/purchase/scene/">
+            <img width="50" height="50" src="{% static 'myinformation.jpg' %}">
+        </a>
+        <br>
+        <a href="/purchase/scene/">
+            <b>现场购课</b>
+        </a>
     </p>
     <p>
         {% load static %}

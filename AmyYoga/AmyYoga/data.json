@@ -8,35 +8,63 @@
     }
   },
   {
-    "model": "Database.user_course_used",
+    "model": "Database.Course",
     "fields": {
-      "record_id": "2019041701",
-      "username": "001",
-      "coursename": "001"
+      "coursename": "001",
+      "courseintroduction": "一号课程是个好课程",
+      "courseprice": "2500",
+      "course_flag":"True"
+    }
+  },
+   {
+    "model": "Database.Course",
+    "fields": {
+      "coursename": "002",
+      "courseintroduction": "二号课程是个好课程",
+      "courseprice": "2500",
+      "course_flag":"True"
+    }
+  },
+   {
+    "model": "Database.Course",
+    "fields": {
+      "coursename": "003",
+      "courseintroduction": "三号课程是个好课程",
+      "courseprice": "6900",
+      "course_flag":"False"
     }
   },
   {
-    "model": "Database.user_course_used",
+    "model": "Database.BuyRecord",
     "fields": {
-      "record_id": "2019041702",
-      "username": "001",
-      "coursename": "002"
+      "number": 201904231627,
+      "username": "杨小蛟",
+      "coursename": "003",
+      "amount":20,
+      "pay_flag": "True",
+      "valid": "True"
     }
   },
   {
-    "model": "Database.user_course_used",
+    "model": "Database.BuyRecord",
     "fields": {
-      "record_id": "2019041703",
-      "username": "002",
-      "coursename": "001"
+      "number": 201904231629,
+      "username": "杨小蛟",
+      "coursename": "001",
+      "amount":20,
+      "pay_flag": "True",
+      "valid": "False"
     }
   },
   {
-    "model": "Database.user_course_used",
+    "model": "Database.BuyRecord",
     "fields": {
-      "record_id": "2019041704",
-      "username": "002",
-      "coursename": "002"
+      "number": 201904231627,
+      "username": "杨小蛟",
+      "coursename": "002",
+      "amount":20,
+      "pay_flag": "False",
+      "valid": "True"
     }
   }
 ]
