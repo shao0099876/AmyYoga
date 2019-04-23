@@ -1,6 +1,12 @@
 {% extends 'admin_indexbase.html' %}
 
-{% block title %}管理员查看课程信息{% endblock %}
+{% block title %}
+{% if people == 'guanliyuan' %}
+管理员查看课程信息
+{% elif people == 'kehu' %}
+客户查看课程信息
+{% endif %}
+{% endblock %}
 
 {% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
 
@@ -26,26 +32,28 @@
         left:10%;
      }
 </style>
-    <p><a href="/admin_coursemessage/">查看课程</a> <a href="/addcourse/">增加课程</a> <a href="/modifycourse/">修改课程</a>
-        <a href="/deletecourse/">下架课程</a> <a href="/readdcourse/">重新上架</a></p>
+{% if people == 'guanliyuan' %}
+    <p><a href="/course/view/">查看课程</a> <a href="/course/add/">增加课程</a> <a href="/course/modify/">修改课程</a>
+        <a href="/course/delete/">下架课程</a> <a href="/course/restore/">重新上架</a></p>
+{% elif people == 'kehu' %}
+<p>所有课程</p>
+{% endif%}
 
-    {% if order%}
+{% if order %}
     <table>
         <tr>
             <th>序号</th>
             <th>课程名</th>
-            <th>课程介绍</th>
             <th>课程价格</th>
         </tr>
          {% for i in order %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td><a href="{{i.coursename}}">{{ i.coursename }}</a> </td>
-            <td>{{ i.courseintroduction }}</td>
+            <td><a href="/course/view/{{i.coursename}}/">{{ i.coursename }}</a> </td>
             <td>{{ i.courseprice }}</td>
         </tr>
         {% endfor %}
     </table>
-    {% endif %}
+{% endif %}
 
-    {% endblock %}
+{% endblock %}
