@@ -7,6 +7,11 @@ from Tools.URLPath import url_index, url_index_admin, url_index_customer, url_lo
 
 def customerCompleteInformation(request):
     sessionManager = SessionManager(request)
+    if sessionManager.isAdministrator():  # 如果是管理员登陆
+        people = 'guanliyuan'
+    else:  # 如果是客户登陆
+        people = 'kehu'
+
     if sessionManager.isLogouted():
         return HttpResponseRedirect(url_login)
     if sessionManager.isAdministrator():
@@ -48,24 +53,32 @@ def customerCompleteInformation(request):
         username = sessionManager.getUsername()
         user = PersonalInformation.objects.get(username=username)
         completeForm = CompleteForm(instance=user)
-    return render(request, 'CompleteInfo.html', {'completeForm': completeForm})  # 渲染页面
+    return render(request, 'CompleteInfo.html', {'completeForm': completeForm,"people":people})  # 渲染页面
 
 
 def viewMemeberList(request):
     sessionManager = SessionManager(request)
+    if sessionManager.isAdministrator():  # 如果是管理员登陆
+        people = 'guanliyuan'
+    else:  # 如果是客户登陆
+        people = 'kehu'
     if sessionManager.isLogouted():
         return HttpResponseRedirect(url_login)
     if not sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index_customer)
     userList = PersonalInformation.objects.all()
-    return render(request, 'MemberList.html', {'user_list': userList})
+    return render(request, 'MemberList.html', {'user_list': userList,"people":people})
 
 
 def viewDetails(request, username):
     sessionManager = SessionManager(request)
+    if sessionManager.isAdministrator():  # 如果是管理员登陆
+        people = 'guanliyuan'
+    else:  # 如果是客户登陆
+        people = 'kehu'
     if sessionManager.isLogouted():
         return HttpResponseRedirect(url_login)
     if not sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index_customer)
     userList = PersonalInformation.objects.filter(username=username)
-    return render(request, 'DetailedInfo.html', {"user_list": userList})
+    return render(request, 'DetailedInfo.html', {"user_list": userList,"people":people})
