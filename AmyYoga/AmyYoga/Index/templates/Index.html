@@ -42,75 +42,81 @@
         margin: 0px;
         height:10%;
         top:500px;
-        left:800px;
+        left:400px;
      }
-</style>
+    </style>
 </head>
 
 <body>
 
 <div class="base_top">
 
-{% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
+    {% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
 
-{% if  status == 'LOGOUT' %}
-<div align="right">
-    <a href="/login/logout/"><button>退出</button></a>
-</div>
+    {% if status == 'LOGOUT' %}
+    <div align="right">
+        <a href="/login/logout/">
+            <button>退出</button>
+        </a>
+    </div>
 
-{% elif status == 'LOGIN'%}
-<div align="right">
-    <a href="/register/"><button>注册</button></a> <a href="/login/"><button>登陆</button></a>
-</div>
-{% endif %}
-{% endblock %}
+    {% elif status == 'LOGIN'%}
+    <div align="right">
+        <a href="/register/">
+            <button>注册</button>
+        </a> <a href="/login/">
+        <button>登陆</button>
+    </a>
+    </div>
+    {% endif %}
+    {% endblock %}
 
 </div>
 
 <div class="base_left">
 
-{% block content1 %}<!--页面左边部分，存放页面的几个功能-->
-       <p>
-            <a href="/about/teacherteam/">{% load static %}
-                <img width="50" height="50" src="{% static 'teacherteam.jpg' %}"></a>
-            <br><a href="/about/teacherteam/"><b>师资团队</b></a>
-        </p>
-        <p>
-            <a href="/about/course/">{% load static %}
-                <img width="50" height="50" src="{% static 'class.jpg' %}"></a>
-            <br><a href="/about/course/"><b>课程相关</b></a>
-        </p>
-        <p>
-            <a href="/about/location/">{% load static %}
-                <img width="50" height="50" src="{% static 'location.jpg' %}"></a>
-            <br><a href="/about/location/"><b>场地相关</b></a>
-        </p>
-        <p>
-            <a href="/about/yoga/">{% load static %}
-                <img width="50" height="50" src="{% static 'yogainformation.jpg' %}"></a>
-            <br><a href="/about/yoga/"><b>瑜伽科普</b></a>
-        </p>
-{% endblock %}
+    {% block content1 %}<!--页面左边部分，存放页面的几个功能-->
+    <p>
+        <a href="/about/teacherteam/">{% load static %}
+            <img width="50" height="50" src="{% static 'teacherteam.jpg' %}"></a>
+        <br><a href="/about/teacherteam/"><b>师资团队</b></a>
+    </p>
+    <p>
+        <a href="/about/course/">{% load static %}
+            <img width="50" height="50" src="{% static 'class.jpg' %}"></a>
+        <br><a href="/about/course/"><b>课程相关</b></a>
+    </p>
+    <p>
+        <a href="/about/location/">{% load static %}
+            <img width="50" height="50" src="{% static 'location.jpg' %}"></a>
+        <br><a href="/about/location/"><b>场地相关</b></a>
+    </p>
+    <p>
+        <a href="/about/yoga/">{% load static %}
+            <img width="50" height="50" src="{% static 'yogainformation.jpg' %}"></a>
+        <br><a href="/about/yoga/"><b>瑜伽科普</b></a>
+    </p>
+    {% endblock %}
 
 </div>
 
 
 <div class="base_right">
 
-{% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
+    {% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
     {% endblock %}
 
 </div>
 
 <div class="base_bottom">
 
-{% block footer %}<!--页脚信息-->
-        <p>
-            <i>
-                更多详情，请咨询，#############
-            </i>
-        </p>
-{% endblock %}
+    {% block footer %}<!--页脚信息-->
+    <p>
+        <i>
+            备案号：鲁ICP备19009254号；联系方式：17863107810；电子邮件：shao0099876@163.com
+        </i>
+    </p>
+    {% endblock %}
 
 </div>
 
