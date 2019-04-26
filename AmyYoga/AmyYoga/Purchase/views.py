@@ -13,7 +13,7 @@ def purchaseCourse(request):
     if sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index_admin)
     course_list = Course.objects.filter(course_flag=True)
-    return render(request, 'purchaseCourse.html', locals())
+    return render(request, 'coursemessageUI.html', locals())
 
 
 def purchase(request, course):

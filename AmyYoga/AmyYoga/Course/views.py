@@ -9,15 +9,31 @@ from .forms import AddCourseForm, ModCourseForm
 def viewCourse(request):  # 管理员查看课程信息
     '''这个功能换成通用的，管理员访问在模板生成时多加个修改的按钮'''
     sessionManager = SessionManager(request)
-    courses = Course.objects.filter(course_flag=True)  # 查询在使用的课程信息
-    return render(request, 'coursemessageUI.html', {'order': courses})
+    if sessionManager.isAdministrator(): #如果是管理员登陆
+        courses = Course.objects.all()  # 查询全部课程信息
+        people1 = 'guanliyuan'
+
+    else: #如果是客户登陆
+        courses = Course.objects.filter(course_flag=True)  # 查询在使用的课程信息
+        people1 = 'kehu'
+
+    return render(request, 'coursemessageUI.html', {'order': courses, 'people': people1})
 
 
 def viewCourseDetails(request, coursename):  # 显示课程的详细信息
     '''修改此处功能，换成显示课程的课程名，简介等信息'''
     sessionManager = SessionManager(request)
-    detailcourse = BuyRecord.objects.filter(coursename=coursename, valid=True)  # 查询这个课程的所有订单，包括付钱和没付钱的
-    return render(request, 'detailmessageUI.html', {'order1': detailcourse})
+    if sessionManager.isAdministrator(): #如果是管理员登陆
+        courses = Course.objects.get(coursename=coursename)  # 查询当前课程信息,为了后面显示详细信息
+        detailcourse = BuyRecord.objects.filter(coursename=coursename)  # 查询这个课程的所有订单（包括付钱和没付钱的）
+        people2 = 'guanliyuan'
+
+    else: #如果是客户登陆
+        username = sessionManager.getUsername()  # 获取当前登录的用户名字
+        courses = Course.objects.get(coursename=coursename)  # 查询当前课程信息,为了后面显示详细信息
+        detailcourse = BuyRecord.objects.filter(username=username,coursename=coursename)  # 查询这个用户关于这门课的订单状态（付钱和没付钱的）
+        people2 = 'kehu'
+    return render(request, 'detailmessageUI.html', {'people':people2,'courses':courses,'order1': detailcourse})
 
 
 def addCourse(request):  # 管理员增加课程信息
@@ -36,15 +52,6 @@ def addCourse(request):  # 管理员增加课程信息
     else:
         addcourseForm = AddCourseForm()
         return render(request, 'addcourseUI.html', locals())
-
-
-def modifyCourse(request):  # 管理员修改课程信息
-    '''等待合并'''
-    sessionManager = SessionManager(request)
-    if not sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_customer)
-    coursec = Course.objects.filter(course_flag=True)  # 查询在使用的课程信息
-    return render(request, 'modifycourseUI.html', {'order6': coursec})
 
 
 def ModCourse(request, coursename):  # 实际修改课程信息界面
@@ -67,15 +74,6 @@ def ModCourse(request, coursename):  # 实际修改课程信息界面
         return render(request, 'modcourseUI.html', locals())
 
 
-def deletecourse(request):  # 管理员下架课程
-    '''等待合并'''
-    sessionManager = SessionManager(request)
-    if not sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_customer)
-    course = Course.objects.filter(course_flag=True)  # 查询在使用的课程信息
-    return render(request, 'deletecourseUI.html', {'order4': course})
-
-
 def DelCourse(request, coursename):  # 实际执行下架操作
     '''等待转换为主视图函数'''
     sessionManager = SessionManager(request)
@@ -84,15 +82,6 @@ def DelCourse(request, coursename):  # 实际执行下架操作
     P = Course.objects.get(coursename=coursename)  # 先获取当前课程信息
     P.setCourseFlag(False)  # 下架课程
     return render(request, 'successfulUI.html', locals())
-
-
-def readdcourse(request):  # 管理员重新上架课程信息
-    '''等待合并'''
-    sessionManager = SessionManager(request)
-    if not sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_customer)
-    coursee = Course.objects.filter(course_flag=False)  # 获取已经下架的课程信息
-    return render(request, 'readdcourseUI.html', {'order5': coursee})
 
 
 def reAddCourse(request, coursename):  # 实际执行重新上架操作
