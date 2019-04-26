@@ -4,8 +4,7 @@ url_logout = '/login/logout/'
 url_register = '/register/'
 
 url_index = '/'
-url_index_customer = '/customer/'
-url_index_admin = '/administrator/'
+url_index_logined = '/logined/'
 
 url_about_teacherteam = '/about/teacherteam/'
 url_about_yoga = '/about/yoga/'

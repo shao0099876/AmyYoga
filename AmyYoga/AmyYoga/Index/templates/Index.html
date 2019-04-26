@@ -3,14 +3,14 @@
 
 {% block content %}<!--页面上方部分，存放AmyYoga的Logo-->
 
-    {% if status == 'LOGOUT' %}
+    {% if status == 'LOGIN' %}
     <div align="right">
         <a href="/login/logout/">
             <button>退出</button>
         </a>
     </div>
 
-    {% elif status == 'LOGIN'%}
+    {% elif status == 'LOGOUT'%}
     <div align="right">
         <a href="/register/">
             <button>注册</button>

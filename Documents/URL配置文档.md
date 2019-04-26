@@ -1,8 +1,16 @@
 # URL配置文档
 ## 首页
-/
+1. 首页
 
-例如 srcserver.xyz
+    srcserver.xyz/
+
+    对应视图函数：Index.index
+
+2. 登录后首页
+
+    srcserver.xyz/logined/
+
+    对应视图函数：Index.loginedIndex
 
 ## 用户登录
 

@@ -63,7 +63,7 @@
 
     {% block content1 %}<!--页面左边部分，存放页面的几个功能-->
     <!--如果是管理员登陆就显示管理员界面-->
-    {% if  people == 'guanliyuan' %}
+    {% if  Authority == 'Admin' %}
     <p>
         {% load static %}
         <a href="/PersonalInformation/admin/">
@@ -105,7 +105,7 @@
         </a>
     </p>
 
-    {% elif people == 'kehu' %}
+    {% elif Authority == 'Customer' %}
     <!--普通用户登陆，显示的界面-->
     <p>
         {% load static %}
