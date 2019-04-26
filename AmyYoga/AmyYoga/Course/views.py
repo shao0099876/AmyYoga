@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from Database.models import BuyRecord, Course  # 用户购买课程的记录
 from Tools.SessionManager import SessionManager
-from Tools.URLPath import url_index_customer, url_course_view_course
+from Tools.URLPath import url_index_logined, url_course_view_course
 from .forms import AddCourseForm, ModCourseForm
 
 

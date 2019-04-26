@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from Tools.SessionManager import SessionManager
-from Tools.URLPath import url_login,url_index_admin,url_index_customer
+from Tools.URLPath import url_login,url_index_logined
 from Database.models import Course,BuyRecord
 from .forms import CourseForm
 

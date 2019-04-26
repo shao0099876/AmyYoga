@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from Tools.SessionManager import SessionManager
-from Tools.URLPath import url_index, url_index_customer, url_index_admin
+from Tools.URLPath import url_index, url_index_logined
 
 
 # Create your views here.

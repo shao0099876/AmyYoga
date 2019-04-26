@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>AmyYogaRegister</title>
 </head>
 <body>
@@ -8,19 +9,18 @@
     <form method="POST">
         {%csrf_token%}
         {% for field in registerForm %}
-            <div class="fieldWrapper">
+        <div class="fieldWrapper">
             {{ field.label_tag }} {{ field }}
             {% if field.help_text %}
-                <p class="help">{{ field.help_text|safe }}</p>
+            <p class="help">{{ field.help_text|safe }}</p>
             {% endif %}
-            </div>
+        </div>
         {% endfor %}
         {%if registerForm.non_field_errors%}
-            {{registerForm.non_field_errors}}
+        {{registerForm.non_field_errors}}
         {%endif%}
         <input type="submit" value="注册">
     </form>
 </div>
-
 </body>
 </html>

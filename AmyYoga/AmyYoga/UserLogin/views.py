@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from Tools.SessionManager import SessionManager
 from .forms import LoginForm
 from Database.models import Customer
-from Tools.URLPath import url_index_customer, url_index_admin, url_index
+from Tools.URLPath import url_index_logined, url_index
 
 
 # Create your views here.

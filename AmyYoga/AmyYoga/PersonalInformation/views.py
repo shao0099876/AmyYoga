@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from .forms import CompleteForm
 from Database.models import PersonalInformation
 from Tools.SessionManager import SessionManager
-from Tools.URLPath import url_index, url_index_admin, url_index_customer, url_login
+from Tools.URLPath import url_index, url_index_logined, url_login
 
 
 def customerCompleteInformation(request):
