@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from .forms import CompleteForm
 from Database.models import PersonalInformation
 from Tools.SessionManager import SessionManager
-from Tools.URLPath import url_index,url_login
+from Tools.URLPath import url_index,url_index_logined
 
 
 def customerCompleteInformation(request):
@@ -45,7 +45,7 @@ def customerCompleteInformation(request):
             personalInformation.setHipline(hipline)
             personalInformation.setShoulderwidth(shoulderwidth)
 
-            return HttpResponseRedirect(url_index)
+            return HttpResponseRedirect(url_index_logined)
     else:
         username = sessionManager.getUsername()
         user = PersonalInformation.objects.get(username=username)

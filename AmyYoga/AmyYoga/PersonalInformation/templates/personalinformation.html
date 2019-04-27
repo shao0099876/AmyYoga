@@ -34,11 +34,17 @@
             {% for item in user_list %}
         <div>
             <tr>
+                {% if detailflag == 'false' %}
                 <td>
                     <a href="{{ item.username }}">
                         {{ item.username }}
                         </a>
                 </td>
+                {% else %}
+                    <td>
+                        {{ item.username }}
+                </td>
+                {% endif %}
                 <td>
                     {{ item.name }}
                 </td>
