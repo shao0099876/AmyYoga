@@ -5,6 +5,8 @@ url_register = '/register/'
 
 url_index = '/'
 url_index_logined = '/logined/'
+url_index_admin = '/logined/'
+url_index_customer = '/logined/'
 
 url_about_teacherteam = '/about/teacherteam/'
 url_about_yoga = '/about/yoga/'

@@ -29,3 +29,7 @@ class CoruseModelForm(forms.ModelForm):
             'amount':'金额',
             'pay_flag':'支付状态'
         }
+
+class recordForm(forms.Form):
+    coursename = forms.CharField()
+    courseprice = forms.CharField()
