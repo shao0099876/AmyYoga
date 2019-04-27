@@ -1,7 +1,7 @@
-{% extends 'admin_indexbase.html' %}
+{% extends 'logedbase.html' %}
 {% block title %}现场购课{% endblock %}
 {% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
-<form method="POST">
+<form method="POST" action="make/">
         {%csrf_token%}
         {% for field in temp %}
             <div class="fieldWrapper">

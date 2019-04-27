@@ -22,7 +22,7 @@ managepattern = {
 }
 urlpatterns = {
     path('view/', purchaseCourse),
-    path('<course>/', purchase),
+    path('view/mks/', purchase),
     path('scene/', include(scenepattern)),
     path('manage/', include(managepattern)),
     path('customer/', include(customerpatterns)),

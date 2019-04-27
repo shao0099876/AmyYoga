@@ -1,6 +1,5 @@
-{% extends 'admin_indexbase.html' %}
+{% extends 'logedbase.html' %}
 {% block title %}查看购买记录{% endblock %}
-
 
 {% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
 <table id = 'tablelist' border="3" align="center" >
@@ -15,30 +14,70 @@
         <th>支付状态</th>
     </tr>
     </thead>
-    {% for item in record_list  %}
-    <div>
-    <tr>
-        <td>
-            <a href="{{item.number}}">
-            {{ item.number }}</a>
-        </td>
-        <td>
-            {{ item.username }}
-        </td>
-        <td>
-            {{ item.coursename }}
-        </td>
-         <td>
-           {{ item.time }}
-        </td>
-         <td>
-            {{ item.amount }}
-        </td>
-         <td>
-            {{ item.pay_flag }}
-        </td>
-    </tr>
-    </div>
-    {% endfor %}
+    {% if iterable == 'True' %}
+        {% for item in record_list  %}
+        <div>
+        <tr>
+            <td>
+                <a href="{{item.number}}">
+                {{ item.number }}</a>
+            </td>
+            <td>
+                {{ item.username }}
+            </td>
+            <td>
+                {{ item.coursename }}
+            </td>
+             <td>
+               {{ item.time }}
+            </td>
+             <td>
+                {{ item.amount }}
+            </td>
+             <td>
+                {{ item.pay_flag }}
+            </td>
+        </tr>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div>
+        <tr>
+            {% if localflag == 'True' %}
+            <td>
+                <a href="{{item.number}}">
+                {{ item.number }}</a>
+            </td>
+            {% else %}
+                <td>
+                {{ item.number }}
+                </td>
+            {% endif %}
+            <td>
+                {{ item.username }}
+            </td>
+            <td>
+                {{ item.coursename }}
+            </td>
+             <td>
+               {{ item.time }}
+            </td>
+             <td>
+                {{ item.amount }}
+            </td>
+             <td>
+                {{ item.pay_flag }}
+            </td>
+            {% if item.pay_flag == False %}
+             <td>
+                <a href="/purchase/manage/confirm/{{item.number}}/"><button>确认订单</button></a>
+            </td>
+             <td>
+                 <a href="/purchase/manage/cancel/{{item.number}}"><button>取消订单</button></a>
+            </td>
+            {% endif %}
+        </tr>
+        </div>
+    {% endif %}
 </table>
 {% endblock %}
