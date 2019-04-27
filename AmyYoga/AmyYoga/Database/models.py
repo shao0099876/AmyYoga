@@ -1,8 +1,4 @@
 from django.db import models
-from django.forms import fields
-
-
-# Create your models here.
 
 
 class CommonUsername(models.Model):
@@ -204,7 +200,6 @@ class Course(models.Model):  # 课程信息
         self.save()
 
 
-
 class BuyRecord(models.Model):
     number = models.IntegerField(primary_key=True)
     username = models.CharField(max_length=50)
@@ -268,4 +263,4 @@ class CourseUsedRecord(models.Model):  # 课程使用记录
     number = models.CharField(primary_key=True, max_length=50)
     username = models.CharField(max_length=20)
     coursename = models.CharField(max_length=20)
-    time=models.DateTimeField(auto_now=True)
+    time = models.DateTimeField(auto_now=True)
