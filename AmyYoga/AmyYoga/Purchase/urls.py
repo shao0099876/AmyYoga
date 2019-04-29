@@ -18,7 +18,8 @@ managepattern = {
     path('', showtherecord),
     path('<int:recordid>/', detailrecord),
     path('confirm/<int:cord>/', makerecord),
-    path('cancel/<int:discord>/', canclerecord)
+    path('cancel/<int:discord>/', canclerecord),
+    path('delete/<int:dlecord>/', deleterecord)
 }
 urlpatterns = {
     path('view/', purchaseCourse),

@@ -1,7 +1,32 @@
 {% extends 'logedbase.html' %}
 {% block title %}现场购课{% endblock %}
+<style>
+    .cus_top{
+        position:absolute;
+        width:90%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:10%;
+        top:0px;
+        left:20%;
+    }
+    .cus_bottom{
+        position:absolute;
+        width:90%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height:80%;
+        top:10%;
+        left:20%;
+    }
+</style>
 {% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
-<form method="POST" action="make/">
+<br>
+<br>
+<br>
+<form method="POST" action="make/" align="center">
         {%csrf_token%}
         {% for field in temp %}
             <div class="fieldWrapper">
