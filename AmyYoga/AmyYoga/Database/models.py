@@ -204,8 +204,9 @@ class BuyRecord(models.Model):
     number = models.IntegerField(primary_key=True)
     username = models.CharField(max_length=50)
     coursename = models.CharField(max_length=50)
-    amount = models.IntegerField(default=0)
+    amount = models.IntegerField(default=0)      #表示课程的数量
     time = models.DateTimeField(auto_now=True)
+    price = models.IntegerField(default=0)         #表示订单的总金额
     pay_flag = models.BooleanField(default=False)  # 标记是否付钱的订单
     valid = models.BooleanField(default=True)  # 标记是否为取消的订单
 
@@ -235,6 +236,13 @@ class BuyRecord(models.Model):
 
     def setAmount(self, p):
         self.amount = p
+        self.save()
+
+    def getPrice(self):
+        return self.price
+
+    def setPrice(self, p):
+        self.price = p
         self.save()
 
     def getTime(self):

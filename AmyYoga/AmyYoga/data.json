@@ -37,32 +37,11 @@
   {
     "model": "Database.BuyRecord",
     "fields": {
-      "number": 201904231628,
-      "username": "杨小蛟",
-      "coursename": "003",
-      "amount":20,
-      "pay_flag": "True",
-      "valid": "True"
-    }
-  },
-  {
-    "model": "Database.BuyRecord",
-    "fields": {
-      "number": 201904231629,
-      "username": "杨小蛟",
-      "coursename": "001",
-      "amount":20,
-      "pay_flag": "True",
-      "valid": "False"
-    }
-  },
-  {
-    "model": "Database.BuyRecord",
-    "fields": {
-      "number": 201904231627,
+      "number": 0,
       "username": "杨小蛟",
       "coursename": "002",
       "amount":20,
+      "time":"2009-03-17 16:50:49.92",
       "pay_flag": "False",
       "valid": "True"
     }
