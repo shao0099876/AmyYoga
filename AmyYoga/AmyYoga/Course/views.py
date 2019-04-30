@@ -51,6 +51,7 @@ def addCourse(request):  # 管理员增加课程信息
             return HttpResponseRedirect(url_course_view_course)
     else:
         addcourseForm = AddCourseForm()
+        Authority = 'Admin'
         return render(request, 'addcourseUI.html', locals())
 
 
@@ -81,6 +82,7 @@ def DelCourse(request, coursename):  # 实际执行下架操作
         return HttpResponseRedirect(url_index)
     P = Course.objects.get(coursename=coursename)  # 先获取当前课程信息
     P.setCourseFlag(False)  # 下架课程
+    Authority = 'Admin'
     return render(request, 'successfulUI.html', locals())
 
 

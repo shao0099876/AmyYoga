@@ -4,6 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist, ValidationError
 class CourseForm(forms.Form):
     username = forms.CharField(label='用户名', widget=forms.TextInput)
     coursename = forms.CharField(label='课程名', widget=forms.TextInput)
+    amount = forms.IntegerField(label="课程数",initial=1, min_value=1 , max_value=20)
     def clean(self):
         cleaned_data = super().clean()
         username = cleaned_data.get("username")
