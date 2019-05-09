@@ -122,6 +122,11 @@
         <a href="/PersonalInformation/customer/"><img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
         <br><a href="/PersonalInformation/customer/"><b>个人信息</b></a>
     </p>
+    <p>
+        {% load static %}
+        <a href="/courseused/"><img width="50" height="50" src="{% static 'myinformation.jpg' %}"></a>
+        <br><a href="/courseused/"><b>课程使用记录</b></a>
+    </p>
     {% endif %}
 
     {% endblock %}
