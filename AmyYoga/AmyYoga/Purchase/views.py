@@ -23,19 +23,23 @@ def purchase(request):
     if sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index)
     if request.method == 'POST':
-        courserecord = recordForm(request.POST)
-        if courserecord.is_valid():
-            username_now=sessionManager.getUsername()
-            course = courserecord.cleaned_data.get('coursename')
+        username_now=sessionManager.getUsername()
+        course = request.POST.get('course_name', '')
+        amounttemp = request.POST.get('quantity', '')
+        if course and amounttemp:
             course_temp = Course.objects.get(coursename=course)
+            idtemp = BuyRecord.objects.order_by('-number')
+            numbertemp = idtemp[0].getNumber()+1
+            temp=int(amounttemp)
             p = BuyRecord()
-            p.number=27
+            p.number = numbertemp
             p.username = username_now
+            p.price = temp*course_temp.getCoursePrice()
             p.coursename = course_temp.getCourseName()
-            p.amount = course_temp.getCoursePrice()
-            p.save()
+            p.amount = temp
+            p.setPayFlag(False)
             return HttpResponse("添加成功")
-        return HttpResponse("添加失败")
+    return HttpResponse("添加失败")
 
 
 def showtherecord(request):
@@ -58,8 +62,8 @@ def detailrecord(request, recordid):
     if not sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index)
     Authority = 'Admin'
-    localflag = 'Flase'
-    iterable = 'Flase'
+    localflag = 'False'
+    iterable = 'False'
     record_list = BuyRecord.objects.get(number=recordid)
     return render(request, 'showrecord.html',{"Authority": Authority,'item':record_list,"localflag": localflag,'iterable':iterable} )
 
@@ -73,8 +77,8 @@ def makerecord(request, cord):
     item = BuyRecord.objects.get(number=cord)
     item.setPayFlag(True)
     Authority = 'Admin'
-    localflag = 'Flase'
-    iterable = 'Flase'
+    localflag = 'False'
+    iterable = 'False'
     return render(request, 'showrecord.html', {"Authority": Authority,'item':item,'localflag':localflag,'iterable':iterable})
 
 
@@ -87,11 +91,23 @@ def canclerecord(request, discord):
     item = BuyRecord.objects.get(number=discord)
     item.setValid(False)
     Authority = 'Admin'
-    localflag = 'Flase'
-    iterable = 'Flase'
+    localflag = 'False'
+    iterable = 'False'
     return render(request, 'showrecord.html', {"Authority": Authority,'item':item,'localflag':localflag,'iterable':iterable})
 
-
+def deleterecord(request, dlecord):
+    sessionManager = SessionManager(request)
+    if sessionManager.isLogouted():
+        return HttpResponseRedirect(url_login)
+    if not sessionManager.isAdministrator():
+        return HttpResponseRedirect(url_index)
+    item = BuyRecord.objects.get(number=dlecord)
+    item.setValid(False)
+    item.setPayFlag(False)
+    Authority = 'Admin'
+    localflag = 'False'
+    iterable = 'False'
+    return render(request, 'showrecord.html', {"Authority": Authority,'item':item,'localflag':localflag,'iterable':iterable})
 
 def buycourse(request):
     sessionManager=SessionManager(request)
@@ -110,32 +126,38 @@ def makebuycourse(request):
         if temp.is_valid():  # 解析表单
             username = temp.cleaned_data.get('username')
             coursename = temp.cleaned_data.get('coursename')
+            counttemp = temp.cleaned_data.get('amount')
             course = Course.objects.get(coursename=coursename)
+            idtemp=BuyRecord.objects.order_by('-number')
+            numbertemp=idtemp[0].getNumber()+1
             p = BuyRecord()
+            p.number=numbertemp
             p.username = username
             p.coursename = course.getCourseName()
-            p.amount = course.getCoursePrice()
+            p.amount = counttemp
+            p.price = course.getCoursePrice()*counttemp
             p.setPayFlag(False)
             Authority = 'Admin'
             localflag = 'Flase'
             iterable = 'False'
             return render(request, 'showrecord.html', {"Authority": Authority,"item":p, ' localflag':localflag,'iterable':iterable})
     else:
-        temp = CourseForm()
-    return render(request, 'buycourserightnow.html', locals())
+        return HttpResponseRedirect(url_index_logined)
 
 
 def customercourse(request):  # 向页面输出当前用户已支付的订单信息
     sessionManager = SessionManager(request)
     username = sessionManager.getUsername()  # 获取当前登录的用户名字
     user = BuyRecord.objects.filter(username=username, pay_flag=True, valid=True)  # 获取当前用户已经支付的课程信息
-    return render(request, 'customercourseUI.html', {'order': user})  # 渲染页面 按照课程名排序
+    Authority = 'Customer'
+    return render(request, 'customercourseUI.html', {'order': user,'Authority' : Authority})  # 渲染页面 按照课程名排序
 
 
 def uncustomercourse(request):  # 向页面输出当前用户未支付的订单信息
     username = SessionManager.getUsername(request)  # 获取当前登录的用户名字
     user = BuyRecord.objects.filter(username=username, pay_flag=False, valid=True)  # 获取当前用户未支付的课程信息
-    return render(request, 'uncustomercourseUI.html', {'order': user})  # 渲染页面 按照课程名排序
+    Authority = 'Customer'
+    return render(request, 'uncustomercourseUI.html', {'order': user, 'Authority': Authority})  # 渲染页面 按照课程名排序
 
 
 def cancelorder(request, number):  # 取消订单

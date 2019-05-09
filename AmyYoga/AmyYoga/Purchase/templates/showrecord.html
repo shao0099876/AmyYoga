@@ -11,7 +11,12 @@
         <th>课程名</th>
         <th>时 间</th>
         <th>金 额</th>
+        <th>课程数</th>
         <th>支付状态</th>
+        {% if localflag == 'False' %}
+        <th>订单状态</th>
+        <th>操   作</th>
+        {% endif %}
     </tr>
     </thead>
     {% if iterable == 'True' %}
@@ -30,6 +35,9 @@
             </td>
              <td>
                {{ item.time }}
+            </td>
+            <td>
+               {{ item.price }}
             </td>
              <td>
                 {{ item.amount }}
@@ -63,17 +71,37 @@
                {{ item.time }}
             </td>
              <td>
+               {{ item.price }}
+            </td>
+             <td>
                 {{ item.amount }}
             </td>
              <td>
                 {{ item.pay_flag }}
             </td>
-            {% if item.pay_flag == False %}
+            {% if item.pay_flag == False and item.valid == True %}
+            <td>
+                {{ item.valid }}
+            </td>
              <td>
                 <a href="/purchase/manage/confirm/{{item.number}}/"><button>确认订单</button></a>
             </td>
              <td>
                  <a href="/purchase/manage/cancel/{{item.number}}"><button>取消订单</button></a>
+            </td>
+            {% elif item.pay_flag == True and item.valid == True %}
+            <td>
+                {{ item.valid }}
+            </td>
+             <td>
+                <a href="/purchase/manage/delete/{{item.number}}/"><button>删除订单</button></a>
+            </td>
+            {% else %}
+            <td>
+                {{ item.valid }}
+            </td>
+             <td>
+                无
             </td>
             {% endif %}
         </tr>
