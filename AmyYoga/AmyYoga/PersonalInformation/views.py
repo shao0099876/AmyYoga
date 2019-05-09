@@ -2,15 +2,17 @@ from django.shortcuts import render, HttpResponseRedirect
 from .forms import CompleteForm
 from Database.models import PersonalInformation
 from Tools.SessionManager import SessionManager
-from Tools.URLPath import url_index, url_index_admin, url_index_customer, url_login
+from Tools.URLPath import url_index,url_index_logined
 
 
 def customerCompleteInformation(request):
     sessionManager = SessionManager(request)
+    if sessionManager.isAdministrator():  # 如果是管理员登陆
+        Authority = 'Admin'
+    else:  # 如果是客户登陆
+        Authority = 'Customer'
     if sessionManager.isLogouted():
         return HttpResponseRedirect(url_login)
-    if sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_admin)
     if request.method == 'POST':
         completeForm = CompleteForm(request.POST)
         if completeForm.is_valid():
@@ -43,29 +45,40 @@ def customerCompleteInformation(request):
             personalInformation.setHipline(hipline)
             personalInformation.setShoulderwidth(shoulderwidth)
 
-            return HttpResponseRedirect(url_index_customer)
+            return HttpResponseRedirect(url_index_logined)
     else:
         username = sessionManager.getUsername()
         user = PersonalInformation.objects.get(username=username)
         completeForm = CompleteForm(instance=user)
-    return render(request, 'CompleteInfo.html', {'completeForm': completeForm})  # 渲染页面
+    return render(request, 'personalinformation.html', {'completeForm': completeForm,'Authority': Authority})  # 渲染页面
 
 
 def viewMemeberList(request):
     sessionManager = SessionManager(request)
+    if sessionManager.isAdministrator():  # 如果是管理员登陆
+        Authority = 'Admin'
+    else:  # 如果是客户登陆
+        Authority = 'Customer'
     if sessionManager.isLogouted():
         return HttpResponseRedirect(url_login)
     if not sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_customer)
+        return HttpResponseRedirect(url_index)
     userList = PersonalInformation.objects.all()
-    return render(request, 'MemberList.html', {'user_list': userList})
+    detailflag = 'false'
+    return render(request, 'personalinformation.html', {'user_list': userList, 'Authority': Authority,
+                                                        'detailflag': detailflag })
 
 
 def viewDetails(request, username):
     sessionManager = SessionManager(request)
+    if sessionManager.isAdministrator():  # 如果是管理员登陆
+        Authority = 'Admin'
+    else:  # 如果是客户登陆
+        Authority = 'Customer'
     if sessionManager.isLogouted():
         return HttpResponseRedirect(url_login)
     if not sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_customer)
+        return HttpResponseRedirect(url_index)
     userList = PersonalInformation.objects.filter(username=username)
-    return render(request, 'DetailedInfo.html', {"user_list": userList})
+    detailflag = 'true'
+    return render(request, 'personalinformation.html', {"user_list": userList,'Authority': Authority, 'detailflag': detailflag})

@@ -18,11 +18,12 @@ managepattern = {
     path('', showtherecord),
     path('<int:recordid>/', detailrecord),
     path('confirm/<int:cord>/', makerecord),
-    path('cancel/<int:discord>/', canclerecord)
+    path('cancel/<int:discord>/', canclerecord),
+    path('delete/<int:dlecord>/', deleterecord)
 }
 urlpatterns = {
     path('view/', purchaseCourse),
-    path('<course>/', purchase),
+    path('view/mks/', purchase),
     path('scene/', include(scenepattern)),
     path('manage/', include(managepattern)),
     path('customer/', include(customerpatterns)),

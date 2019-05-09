@@ -1,0 +1,132 @@
+{% extends 'logedbase.html' %}
+
+{% block title %}
+    {% if  Authority == 'Admin' %}
+        {{user}}会员信息
+    {% elif Authority == 'Customer'%}
+        {{user}}详细信息
+    {% endif %}
+{% endblock %}
+
+{% block content2 %}
+    {% if  Authority == 'Admin' %}
+        <table border="3" align="center">
+        <caption>会员信息</caption>
+        <thead>
+        <tr>
+            <th>用户名</th>
+            <th>姓 名</th>
+            <th>年 龄</th>
+            <th>性 别</th>
+            <th>电 话</th>
+            <th>生 日</th>
+            <th>职 业</th>
+            {% if detailflag == 'true' %}
+             <th>身 高</th>
+            <th>体 重</th>
+            <th>胸 围</th>
+            <th>腰 围</th>
+            <th>臀 围</th>
+            <th>肩 宽</th>
+            {% endif %}
+        </tr>
+        </thead>
+            {% for item in user_list %}
+        <div>
+            <tr>
+                {% if detailflag == 'false' %}
+                <td>
+                    <a href="{{ item.username }}">
+                        {{ item.username }}
+                        </a>
+                </td>
+                {% else %}
+                    <td>
+                        {{ item.username }}
+                </td>
+                {% endif %}
+                <td>
+                    {{ item.name }}
+                </td>
+                <td>
+                    {{ item.age }}
+                </td>
+                <td>
+                    {% if item.sex == True %}男
+                    {% else %}女
+                    {% endif %}
+                </td>
+                <td>
+                    {{ item.phoneNumber }}
+                </td>
+                <td>
+                    {{ item.birthday }}
+                </td>
+                <td>
+                    {{ item.profession }}
+                </td>
+                {% if detailflag == 'true'%}
+                 <td>
+                    {{ item.height }}
+                </td>
+                <td>
+                    {{ item.weight }}
+                </td>
+                <td>
+                    {{ item.bust }}
+                </td>
+                <td>
+                    {{ item.waistline }}
+                </td>
+                <td>
+                    {{ item.hipline }}
+                </td>
+                <td>
+                    {{ item.shoulderwidth }}
+                </td>
+                {% endif %}
+            </tr>
+            </div>
+        {% endfor %}
+        </table>
+    {% elif Authority == 'Customer'%}
+        <style>
+            .complete_top{
+                position:absolute;
+                width:50%;
+                border: 0px;
+                padding: 0px;
+                margin: 0px;
+                height:10%;
+                top:0px;
+                left:50%;
+            }
+            .complete_bottom{
+                position:absolute;
+                width:100%;
+                border: 0px;
+                padding: 0px;
+                margin: 0px;
+                height:80%;
+                top:20%;
+                left:10%;
+            }
+        </style>
+
+        <div class="complete_top">
+        </div>
+
+        <div class="complete_bottom">
+            <form method="POST">
+                {%csrf_token%}
+                <table id="completeformtable">
+                    {{completeForm.as_table}}
+                </table>
+                <br>
+                    <a href="/password/change/">修改密码</a>&emsp;&emsp;
+                    <input type="submit" value="确认" style="font-size:1rem">
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}
+

@@ -1,4 +1,4 @@
-{%extends 'base.html' %}
+{% extends 'logedbase.html' %}
 {% block title %}购买课程{% endblock %}
 {% block content2 %}<!--页面右边部分，存放页面功能对应的界面-->
 <table border="3" align="center" >
@@ -8,24 +8,33 @@
         <th>课程名</th>
         <th>课程介绍</th>
         <th>金 额</th>
+        <th>课程数量</th>
+        <th>操  作</th>
     </tr>
     </thead>
 
     {% for item in course_list  %}
+    <form method="POST" action="mks/">
+        {% csrf_token %}
     <div>
     <tr>
         <td>
-            {{ item.coursename }}
+           <input type="text" name="course_name" value="{{ item.coursename }}" readonly="true">
         </td>
         <td>
             {{ item.courseintroduction }}
         </td>
          <td>
-            {{ item.courseprice }}
+            <input type="text" name="course_price" value="{{ item.courseprice }}" readonly="true">
         </td>
-        <td><a href = "{{item.coursename}}">购买</a></td>
+        <td>
+            <input type="number" name="quantity" min="1" max="20" value="1">
+        </td>
+        </td>
+        <td><input type="submit" name="submit" value="购买"></td>
     </tr>
     </div>
+    </form>
     {% endfor %}
 </table>
 {% endblock %}

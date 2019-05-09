@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4becdc06-f758-4f16-a187-825b9bb73eb4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/PersonalInformation/templates/personalinformation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/UserLogin/templates/logined_mainUI.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Documents/数据库结构与定义.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/About/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/About/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/ChangePassword/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/ChangePassword/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/ChangePassword/templates/ChangePasswordUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/ChangePassword/templates/ChangePasswordUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/ChangePassword/templates/forgetPasswordUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/ChangePassword/templates/forgetPasswordUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/ChangePassword/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/ChangePassword/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/addcourseUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/addcourseUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/coursemessageUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/coursemessageUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/deletecourseUI.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/detailmessageUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/detailmessageUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/modcourseUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/modcourseUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/modifycourseUI.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/readdcourseUI.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/successfulUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/templates/successfulUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Course/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/CourseUsed/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/CourseUsed/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/CustomerRegister/templates/registerUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/CustomerRegister/templates/RegisterUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/CustomerRegister/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/CustomerRegister/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Database/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Database/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Database/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Index/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Index/templates/Index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Index/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Index/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Index/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Index/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/PersonalInformation/templates/CompleteInfo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/PersonalInformation/templates/DetailedInfo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/PersonalInformation/templates/MemberList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/PersonalInformation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/PersonalInformation/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/buycourserightnow.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/buycourserightnow.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/customercourseUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/customercourseUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/mkscourse.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/mkscourse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/purchase.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/purchaseCourse.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/purchaseCourse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/showrecord.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/showrecord.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/successUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/successUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/therecord.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/uncustomercourseUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/templates/uncustomercourseUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Purchase/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/Tools/URLPath.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/Tools/URLPath.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/UserLogin/templates/loginUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/UserLogin/templates/loginUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/UserLogin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/UserLogin/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/UserLogin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/UserLogin/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/base_templates/logedbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/base_templates/logedbase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/AmyYoga/AmyYoga/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmyYoga/AmyYoga/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documents/UML接口说明文档.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documents/UML类说明文档.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documents/URL配置文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/Documents/URL配置文档.md" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga/Database/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="275" lean-forward="true" selection-start-line="275" selection-end-line="275" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/AmyYoga/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/AmyYoga/AmyYoga/base_templates/logedbase.html" />
+        <option value="$PROJECT_DIR$/AmyYoga/AmyYoga/CourseUsed/urls.py" />
+        <option value="$PROJECT_DIR$/AmyYoga/AmyYoga/data.json" />
+        <option value="$PROJECT_DIR$/AmyYoga/AmyYoga/Database/models.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="691" />
+    <option name="y" value="-8" />
+    <option name="width" value="683" />
+    <option name="height" value="728" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AmyYoga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmyYoga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmyYoga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmyYoga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmyYoga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="base_templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmyYoga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="CourseUsed" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmyYoga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="Database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmyYoga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="Database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmyYoga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="AmyYoga" type="462c0819:PsiDirectoryNode" />
+              <item name="UserLogin" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4becdc06-f758-4f16-a187-825b9bb73eb4" name="Default Changelist" comment="" />
+      <created>1557418631660</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1557418631660</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="691" y="-8" width="683" height="728" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11782946" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/AmyYoga/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3470">
+          <caret line="708" column="14" lean-forward="true" selection-start-line="708" selection-start-column="14" selection-end-line="708" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="54" column="1" lean-forward="true" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga/CourseUsed/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga/base_templates/logedbase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="173" lean-forward="true" selection-start-line="173" selection-end-line="173" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga/Database/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmyYoga/AmyYoga/Database/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="275" lean-forward="true" selection-start-line="275" selection-end-line="275" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

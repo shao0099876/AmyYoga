@@ -4,15 +4,15 @@ from django.shortcuts import render, HttpResponseRedirect
 from .forms import ChangePasswordForm, ForgetPasswordForm, UsernameForm
 from Database.models import Customer
 from Tools.SessionManager import SessionManager
-from Tools.URLPath import url_index_admin, url_forget_password, url_login, url_forget_password_login, url_index,url_index_customer
+from Tools.URLPath import url_index_logined, url_forget_password, url_login, url_forget_password_login, url_index
 
 
 def changePassword(request):
     sessionManager = SessionManager(request)
     if sessionManager.isLogouted():
-        return HttpResponseRedirect(url_index)
+        return HttpResponseRedirect(url_login)
     if sessionManager.isAdministrator():
-        return HttpResponseRedirect(url_index_admin)
+        return HttpResponseRedirect(url_index_logined)
     if request.method == 'POST':
         changePasswordForm = ChangePasswordForm(request.POST)
         changePasswordForm.username = sessionManager.getUsername()
@@ -32,8 +32,8 @@ def forgetPassword(request):
     sessionManager = SessionManager(request)
     if sessionManager.isLogined():
         if sessionManager.isAdministrator():
-            return HttpResponseRedirect(url_index_admin)
-        return HttpResponseRedirect(url_index_customer)
+            return HttpResponseRedirect(url_index_logined)
+        return HttpResponseRedirect(url_index_logined)
     if sessionManager.getUsername() is None:
         return HttpResponseRedirect(url_forget_password_login)
     if request.method == 'POST':
@@ -53,8 +53,8 @@ def forgetPasswordLogin(request):
     sessionManager = SessionManager(request)
     if sessionManager.isLogined():
         if sessionManager.isAdministrator():
-            return HttpResponseRedirect(url_index_admin)
-        return HttpResponseRedirect(url_index_customer)
+            return HttpResponseRedirect(url_index_logined)
+        return HttpResponseRedirect(url_index_logined)
     if request.method == 'POST':
         usernameForm = UsernameForm(request.POST)
         if usernameForm.is_valid():

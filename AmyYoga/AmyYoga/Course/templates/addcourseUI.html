@@ -1,4 +1,4 @@
-{% extends 'admin_indexbase.html' %}
+{% extends 'logedbase.html' %}
 
 {% block title %}管理员添加课程信息{% endblock %}
 
@@ -25,10 +25,6 @@
         left:10%;
     }
 </style>
-
-<p><a href="/admin_coursemessage/">查看课程</a> <a href="/addcourse/">增加课程</a> <a href="/modifycourse/">修改课程</a>
-        <a href="/deletecourse/">下架课程</a> <a href="/readdcourse/">重新上架</a></p>
-
 <form method="POST">
         {%csrf_token%}
         <table id="addcourseformtable">

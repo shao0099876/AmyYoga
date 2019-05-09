@@ -1,8 +1,4 @@
 from django.db import models
-from django.forms import fields
-
-
-# Create your models here.
 
 
 class CommonUsername(models.Model):
@@ -204,13 +200,13 @@ class Course(models.Model):  # 课程信息
         self.save()
 
 
-
 class BuyRecord(models.Model):
     number = models.IntegerField(primary_key=True)
     username = models.CharField(max_length=50)
     coursename = models.CharField(max_length=50)
-    amount = models.IntegerField(default=0)
+    amount = models.IntegerField(default=0)      #表示课程的数量
     time = models.DateTimeField(auto_now=True)
+    price = models.IntegerField(default=0)         #表示订单的总金额
     pay_flag = models.BooleanField(default=False)  # 标记是否付钱的订单
     valid = models.BooleanField(default=True)  # 标记是否为取消的订单
 
@@ -242,6 +238,13 @@ class BuyRecord(models.Model):
         self.amount = p
         self.save()
 
+    def getPrice(self):
+        return self.price
+
+    def setPrice(self, p):
+        self.price = p
+        self.save()
+
     def getTime(self):
         return self.time
 
@@ -269,3 +272,4 @@ class CourseUsedRecord(models.Model):  # 课程使用记录
     username = models.CharField(max_length=20)
     coursename = models.CharField(max_length=20)
     #time=models.DateTimeField(auto_now=True, default=False)
+

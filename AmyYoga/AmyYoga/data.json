@@ -8,6 +8,7 @@
     }
   },
   {
+
     "model": "Database.CourseUsedRecord",
     "fields": {
       "timeid": "2019041701010203040506",
@@ -37,6 +38,46 @@
       "timeid": "2019041704",
       "username": "002",
       "coursename": "002"
+    }
+  },
+  {
+    "model": "Database.Course",
+    "fields": {
+      "coursename": "001",
+      "courseintroduction": "一号课程是个好课程",
+      "courseprice": "2500",
+      "course_flag":"True"
+    }
+  },
+   {
+    "model": "Database.Course",
+    "fields": {
+      "coursename": "002",
+      "courseintroduction": "二号课程是个好课程",
+      "courseprice": "2500",
+      "course_flag":"True"
+    }
+  },
+   {
+    "model": "Database.Course",
+    "fields": {
+      "coursename": "003",
+      "courseintroduction": "三号课程是个好课程",
+      "courseprice": "6900",
+      "course_flag":"False"
+    }
+  },
+  {
+    "model": "Database.BuyRecord",
+    "fields": {
+      "number": 0,
+      "username": "杨小蛟",
+      "coursename": "002",
+      "amount":20,
+      "time":"2009-03-17 16:50:49.92",
+      "pay_flag": "False",
+      "valid": "True"
+
     }
   }
 ]

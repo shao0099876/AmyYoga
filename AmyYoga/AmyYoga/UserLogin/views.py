@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from Tools.SessionManager import SessionManager
 from .forms import LoginForm
 from Database.models import Customer
-from Tools.URLPath import url_index_customer, url_index_admin, url_index
+from Tools.URLPath import url_index_logined,url_index
 
 
 # Create your views here.
@@ -15,10 +15,7 @@ def login(request):
             password = loginForm.cleaned_data.get('password')
             user = Customer.objects.get(username=username)
             sessionManager.setLogin(username)
-            if sessionManager.isAdministrator():
-                return HttpResponseRedirect(url_index_admin)
-            else:
-                return HttpResponseRedirect(url_index_customer)
+            return HttpResponseRedirect(url_index_logined)
     else:
         if sessionManager.isLogined():
             return HttpResponseRedirect(url_index)
@@ -32,3 +29,4 @@ def logout(request):
     if sessionManager.isLogined():
         sessionManager.setLogout()
     return HttpResponseRedirect(url_index)
+

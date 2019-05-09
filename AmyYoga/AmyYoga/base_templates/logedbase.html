@@ -42,7 +42,7 @@
         margin: 0px;
         height:10%;
         top:500px;
-        left:800px;
+        left:400px;
      }
     </style>
 </head>
@@ -63,7 +63,7 @@
 
     {% block content1 %}<!--页面左边部分，存放页面的几个功能-->
     <!--如果是管理员登陆就显示管理员界面-->
-    {% if  people == 'guanliyuan' %}
+    {% if  Authority == 'Admin' %}
     <p>
         {% load static %}
         <a href="/PersonalInformation/admin/">
@@ -76,11 +76,11 @@
     </p>
     <p>
         {% load static %}
-        <a href="/course/admin/">
+        <a href="/course/view/">
             <img width="50" height="50" src="{% static 'mybody.jpg' %}">
         </a>
         <br>
-        <a href="/course/admin/">
+        <a href="/course/view/">
             <b>课程信息</b>
         </a>
     </p>
@@ -115,12 +115,12 @@
         </a>
     </p>
 
-    {% elif people == 'kehu' %}
+    {% elif Authority == 'Customer' %}
     <!--普通用户登陆，显示的界面-->
     <p>
         {% load static %}
-        <a href="/course/customer/payed/"> <img width="50" height="50" src="{% static 'myclass.jpg' %}"></a><br>
-        <a href="/course/customer/payed/"><b>我的课程</b></a>
+        <a href="/purchase/customer/unpayed/"> <img width="50" height="50" src="{% static 'myclass.jpg' %}"></a><br>
+        <a href="/purchase/customer/unpayed/"><b>我的课程</b></a>
     </p>
     <p>
         {% load static %}
@@ -145,6 +145,7 @@
 
      {% endif %}
 
+
     {% endblock %}
 
 
@@ -159,26 +160,11 @@
 </div>
 
 <div class="base_bottom">
-
-    {% block footer %}<!--页脚信息-->
-
-    {% if people == 'guanliyuan' %}
-    <!--管理员页面显示的页脚信息-->
     <p>
         <i>
-            如有问题，请联系工作人员，#############
+            备案号：鲁ICP备19009254号；联系方式：17863107810；电子邮件：shao0099876@163.com
         </i>
     </p>
-
-    {% elif people == 'kehu' %}
-    <!--普通用户页面显示的页脚信息-->
-    <p>
-        <i>
-            更多详情，请咨询，#############
-        </i>
-    </p>
-    {% endif %}
-    {% endblock %}
 
 </div>
 
