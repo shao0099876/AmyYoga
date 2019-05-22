@@ -6,8 +6,7 @@ from Tools.URLPath import url_index, url_course_view_course
 from .forms import AddCourseForm, ModCourseForm
 
 
-def viewCourse(request):  # 管理员查看课程信息
-    '''这个功能换成通用的，管理员访问在模板生成时多加个修改的按钮'''
+def viewCourse(request):  # 查看课程信息
     sessionManager = SessionManager(request)
     if sessionManager.isAdministrator(): #如果是管理员登陆
         courses = Course.objects.all()  # 查询全部课程信息
@@ -21,7 +20,6 @@ def viewCourse(request):  # 管理员查看课程信息
 
 
 def viewCourseDetails(request, coursename):  # 显示课程的详细信息
-    '''修改此处功能，换成显示课程的课程名，简介等信息'''
     sessionManager = SessionManager(request)
     if sessionManager.isAdministrator(): #如果是管理员登陆
         courses = Course.objects.get(coursename=coursename)  # 查询当前课程信息,为了后面显示详细信息
@@ -55,8 +53,7 @@ def addCourse(request):  # 管理员增加课程信息
         return render(request, 'addcourseUI.html', locals())
 
 
-def ModCourse(request, coursename):  # 实际修改课程信息界面
-    '''等待转换为主修改视图函数'''
+def ModCourse(request, coursename):  # 修改课程信息界面
     sessionManager = SessionManager(request)
     if not sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index)
@@ -75,8 +72,7 @@ def ModCourse(request, coursename):  # 实际修改课程信息界面
         return render(request, 'modcourseUI.html', locals())
 
 
-def DelCourse(request, coursename):  # 实际执行下架操作
-    '''等待转换为主视图函数'''
+def DelCourse(request, coursename):  # 执行下架操作
     sessionManager = SessionManager(request)
     if not sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index)
@@ -86,8 +82,7 @@ def DelCourse(request, coursename):  # 实际执行下架操作
     return render(request, 'successfulUI.html', locals())
 
 
-def reAddCourse(request, coursename):  # 实际执行重新上架操作
-    '''等待转换为主视图函数'''
+def reAddCourse(request, coursename):  # 执行重新上架操作
     sessionManager = SessionManager(request)
     if not sessionManager.isAdministrator():
         return HttpResponseRedirect(url_index)
