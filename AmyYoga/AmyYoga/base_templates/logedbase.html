@@ -63,7 +63,7 @@
 
     {% block content1 %}<!--页面左边部分，存放页面的几个功能-->
     <!--如果是管理员登陆就显示管理员界面-->
-    {% if  Authority == 'Admin' %}
+    {% if  Authority == 'Admin'%}
     <p>
         {% load static %}
         <a href="/PersonalInformation/admin/">

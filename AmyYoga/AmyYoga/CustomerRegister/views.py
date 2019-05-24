@@ -6,6 +6,7 @@ from Tools.SessionManager import SessionManager
 from Tools.URLPath import url_index_logined, url_login, url_index
 
 
+
 def register(request):
     sessionManager = SessionManager(request)
     if sessionManager.isLogined():

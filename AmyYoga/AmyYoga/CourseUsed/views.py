@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from Database import models
 import datetime
-from Tools import SessionManager
+from Tools.SessionManager import SessionManager
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
 # Create your views here.
 def CourseUsed (request):
     username_app=models.Course.objects.all()
+    Authority = 'Admin'
     if request.method == 'POST':
         if request.POST.get('Submit'):#如果是Submit传来的请求
             username = request.POST.get('vipname')
@@ -44,7 +45,7 @@ def CourseUsed (request):
                     microsecond=datetime.datetime.now().microsecond
 
                     timeid=str(year)+fixformats(month)+fixformats(day)+fixformats(hour)+fixformats(minute)+fixformats(second)+fixformats(microsecond)
-                    models.CourseUsedRecord.objects.create(record_id=timeid, username=username, coursename=course_name)
+                    models.CourseUsedRecord.objects.create(timeid=timeid, username=username, coursename=course_name)
                     return render(request, 'CourseUsed.html', locals())
     return render(request, 'CourseUsed.html', locals())
 def moremessage_username(request, username):
@@ -61,7 +62,9 @@ def fixformats(date):
     else:
         return str(date)
 def UserCourseUsed(request):
-    username = SessionManager.getUsername(request)
+    sessionManager = SessionManager(request)
+    username = sessionManager.getUsername()
+    Authority = 'Customer'
     if request.method == 'POST':
         coursename = request.POST.get('coursename')
         if coursename=='all':
